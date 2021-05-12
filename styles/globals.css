@@ -101,7 +101,7 @@ div[role="toolbar"] > button > svg {
 .modalCanvas {
   outline: none;
   overflow: auto;
-  background-color: #f4d688;
+  background-color: #f4d588de;
   position: absolute;
   left: 50px;
   top: 50px;
