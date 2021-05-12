@@ -17,7 +17,7 @@ export default function Home() {
           <Label
             header="witam"
             author="siemanko"
-            pathname="components/maps/ExampleSvg"
+            pathname="/museum"
           />
         </div>
       </main>
