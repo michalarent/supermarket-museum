@@ -1,0 +1,12 @@
+.svgMap:first-child {
+  stroke: black !important;
+  fill: transparent !important;
+}
+.svgMap {
+  width: 100%;
+}
+
+.svgMap + div[role="tooltip"]:first-child {
+  background-color: transparent!important;
+  background: transparent!important;
+}
