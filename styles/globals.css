@@ -19,20 +19,35 @@ a {
   z-index: 1;
 }
 
-.imgGallery-photo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: calc(100vh - 2 * (62px));
-}
-.active-carousel-item {
-  width: 80%;
+.carousel-control-prev,
+.carousel-control-next {
+  height: 15%;
+  filter: opacity(1) !important;
+  top: 40% !important;
+  width: 5% !important;
 }
 
+.imgGalleryPhoto {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  object-fit: contain;
+}
+
+.carousel-item {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
 .carousel {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100%;
+}
+.carousel > * {
+  position: inherit;
 }
 
 .carousel-caption > * {
@@ -80,7 +95,13 @@ a {
 }
 
 body {
-  background-color: #f8e7ba;
+  /* background: none!important;
+  background-color: transparent!important; */
+}
+
+.museum-page {
+  z-index: 1;
+  position: absolute !important;
 }
 
 .MuiTooltip-tooltip {
@@ -111,7 +132,7 @@ div[role="toolbar"] > button > svg {
 .modalCanvasGallery {
   outline: none;
   overflow: auto;
-  background-color: #f4d688;
+  background-color: #f4d588de;
   position: absolute;
   left: 50px;
   top: 50px;

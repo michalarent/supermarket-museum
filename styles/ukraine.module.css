@@ -1,0 +1,94 @@
+.GridContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 65vw;
+}
+
+.GridContainer2 {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 60vw;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner > p {
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+  border: 1px solid green;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in;
+}
+
+.GridItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GridItemHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.GridItem > .buttonContainer {
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1vh; */
+
+  background-color: lightcoral;
+  transition: background-image 0.2s;
+  /* background-image: url("/utility_images/locker.png"); */
+  background-size: contain;
+}
+
+.GridItem > .buttonContainerSelected {
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1vh; */
+
+  background-color: lightgreen !important;
+  transition: background-image 0.2s;
+  /* background-image: url("/utility_images/locker.png"); */
+  background-size: contain;
+}
+
+.GridItem > .buttonContainer:active,
+.buttonContainer:hover {
+  background-color: lightblue;
+  /* background-image: url("/utility_images/locker_open.png"); */
+}
+
+.ProceedButton {
+  position: absolute !important;
+  top: 50% !important;
+  right: 10px !important;
+  z-index: 1;
+}
+
+.ImageHover {
+  position: absolute!important;
+  top: 10% !important;
+  width: 500px!important;
+  
+}

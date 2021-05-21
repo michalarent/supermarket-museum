@@ -3,6 +3,7 @@ import SideDrawer from "../components/navigation/SideDrawer";
 import Fade from "@material-ui/core/Fade";
 import { makeStyles } from "@material-ui/core/styles";
 import ExampleSvg from "../components/maps/ExampleSvg";
+import styles from "../styles/Home.module.css";
 
 import { GraphQLClient } from "graphql-request";
 import { getAllArtifacts } from "../api/graphcms";
@@ -32,14 +33,14 @@ function MuseumMainPage({ artifactModels }) {
   console.log(artifactModels);
   return (
     <>
-      {/* <Fade in={true} timeout={500}> */}
-      <div>
+      <div className={styles.museumPage}>
+        <ExampleSvg
+          className={styles.exampleSvg}
+          artifactModels={artifactModels}
+          openArtifact={null}
+        />
         <SideDrawer />
-        <div className="museum-page">
-          <ExampleSvg artifactModels={artifactModels} openArtifact={null} />
-        </div>
       </div>
-      {/* </Fade> */}
     </>
   );
 }

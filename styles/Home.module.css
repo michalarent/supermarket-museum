@@ -2,4 +2,47 @@
   position: absolute !important;
   top: 33vh !important;
   right: 10px !important;
+  z-index: 1;
+}
+
+.cdTransitionLayer {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+}
+
+.museumPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.museumPage2 {
+  position: relative;
+}
+.cdTransitionLayer .bgLayer {
+  position: relative;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-2%);
+  height: 100%;
+  /* our sprite is composed of 25 frames */
+  width: 2500%;
+  background: url(../components/img/ink.png) 0 0;
+  background-size: 100% 100%;
+  animation: cd-sequence 0.2s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cd-sequence {
+  0% {
+    transform: translateY(-50%) translateX(-2%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-98%);
+  }
 }

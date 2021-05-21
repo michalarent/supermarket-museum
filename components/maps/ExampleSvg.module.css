@@ -1,12 +1,22 @@
 .svgMap:first-child {
+  z-index: 1;
   stroke: black !important;
   fill: transparent !important;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .svgMap {
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .svgMap + div[role="tooltip"]:first-child {
   background-color: transparent!important;
   background: transparent!important;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
