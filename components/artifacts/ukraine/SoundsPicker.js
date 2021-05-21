@@ -1,10 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import styles from "/styles/ukraine.module.css";
-import IconButton from "@material-ui/core/IconButton";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import Fade from "@material-ui/core/Fade";
-import CheckBoxIcon from "@material-ui/icons/CheckBox";
+
 import useSound from "use-sound";
 
 const SoundsPicker = ({ pickedSounds, setPickedSounds }) => {

@@ -1,4 +1,3 @@
-import ImageGallery from "../../../components/ImageGallery";
 import React from "react";
 import Modal from "@material-ui/core/Modal";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
