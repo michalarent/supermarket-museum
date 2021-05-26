@@ -560,7 +560,7 @@ export default function Synthesizer() {
         C_PLAY();
         break;
       case 61:
-        Cis_PLAY();
+        CIS_PLAY();
 
         break;
       case 62:
