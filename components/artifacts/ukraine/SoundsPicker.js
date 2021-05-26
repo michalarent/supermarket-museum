@@ -38,7 +38,7 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
     { id: "14" },
     { id: "15" },
   ];
-  // const [currentStage, setCurrentStage] = React.useState(0);
+
 
   const initialArray = [];
 
