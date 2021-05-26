@@ -4,7 +4,7 @@ import styles from "/styles/ukraine.module.css";
 
 import useSound from "use-sound";
 
-const SoundsPicker = ({ pickedSounds, setPickedSounds }) => {
+const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
   const [play1] = useSound("/sounds/Kick_TL_4_TL.wav");
   const [play2] = useSound("/sounds/ukraine/2.mp3");
   const [play3] = useSound("/sounds/ukraine/3.mp3");
@@ -38,7 +38,7 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds }) => {
     { id: "14" },
     { id: "15" },
   ];
-  const [currentStage, setCurrentStage] = React.useState(0);
+  // const [currentStage, setCurrentStage] = React.useState(0);
 
   const initialArray = [];
 

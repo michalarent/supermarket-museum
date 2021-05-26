@@ -3,8 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import styles from "/styles/ukraine.module.css";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-
-
 import SoundsPicker from "../../../components/artifacts/ukraine/SoundsPicker";
 import ImagesPicker from "../../../components/artifacts/ukraine/ImagesPicker";
 
@@ -38,6 +36,7 @@ const UkraineArtifact = () => {
           <SoundsPicker
             pickedSounds={pickedSounds}
             setPickedSounds={setPickedSounds}
+            setCurrentStage={setCurrentStage}
           />
           {pickedSounds.length == 6 ? (
             <>
@@ -52,6 +51,7 @@ const UkraineArtifact = () => {
           <ImagesPicker
             pickedImages={pickedImages}
             setPickedImages={setPickedImages}
+            setCurrentStage={setCurrentStage}
           />
         </>
       ) : null}

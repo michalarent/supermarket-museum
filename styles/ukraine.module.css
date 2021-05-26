@@ -67,7 +67,7 @@
   align-items: center;
   /* padding: 1vh; */
 
-  background-color: lightgreen !important;
+  background: rgba(144, 238, 144, 0.29) !important;
   transition: background-image 0.2s;
   /* background-image: url("/utility_images/locker.png"); */
   background-size: contain;
@@ -87,8 +87,42 @@
 }
 
 .ImageHover {
-  position: absolute!important;
+  position: absolute !important;
   top: 10% !important;
-  width: 500px!important;
-  
+  width: 500px !important;
+}
+
+.GridItem > .Image_buttonContainer {
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1vh; */
+
+  /* background-color: lightcoral; */
+  transition: background-image 0.2s;
+  background-size: contain;
+}
+
+.GridItem > .Image_buttonContainerSelected {
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1vh; */
+
+  /* background: rgba(144, 238, 144, 0.29) !important; */
+}
+
+.GridItem > .Image_buttonContainerSelected::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.GridItem > .Image_buttonContainer:active,
+.buttonContainer:hover {
+  background-color: lightblue;
+  /* background-image: url("/utility_images/locker_open.png"); */
 }
