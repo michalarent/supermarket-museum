@@ -23,6 +23,7 @@ import styles from "./ExampleSvg.module.css";
 import { IconButton } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import TooltipLabel from "./Labels/TooltipLabel";
 
 export default function SupermarketMap({ artifactModels, openArtifact }) {
   const { makeContextualHref, returnHref } = useContextualRouting();
@@ -30,28 +31,19 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
   console.log(openArtifact);
   const [show, setShow] = React.useState(false);
   const [currentArtifact, setCurrentDisplayedArtifact] = React.useState(null);
-  const [showGallery, setShowGallery] = React.useState(false);
-
-  const handleShowGallery = () => {
-    setShowGallery(true);
-  };
-
-  const handleCloseGallery = () => {
-    setShowGallery(false);
-  };
 
   const handleClose = () => {
     setCurrentArtifact(null);
     if (openArtifact == null) {
       router.push(returnHref, undefined, { shallow: true });
     } else {
-      router.push("/museum");
+      router.push(returnHref, undefined, { shallow: true });
     }
 
     setShow(false);
   };
 
-  const handleShow = (artifactId, slug) => {
+  const handleShow = (slug) => {
     if (openArtifact != null) {
       setCurrentArtifact(openArtifact);
       setIsClicked(true);
@@ -66,7 +58,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
     setShow(true);
   };
 
-  const setCurrentArtifact = (artifactId, slug) => {
+  const setCurrentArtifact = (slug) => {
     let artifactModelId = -1;
     if (openArtifact == null) {
       for (var i = 0; i < artifactModels.length; i++) {
@@ -111,14 +103,6 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
     </>
   );
 
-  const Viewer = React.useRef(null);
-  const [tool, setTool] = React.useState(TOOL_AUTO);
-  const [value, setValue] = React.useState(INITIAL_VALUE);
-  const [width, height] = useWindowSize({
-    initialWidth: "100vw",
-    initialHeight: "100vh",
-  });
-
   const [isClicked, setIsClicked] = React.useState(false);
 
   const hideTooltip = () => {
@@ -126,18 +110,8 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
     setIsClicked(true);
   };
 
-  const SuspenseImg = ({ src, ...rest }) => {
-    throw new Promise((resolve) => {
-      const img = new Image();
-      img.onload = () => {
-        resolve();
-      };
-    });
-    return <img alt="" src={src} {...rest} />;
-  }; 
-
-  const showTooltip = (artifactId, slug) => {
-    setCurrentArtifact(artifactId, slug);
+  const showTooltip = (slug) => {
+    setCurrentArtifact(slug);
     setIsClicked(false);
   };
 
@@ -146,8 +120,6 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
       handleShow(openArtifact);
     }
   }, []);
-
-  const [showMap, setShowMap] = React.useState(false);
 
   return (
     <>
@@ -163,44 +135,36 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
             </div>
             <div className={styles_map.allTooltips}>
               <div className={styles_map.tooltip}>
-                <Tooltip
-                  interactive
-                  enterTouchDelay="0"
-                  placement="right"
-                  onOpen={() =>
-                    showTooltip("ckojzeyo0b6ot0c62lb0wfdgq", "example-artifact")
-                  }
-                  leaveDelay={100}
-                  className={styles.tooltip}
-                  title={
-                    <>
-                      <LabelContext.Provider value={isClicked}>
-                        {!isClicked ? (
-                          <LabelNoLink
-                            artifactId="ckoe0xaq8l5pi0c54bympu5z5"
-                            slug="example-artifact"
-                            header="Misterium"
-                            author="Somebody"
-                            showButton={true}
-                            onClick={() =>
-                              handleShow(
-                                "ckoe0xaq8l5pi0c54bympu5z5",
-                                "example-artifact"
-                              )
-                            }
-                          />
-                        ) : null}
-                      </LabelContext.Provider>
-                    </>
-                  }
-                >
-                  <div className={styles_map.pin} onMouseEnter={console.log}/>
-                </Tooltip>
+                <TooltipLabel
+                  artifactSlug={"example-artifact"}
+                  isClicked={isClicked}
+                  showTooltip={showTooltip}
+                  handleShow={handleShow}
+                  xLocation={"50%"}
+                  yLocation={"30%"}
+                />
+                <TooltipLabel
+                  artifactSlug={"example-artifact"}
+                  isClicked={isClicked}
+                  showTooltip={showTooltip}
+                  handleShow={handleShow}
+                  xLocation={"20%"}
+                  yLocation={"30%"}
+                />
+                <TooltipLabel
+                  artifactSlug={"example-artifact"}
+                  isClicked={isClicked}
+                  showTooltip={showTooltip}
+                  handleShow={handleShow}
+                  xLocation={"25%"}
+                  yLocation={"40%"}
+                />
               </div>
             </div>
           </div>
         </TransformComponent>
       </TransformWrapper>
+      <Modal open={openArtifact == null ? show : true}>{body}</Modal>
     </>
   );
 }
