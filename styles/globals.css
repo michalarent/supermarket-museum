@@ -589,3 +589,9 @@ div[role="toolbar"] > button > svg {
     padding: 5px 10px;
   }
 }
+
+.css-nu7qnd {
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+}

@@ -1,4 +1,4 @@
-.svgMap:first-child {
+/* .svgMap:first-child {
   z-index: 1;
   stroke: black !important;
   fill: transparent !important;
@@ -19,4 +19,5 @@
   position: absolute;
   top: 0;
   left: 0;
-}
+
+} */

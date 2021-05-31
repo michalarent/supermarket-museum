@@ -14,15 +14,6 @@
   width: 100%;
 }
 
-.museumPage {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.museumPage2 {
-  position: relative;
-}
 .cdTransitionLayer .bgLayer {
   position: relative;
   z-index: 1000;

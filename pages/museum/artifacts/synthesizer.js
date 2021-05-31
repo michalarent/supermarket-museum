@@ -726,7 +726,7 @@ export default function Synthesizer() {
         stopNote={(midiNumber) => {
           handleStopNote(midiNumber);
         }}
-        width={1000}
+        width={"100vw"}
         keyboardShortcuts={keyboardShortcuts}
       />
     </>
