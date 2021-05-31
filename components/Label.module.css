@@ -33,18 +33,17 @@
 .label .labelContent h1 {
   font-family: "Aleo-Bold";
   font-size: 2.5rem;
-  
 }
 .label .labelContent h2 {
   font-family: "Aleo-Bold";
-  
 }
 .buttonLabel {
   font-family: "Aleo-Bold";
 }
 .label .circle {
+  right: 5%;
   position: absolute;
-  top: 5.3rem;
+  top: 33%;
   background: #f8e7ba;
   border-radius: 100%;
   height: 4rem;
