@@ -1,27 +1,21 @@
 import React from "react";
-import { INITIAL_VALUE, ReactSVGPanZoom, TOOL_AUTO } from "react-svg-pan-zoom";
-import { useWindowSize } from "@react-hook/window-size";
-import Tooltip from "@material-ui/core/Tooltip";
-import Label from "../../components/Label";
-import Link from "next/link";
+
 import { useRouter } from "next/router";
-import LabelNoLink from "../LabelNoLink";
-import LabelContext from "../LabelContext";
+
 import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
+
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-import Zoom from "@material-ui/core/Zoom";
+
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import { useContextualRouting } from "next-use-contextual-routing";
-import ImageHotspots from "react-image-hotspots";
+
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import Spinner from "react-bootstrap/Spinner";
 
 import styles_map from "../../styles/map.module.css";
 import styles from "./ExampleSvg.module.css";
 import { IconButton } from "@material-ui/core";
-import dynamic from "next/dynamic";
+
 import Image from "next/image";
 import TooltipLabel from "./Labels/TooltipLabel";
 
@@ -124,45 +118,52 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
   return (
     <>
       <TransformWrapper options={{ limitToBounds: false, minScale: 0.3 }}>
-        <TransformComponent className={styles_map.TransformComponent}>
-          <div className={styles_map.mapWrapper}>
-            <div className={styles_map.mapImage}>
-              <Image
+        {({
+          zoomIn,
+          zoomOut,
+          resetTransform,
+          setPositionX,
+          setPositionY,
+          ...rest
+        }) => (
+          <TransformComponent className={styles_map.TransformComponent}>
+            <div className={styles_map.mapWrapper}>
+              <img
+                className={styles_map.mapImage}
                 src="/supermarket/supermarket.png"
-                layout="fill"
-                priority="high"
               />
-            </div>
-            <div className={styles_map.allTooltips}>
-              <div className={styles_map.tooltip}>
-                <TooltipLabel
-                  artifactSlug={"example-artifact"}
-                  isClicked={isClicked}
-                  showTooltip={showTooltip}
-                  handleShow={handleShow}
-                  xLocation={"50%"}
-                  yLocation={"30%"}
-                />
-                <TooltipLabel
-                  artifactSlug={"example-artifact"}
-                  isClicked={isClicked}
-                  showTooltip={showTooltip}
-                  handleShow={handleShow}
-                  xLocation={"20%"}
-                  yLocation={"30%"}
-                />
-                <TooltipLabel
-                  artifactSlug={"example-artifact"}
-                  isClicked={isClicked}
-                  showTooltip={showTooltip}
-                  handleShow={handleShow}
-                  xLocation={"25%"}
-                  yLocation={"40%"}
-                />
+
+              <div className={styles_map.allTooltips}>
+                <div className={styles_map.tooltip}>
+                  <TooltipLabel
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"50%"}
+                    yLocation={"30%"}
+                  />
+                  <TooltipLabel
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"20%"}
+                    yLocation={"30%"}
+                  />
+                  <TooltipLabel
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"25%"}
+                    yLocation={"40%"}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </TransformComponent>
+          </TransformComponent>
+        )}
       </TransformWrapper>
       <Modal open={openArtifact == null ? show : true}>{body}</Modal>
     </>

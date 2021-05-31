@@ -513,6 +513,10 @@ div[role="toolbar"] > button > svg {
   white-space: nowrap;
 }
 
+.TransformComponent-module_container__3NwNd {
+  overflow: visible !important;
+}
+
 .image-gallery-thumbnail {
   display: inline-block;
   border: 4px solid transparent;
