@@ -194,7 +194,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                     </>
                   }
                 >
-                  <div className={styles_map.pin} />
+                  <div className={styles_map.pin} onMouseEnter={console.log}/>
                 </Tooltip>
               </div>
             </div>
