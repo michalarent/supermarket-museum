@@ -2,6 +2,7 @@ import React from "react";
 import SideDrawer from "../components/navigation/SideDrawer";
 import Fade from "@material-ui/core/Fade";
 import { makeStyles } from "@material-ui/core/styles";
+import SupermarketMap from "../components/maps/SupermarketMap";
 import ExampleSvg from "../components/maps/ExampleSvg";
 import styles from "../styles/Home.module.css";
 import map_style from "../styles/map.module.css";

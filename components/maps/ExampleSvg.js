@@ -14,7 +14,6 @@ import Zoom from "@material-ui/core/Zoom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import { useContextualRouting } from "next-use-contextual-routing";
-import { Supermarket } from "./supermarket";
 
 import styles_map from "../../styles/map.module.css";
 import styles from "./ExampleSvg.module.css";
@@ -121,7 +120,7 @@ export default function ExampleSvg({ artifactModels, openArtifact }) {
 
   React.useLayoutEffect(() => {
     // Viewer.current.fitToViewer();
-    
+
     Viewer.current.zoom(0, 0, 1);
   }, []);
 
