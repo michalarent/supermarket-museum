@@ -135,29 +135,125 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
 
               <div className={styles_map.allTooltips}>
                 <div className={styles_map.tooltip}>
+                  {/*stand z pocztowkami*/}
                   <TooltipLabel
+                    artifactTitle={"stand z pocztówkami"}
                     artifactSlug={"example-artifact"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
-                    xLocation={"50%"}
-                    yLocation={"30%"}
+                    xLocation={"39.2%"}
+                    yLocation={"73.5%"}
                   />
+                  {/*lampa*/}
                   <TooltipLabel
+                    artifactTitle={"lampa"}
                     artifactSlug={"example-artifact"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
-                    xLocation={"20%"}
-                    yLocation={"30%"}
+                    xLocation={"51.6%"}
+                    yLocation={"32.6%"}
                   />
+                  {/*okno*/}
                   <TooltipLabel
+                    artifactTitle={"okno"}
                     artifactSlug={"example-artifact"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
-                    xLocation={"25%"}
-                    yLocation={"40%"}
+                    xLocation={"88.7%"}
+                    yLocation={"24.2%"}
+                  />
+                  {/*stand z gazetkami*/}
+                  <TooltipLabel
+                    artifactTitle={"stand z gazetkami"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"58.1%"}
+                    yLocation={"92%"}
+                  />
+                  {/*smietniki*/}
+                  <TooltipLabel
+                    artifactTitle={"śmietniki"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"95.3%"}
+                    yLocation={"24.2%"}
+                  />
+                  {/*stand z ksiazkami*/}
+                  <TooltipLabel
+                    artifactTitle={"stand z ksiązkami"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"16.8%"}
+                    yLocation={"62.5%"}
+                  />
+                  {/*nasiona do kupienia*/}
+                  <TooltipLabel
+                    artifactTitle={"nasiona do kupienia"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"11.2%"}
+                    yLocation={"48.5%"}
+                  />
+                  {/*jablka*/}
+                  <TooltipLabel
+                    artifactTitle={"jablka"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"76.2%"}
+                    yLocation={"72.5%"}
+                  />
+                  {/*wozki*/}
+                  <TooltipLabel
+                    artifactTitle={"wózki sklepowe"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"68.3%"}
+                    yLocation={"92%"}
+                  />
+                  {/*stand z warzywami*/}
+                  <TooltipLabel
+                    artifactTitle={"superdisconnect"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"85.2%"}
+                    yLocation={"66.8%"}
+                  />
+                  {/*kasa samoobslugowa*/}
+                  <TooltipLabel
+                    artifactTitle={"kasa samoobslugowa"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"36.2%"}
+                    yLocation={"75.6%"}
+                  />
+                  {/*lustro*/}
+                  <TooltipLabel
+                    artifactTitle={"lustro"}
+                    artifactSlug={"example-artifact"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"39.2%"}
+                    yLocation={"50.6%"}
                   />
                 </div>
               </div>

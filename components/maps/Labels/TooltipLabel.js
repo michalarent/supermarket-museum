@@ -14,6 +14,8 @@ export default function TooltipLabel({
   xLocation,
   yLocation,
   artifactSlug,
+  borderColor,
+  artifactTitle
 }) {
   return (
     <Tooltip
@@ -30,7 +32,7 @@ export default function TooltipLabel({
               <LabelNoLink
                 artifactId="ckoe0xaq8l5pi0c54bympu5z5"
                 slug={artifactSlug}
-                header="Misterium"
+                header={artifactTitle}
                 author="Somebody"
                 showButton={true}
                 onClick={() => handleShow(artifactSlug)}
@@ -43,7 +45,7 @@ export default function TooltipLabel({
       <div
         className={styles_map.pin}
         onMouseEnter={console.log}
-        style={{ top: yLocation, left: xLocation }}
+        style={{ top: yLocation, left: xLocation, color: borderColor }}
       />
     </Tooltip>
   );
