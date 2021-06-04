@@ -1,14 +1,15 @@
-.mapImage {
-  height: 1920px;
+/* .mapImage {
+  height: 1200px;
   width: auto;
-}
+} */
+
 .circle {
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 2;
-  width: 1vh;
-  height: 1vh;
+  width: 0.3vh;
+  height: 0.3vh;
   background: red;
   border-radius: 50%;
 }
@@ -21,33 +22,16 @@
   top: 0;
 }
 
-.TransformComponent-module_container__3NwNd {
-  overflow: visible !important;
-}
 .pin {
   position: absolute;
   top: 20%;
   left: 30%;
   background-color: transparent;
-  border: 3px solid blue;
-  height: 100px;
-  width: 100px;
+  border: 1px solid blue;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   cursor: pointer;
-}
-
-.pin::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: transparent;
-  border-radius: 50%;
-  border: 3px solid;
-  border-color: green;
-  animation: pulse 1.3s ease-in-out infinite;
 }
 
 @keyframes pulse {

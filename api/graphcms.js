@@ -1,6 +1,6 @@
 async function fetchAPI(query) {
   const res = await fetch(
-    "https://api-eu-central-1.graphcms.com/v2/ckoe0mb581l8v01yz0e6l6axp/master",
+    "https://api-eu-central-1.graphcms.com/v2/ckpfg6n0kk6w701z53y7h7d0n/master",
     {
       method: "POST",
       headers: {
@@ -25,34 +25,57 @@ export async function getAllArtifacts() {
   const data = await fetchAPI(`
       {
         artifactModels {
-            artifactAuthor
-            artifactContent {
-                html
-            }
-            artifactTitle
-            createdAt
-            id
-            publishedAt
-            slug
-            }
+          descriptionEn {
+            html
+          }
+          descriptionOriginal {
+            html
+          }
+          technicalInformation {
+            html
+          }
+          title
+          artifactContent {
+            html
+            raw
+            text
+          }
+          authors {
+            html
+          }
+          slug
+        }
       }
     `);
   return data;
 }
 
-export async function getArtifactById(id) {
+export async function getArtifactById(slug) {
   const data = await fetchAPI(
     `
     query MyQuery {
-        artifactModel(where: {id: "$id"}) {
-          artifactAuthor
-          artifactTitle
-          createdAt
-          id
-          slug
+      artifactModel(where: {slug: ""}) {
+        artifactContent {
+          html
+          raw
+          text
         }
+        authors {
+          html
+        }
+        descriptionEn {
+          html
+        }
+        descriptionOriginal {
+          html
+        }
+        title
+        youMayAlsoLike {
+          html
+        }
+        slug
       }
-      
+    }    
     `
   );
   return data;
@@ -62,17 +85,28 @@ export async function getArtifactBySlug(slug) {
     const data = await fetchAPI(
       `
       query MyQuery {
-        artifactModels(where: {slug_contains: "example_artifact"}) {
-          id
-          artifactTitle
+        artifactModel(where: {slug: ""}) {
           artifactContent {
             html
+            raw
+            text
           }
-          artifactAuthor
+          authors {
+            html
+          }
+          descriptionEn {
+            html
+          }
+          descriptionOriginal {
+            html
+          }
+          title
+          youMayAlsoLike {
+            html
+          }
+          slug
         }
-      }
-      
-      
+      }      
       `
     );
     return data;

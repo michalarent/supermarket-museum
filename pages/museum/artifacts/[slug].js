@@ -9,52 +9,50 @@ import {
   getArtifactById,
   getArtifactBySlug,
 } from "../../../api/graphcms.js";
-
-import { GraphQLClient } from "graphql-request";
-
-const graphcms = new GraphQLClient(
-  "https://api-eu-central-1.graphcms.com/v2/ckoe0mb581l8v01yz0e6l6axp/master"
-);
+import SupermarketMap from "../../../components/maps/SupermarketMap";
+import Museum from "../../museum";
 
 export async function getStaticPaths() {
-  const artifactModels = await getAllArtifacts();
+  const { artifactModels } = await getAllArtifacts();
+
   var paths = [];
-  for (var i = 0; i <= Object.keys(artifactModels).length; i++) {
+  console.log(artifactModels[1]);
+  console.log("Up");
+  for (var i = 0; i < Object.keys(artifactModels).length - 1; i++) {
+    console.log(Object.keys(artifactModels).length);
     paths.push({
       params: {
-        slug: artifactModels.artifactModels[i].slug,
+        slug: artifactModels[i].slug,
       },
     });
   }
+  console.log(paths);
   return {
     paths: paths,
     fallback: false,
   };
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
   console.log("Slugs:", params.slug);
   const data = await getArtifactBySlug(params.slug);
+  const artifactModels = await getAllArtifacts();
   return {
     props: {
-      artifactModels: data.artifactModels,
+      data,
+      artifactModels,
     },
   };
 }
 
-export default function OpenArtifactPage({artifactModels}) {
+export default function OpenArtifactPage({ artifactModels, data }) {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(artifactModels);
+  console.log(data);
   return (
     <>
       <Fade in={true} timeout={500}>
-        <div>
-          <SideDrawer />
-          <div className="museum-page">
-            <ExampleSvg artifactModels={artifactModels} openArtifact={slug} />
-          </div>
-        </div>
+        <SupermarketMap artifactModels={artifactModels.artifactModels} openArtifact={slug} />
       </Fade>
     </>
   );

@@ -102,6 +102,13 @@ body {
 .museum-page {
   z-index: 1;
   position: absolute !important;
+  overflow: hidden;
+}
+
+.TransformComponent-module_container__3NwNd {
+  overflow: hidden !important;
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
 .MuiTooltip-tooltip {
@@ -511,10 +518,6 @@ div[role="toolbar"] > button > svg {
   text-align: center;
   transition: transform 0.45s ease-out;
   white-space: nowrap;
-}
-
-.TransformComponent-module_container__3NwNd {
-  overflow: visible !important;
 }
 
 .image-gallery-thumbnail {

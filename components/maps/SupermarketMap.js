@@ -8,13 +8,13 @@ import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import IconButton from "@material-ui/core/IconButton";
 import { useContextualRouting } from "next-use-contextual-routing";
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import styles_map from "../../styles/map.module.css";
 import styles from "./ExampleSvg.module.css";
-import { IconButton } from "@material-ui/core";
 
 import Image from "next/image";
 import TooltipLabel from "./Labels/TooltipLabel";
@@ -23,18 +23,18 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
   const { makeContextualHref, returnHref } = useContextualRouting();
   const router = useRouter();
   console.log(openArtifact);
+  console.log(artifactModels);
   const [show, setShow] = React.useState(false);
   const [currentArtifact, setCurrentDisplayedArtifact] = React.useState(null);
 
   const handleClose = () => {
     setCurrentArtifact(null);
+    setShow(false);
     if (openArtifact == null) {
       router.push(returnHref, undefined, { shallow: true });
     } else {
-      router.push(returnHref, undefined, { shallow: true });
+      router.push("/museum", undefined, { shallow: true });
     }
-
-    setShow(false);
   };
 
   const handleShow = (slug) => {
@@ -47,13 +47,14 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
       router.push(makeContextualHref(), url, {
         shallow: true,
       });
+      setIsClicked(true);
+      setShow(true);
     }
-    setIsClicked(true);
-    setShow(true);
   };
 
   const setCurrentArtifact = (slug) => {
     let artifactModelId = -1;
+    console.log(artifactModels);
     if (openArtifact == null) {
       for (var i = 0; i < artifactModels.length; i++) {
         // look for the entry with a matching `code` value
@@ -69,6 +70,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
         }
       }
     }
+
     const artifactModel = artifactModels[artifactModelId];
     setCurrentDisplayedArtifact(artifactModel);
   };
@@ -84,10 +86,10 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
           </div>
           <Box p={(2, 4)} className="boxContainer">
             <Grid item xs={12} md={12}>
-              <h1 className="heading">{currentArtifact.artifactTitle}</h1>
+              <h1 className="heading">{currentArtifact.title}</h1>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: currentArtifact.artifactContent.html,
+                  __html: currentArtifact.artifactContent.text,
                 }}
               />
             </Grid>
@@ -115,6 +117,29 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
     }
   }, []);
 
+  const [isImageReady, setIsImageReady] = React.useState(false);
+
+  const onLoadCallBack = (e) => {
+    setIsImageReady(true);
+    console.log("ready");
+    typeof onLoad === "function" && onLoad(e);
+  };
+
+  const handleLoad = () => {
+    setIsImageReady(true);
+    console.log("ready");
+    typeof onLoad === "function" && onLoad(e);
+  };
+
+  React.useEffect(() => {
+    if (image.current.complete) {
+      console.log("ready");
+      setIsImageReady(true);
+    }
+  }, []);
+
+  const image = React.useRef();
+
   return (
     <>
       <TransformWrapper options={{ limitToBounds: false, minScale: 0.3 }}>
@@ -129,16 +154,17 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
           <TransformComponent className={styles_map.TransformComponent}>
             <div className={styles_map.mapWrapper}>
               <img
+                ref={image}
                 className={styles_map.mapImage}
-                src="/supermarket/supermarket.png"
+                src="/supermarket/supermarket_1.png"
+                onLoad={handleLoad}
               />
-
               <div className={styles_map.allTooltips}>
                 <div className={styles_map.tooltip}>
                   {/*stand z pocztowkami*/}
                   <TooltipLabel
                     artifactTitle={"stand z pocztówkami"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -148,7 +174,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*lampa*/}
                   <TooltipLabel
                     artifactTitle={"lampa"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -158,7 +184,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*okno*/}
                   <TooltipLabel
                     artifactTitle={"okno"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -168,7 +194,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*stand z gazetkami*/}
                   <TooltipLabel
                     artifactTitle={"stand z gazetkami"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -178,7 +204,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*smietniki*/}
                   <TooltipLabel
                     artifactTitle={"śmietniki"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -188,7 +214,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*stand z ksiazkami*/}
                   <TooltipLabel
                     artifactTitle={"stand z ksiązkami"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -198,7 +224,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*nasiona do kupienia*/}
                   <TooltipLabel
                     artifactTitle={"nasiona do kupienia"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -208,7 +234,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*jablka*/}
                   <TooltipLabel
                     artifactTitle={"jablka"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -218,7 +244,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*wozki*/}
                   <TooltipLabel
                     artifactTitle={"wózki sklepowe"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -228,7 +254,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*stand z warzywami*/}
                   <TooltipLabel
                     artifactTitle={"superdisconnect"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -238,7 +264,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*kasa samoobslugowa*/}
                   <TooltipLabel
                     artifactTitle={"kasa samoobslugowa"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
@@ -248,7 +274,17 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*lustro*/}
                   <TooltipLabel
                     artifactTitle={"lustro"}
-                    artifactSlug={"example-artifact"}
+                    artifactSlug={"supermarket-vr"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"39.2%"}
+                    yLocation={"50.6%"}
+                  />
+                  {/*clothes*/}
+                  <TooltipLabel
+                    artifactTitle={"lustro"}
+                    artifactSlug={"ghostly-individuality"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}

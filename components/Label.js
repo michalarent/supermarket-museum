@@ -1,11 +1,9 @@
 import React from "react";
-import Link, { useRouter } from "next/link";
-import { Grid } from "@material-ui/core";
-import { Button } from "@material-ui/core";
+import Link from "next/link";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 import LabelContext from "./LabelContext";
 import styles from "./Label.module.css";
-import { useContextualRouting } from "next-use-contextual-routing";
-import { Modal } from "react-bootstrap";
 
 const Label = (props) => {
   const showButton = true;
