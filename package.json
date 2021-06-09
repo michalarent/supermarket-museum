@@ -38,6 +38,7 @@
     "react-svg-pan-zoom": "^3.10.0",
     "react-use-audio-player": "^1.2.4",
     "react-zoom-pan-pinch": "^1.6.1",
-    "use-sound": "^3.0.1"
+    "use-sound": "^3.0.1",
+    "use-state-with-callback": "^2.0.3"
   }
 }

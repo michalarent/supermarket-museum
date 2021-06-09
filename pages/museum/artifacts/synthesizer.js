@@ -1,11 +1,6 @@
 import React from "react";
 import { Piano, KeyboardShortcuts, MidiNumbers } from "react-piano";
 import "react-piano/dist/styles.css";
-import useSound from "use-sound";
-import ReactHowler from "react-howler";
-import { useAudioPlayer } from "react-use-audio-player";
-import { PlaylistPlayRounded } from "@material-ui/icons";
-import Key from "../../../components/synthesizer/Key";
 import { Howl, Howler } from "howler";
 
 const sounds = [
@@ -717,18 +712,22 @@ export default function Synthesizer() {
 
   return (
     <>
-      <Piano
-        noteRange={{ first: firstNote, last: lastNote }}
-        playNote={(midiNumber) => {
-          console.log(midiNumber);
-          handlePlayNoteRoot(midiNumber);
-        }}
-        stopNote={(midiNumber) => {
-          handleStopNote(midiNumber);
-        }}
-        width={"100vw"}
-        keyboardShortcuts={keyboardShortcuts}
-      />
+      <div style={{ height: "30vh", margin: "auto", display:"table-cell", verticalAlign:"middle" }}>
+        <Piano
+          noteRange={{ first: firstNote, last: lastNote }}
+          playNote={(midiNumber) => {
+            console.log(midiNumber);
+            handlePlayNoteRoot(midiNumber);
+          }}
+          stopNote={(midiNumber) => {
+            handleStopNote(midiNumber);
+          }}
+          width={"80vw"}
+          keyWidthToHeight={0.5}
+          keyboardShortcuts={keyboardShortcuts}
+          style={{height: "40vh !important"}}
+        />
+      </div>
     </>
   );
 }

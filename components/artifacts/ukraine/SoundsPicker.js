@@ -61,6 +61,9 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
 
   const handleClick = (event) => {
     var id = event.target.dataset.info;
+    if(id == undefined) {
+      return;
+    }
     console.log(id);
     switch (parseInt(id)) {
       case 1:
@@ -131,7 +134,7 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
                       onClick={handleClick}
                       data-info={sound.id}
                     >
-                      <p>{sound.id}</p>
+                      <p className={styles.indicator}>{sound.id}</p>
                     </div>
                   </>
                 ) : (
@@ -140,7 +143,7 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
                     onClick={handleClick}
                     data-info={sound.id}
                   >
-                    <p>{sound.id}</p>
+                    <p className={styles.indicator}>{sound.id}</p>
                   </div>
                 )}
               </Grid>

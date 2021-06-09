@@ -5,6 +5,8 @@ import IconButton from "@material-ui/core/IconButton";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import SoundsPicker from "../../../components/artifacts/ukraine/SoundsPicker";
 import ImagesPicker from "../../../components/artifacts/ukraine/ImagesPicker";
+import FinalSelection from "../../../components/artifacts/ukraine/FinalSelection";
+import styles_Ukraine from "../../../styles/ukraine.module.css";
 
 const UkraineArtifact = () => {
   const [currentStage, setCurrentStage] = React.useState(0);
@@ -24,7 +26,7 @@ const UkraineArtifact = () => {
               className={styles.buttonContainer}
               onClick={() => setCurrentStage(1)}
             >
-              <p>
+              <p className={styles_Ukraine.text}>
                 This piece will use sound to communicate with you. Please click
                 this box to proceed.
               </p>
@@ -51,6 +53,14 @@ const UkraineArtifact = () => {
           <ImagesPicker
             pickedImages={pickedImages}
             setPickedImages={setPickedImages}
+            setCurrentStage={setCurrentStage}
+          />
+        </>
+      ) : currentStage == 3 ? (
+        <>
+          <FinalSelection
+            pickedImages={pickedImages}
+            pickedSounds={pickedSounds}
             setCurrentStage={setCurrentStage}
           />
         </>

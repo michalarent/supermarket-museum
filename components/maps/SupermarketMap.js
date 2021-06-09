@@ -18,17 +18,44 @@ import styles from "./ExampleSvg.module.css";
 
 import Image from "next/image";
 import TooltipLabel from "./Labels/TooltipLabel";
+import TooltipLabelSynthesizer from "./Labels/TooltipLabelSynthesizer";
+import Synthesizer from "../../pages/museum/artifacts/synthesizer";
+import UkraineArtifact from "../../pages/museum/artifacts/ukraine";
 
 export default function SupermarketMap({ artifactModels, openArtifact }) {
   const { makeContextualHref, returnHref } = useContextualRouting();
   const router = useRouter();
-  console.log(openArtifact);
   console.log(artifactModels);
   const [show, setShow] = React.useState(false);
-  const [currentArtifact, setCurrentDisplayedArtifact] = React.useState(null);
+  const [currentArtifact, setCurrentDisplayedArtifact] = React.useState({
+    descriptionEn: { html: " " },
+    descriptionOriginal: { html: " " },
+    technicalInformation: { html: " " },
+    descriptionOriginal: { html: " " },
+    title: " ",
+    artifactContent: { html: " " },
+    authors: { html: " " },
+    slug: " ",
+    videoIFrame: { html: " ", raw: " ", text: " " },
+  });
+  const [showSynthesizer, setShowSynthesizer] = React.useState(false);
+  const [showRecollections, setShowRecollections] = React.useState(false);
+  const synthRef = React.useRef();
+  synthRef.current = showSynthesizer;
+
+  React.useEffect(() => {
+    if (show == true) {
+      document.title = currentArtifact.title;
+    } else {
+      document.title = "The Supermarket Museum";
+    }
+  }, [show]);
 
   const handleClose = () => {
     setCurrentArtifact(null);
+    setShowSynthesizer(false);
+    setShowLabel(true);
+    setIsClicked(false);
     setShow(false);
     if (openArtifact == null) {
       router.push(returnHref, undefined, { shallow: true });
@@ -38,18 +65,31 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
   };
 
   const handleShow = (slug) => {
+    hideTooltip();
+    setIsClicked(true);
     if (openArtifact != null) {
       setCurrentArtifact(openArtifact);
-      setIsClicked(true);
-      setShow(true);
+    } else if (slug == "supermarket-synthesizer") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "supermarket-synthesizer";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    } else if (slug == "recollections") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "recollections";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
     } else {
+      setCurrentArtifact(slug);
       const url = "museum/artifacts/" + slug;
       router.push(makeContextualHref(), url, {
         shallow: true,
       });
-      setIsClicked(true);
-      setShow(true);
     }
+    setIsClicked(true);
+    setShow(true);
   };
 
   const setCurrentArtifact = (slug) => {
@@ -73,8 +113,11 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
 
     const artifactModel = artifactModels[artifactModelId];
     setCurrentDisplayedArtifact(artifactModel);
+    console.log(currentArtifact);
   };
-
+  {
+    console.log(currentArtifact);
+  }
   const body = (
     <>
       {currentArtifact != null ? (
@@ -87,11 +130,33 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
           <Box p={(2, 4)} className="boxContainer">
             <Grid item xs={12} md={12}>
               <h1 className="heading">{currentArtifact.title}</h1>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: currentArtifact.artifactContent.text,
-                }}
-              />
+              {currentArtifact.slug == "recollections" ? (
+                <>
+                  <UkraineArtifact />
+                </>
+              ) : null}
+              {currentArtifact.slug == "supermarket-synthesizer" ? (
+                <>
+                  <Synthesizer />
+                </>
+              ) : null}
+              <>
+                {currentArtifact.videoIFrame.text > 10 ? (
+                  <>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.videoIFrame.text,
+                      }}
+                    />
+                  </>
+                ) : (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: currentArtifact.artifactContent.text,
+                    }}
+                  />
+                )}
+              </>
             </Grid>
           </Box>
         </div>
@@ -100,14 +165,13 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
   );
 
   const [isClicked, setIsClicked] = React.useState(false);
+  const [showLabel, setShowLabel] = React.useState(true);
 
   const hideTooltip = () => {
-    handleShow();
     setIsClicked(true);
   };
 
   const showTooltip = (slug) => {
-    setCurrentArtifact(slug);
     setIsClicked(false);
   };
 
@@ -118,12 +182,6 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
   }, []);
 
   const [isImageReady, setIsImageReady] = React.useState(false);
-
-  const onLoadCallBack = (e) => {
-    setIsImageReady(true);
-    console.log("ready");
-    typeof onLoad === "function" && onLoad(e);
-  };
 
   const handleLoad = () => {
     setIsImageReady(true);
@@ -137,6 +195,15 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
       setIsImageReady(true);
     }
   }, []);
+
+  const handleBody = () => {
+    console.log(showSynthesizer);
+    if (showSynthesizer == true) {
+      return bodySynthesizer;
+    } else {
+      return body;
+    }
+  };
 
   const image = React.useRef();
 
@@ -164,12 +231,44 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
                   {/*stand z pocztowkami*/}
                   <TooltipLabel
                     artifactTitle={"stand z pocztówkami"}
-                    artifactSlug={"supermarket-vr"}
+                    artifactSlug={"postcards-from-the-supermarket-museum"}
                     isClicked={isClicked}
                     showTooltip={showTooltip}
                     handleShow={handleShow}
                     xLocation={"39.2%"}
                     yLocation={"73.5%"}
+                  />
+                  {/*salata*/}
+                  <TooltipLabel
+                    artifactTitle={"Unobvious Difference"}
+                    artifactSlug={"unobvious-difference"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    xLocation={"79.2%"}
+                    yLocation={"54.5%"}
+                  />
+                  {/*dzial muzyczny*/}
+                  <TooltipLabelSynthesizer
+                    artifactTitle={"Supermarket Synthesizer"}
+                    artifactSlug={"supermarket-synthesizer"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    setShowSynthesizer={setShowSynthesizer}
+                    xLocation={"81.2%"}
+                    yLocation={"46.5%"}
+                  />
+                  {/*lockers*/}
+                  <TooltipLabelSynthesizer
+                    artifactTitle={"Recollections Game"}
+                    artifactSlug={"recollections"}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    handleShow={handleShow}
+                    setShowSynthesizer={setShowRecollections}
+                    xLocation={"65.2%"}
+                    yLocation={"90.5%"}
                   />
                   {/*lampa*/}
                   <TooltipLabel
@@ -297,7 +396,9 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
           </TransformComponent>
         )}
       </TransformWrapper>
-      <Modal open={openArtifact == null ? show : true}>{body}</Modal>
+      <Modal open={openArtifact == null ? show : true}>
+        <>{body}</>
+      </Modal>
     </>
   );
 }

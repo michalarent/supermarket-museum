@@ -3,7 +3,12 @@ import Grid from "@material-ui/core/Grid";
 import styles from "/styles/ukraine.module.css";
 import Image from "next/image";
 
-const ImagesPicker = ({ pickedImages, setPickedImages, currentStage, setCurrentStage }) => {
+const ImagesPicker = ({
+  pickedImages,
+  setPickedImages,
+  currentStage,
+  setCurrentStage,
+}) => {
   const images = [
     { id: "1", image: "/ukraine/1_Morning.jpg" },
     { id: "2", image: "/ukraine/2_GoingWork.jpg" },
@@ -54,22 +59,6 @@ const ImagesPicker = ({ pickedImages, setPickedImages, currentStage, setCurrentS
     var id = event.target.dataset.info;
     console.log(id);
     handleEntry(id);
-  };
-
-  const displayImage = (event) => {
-    var id = event.target.dataset.info;
-    if (id != null) {
-      console.log(id);
-      console.log(images[id].image);
-    }
-    return (
-      <Image
-        // className={styles.ImageHover}
-        src="/photo_gallery/1.jpg"
-        // width="500"
-        //   height="500"
-      />
-    );
   };
 
   return (
@@ -148,20 +137,10 @@ const ImagesPicker = ({ pickedImages, setPickedImages, currentStage, setCurrentS
         </Grid>
         {pickedImages.length == 6 ? (
           <Grid item xs={6} md={12} className={styles.GridItem}>
-            <button onClick={() => setCurrentStage(0)}>Proceed</button>
+            <button onClick={() => setCurrentStage(3)}>Proceed</button>
           </Grid>
         ) : null}
       </Grid>
-      {hover ? (
-        <>
-          {console.log("Hovered")}
-          <Image
-            className={styles.ImageHover}
-            src="/photo_gallery/1.jpg"
-            layout="fill"
-          />
-        </>
-      ) : null}
     </>
   );
 };

@@ -43,6 +43,9 @@ export async function getAllArtifacts() {
           authors {
             html
           }
+          videoIFrame {
+            text
+          }
           slug
         }
       }
@@ -74,6 +77,9 @@ export async function getArtifactById(slug) {
           html
         }
         slug
+        videoIFrame {
+          text
+        }
       }
     }    
     `
@@ -105,6 +111,9 @@ export async function getArtifactBySlug(slug) {
             html
           }
           slug
+          videoIFrame {
+            text
+          }
         }
       }      
       `

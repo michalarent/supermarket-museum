@@ -6,6 +6,7 @@ import LabelNoLink from "../../LabelNoLink";
 import styles_map from "../../../styles/map.module.css";
 import styles from "../ExampleSvg.module.css";
 import LabelContext from "../../LabelContext";
+import ShowLabelContext from "../../ShowLabelContext";
 
 export default function TooltipLabel({
   isClicked,
@@ -15,38 +16,43 @@ export default function TooltipLabel({
   yLocation,
   artifactSlug,
   borderColor,
-  artifactTitle
+  artifactTitle,
 }) {
+  const [showThisTooltip, setShowThisTooltip] = React.useState(false);
+
+  const handleOpenArtifact = () => {
+    handleShow(artifactSlug);
+    setShowThisTooltip(false);
+  };
   return (
-    <Tooltip
-      interactive
-      enterTouchDelay="0"
-      placement="right"
-      onOpen={() => showTooltip(artifactSlug)}
-      leaveDelay={100}
-      className={styles.tooltip}
-      title={
-        <>
-          <LabelContext.Provider value={isClicked}>
-            {!isClicked ? (
+    <>
+      <Tooltip
+        interactive
+        enterTouchDelay="0"
+        placement="right"
+        onOpen={() => showTooltip(artifactSlug)}
+        leaveDelay={100}
+        className={styles.tooltip}
+        title={
+          <>
+            {showThisTooltip ? (
               <LabelNoLink
-                artifactId="ckoe0xaq8l5pi0c54bympu5z5"
                 slug={artifactSlug}
                 header={artifactTitle}
                 author="Somebody"
                 showButton={true}
-                onClick={() => handleShow(artifactSlug)}
+                onClick={() => handleOpenArtifact()}
               />
             ) : null}
-          </LabelContext.Provider>
-        </>
-      }
-    >
-      <div
-        className={styles_map.pin}
-        onMouseEnter={console.log}
-        style={{ top: yLocation, left: xLocation, color: borderColor }}
-      />
-    </Tooltip>
+          </>
+        }
+      >
+        <div
+          onMouseEnter={() => setShowThisTooltip(true)}
+          className={styles_map.pin}
+          style={{ top: yLocation, left: xLocation, color: borderColor }}
+        />
+      </Tooltip>
+    </>
   );
 }

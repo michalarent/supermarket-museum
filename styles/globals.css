@@ -12,7 +12,7 @@ a {
 }
 
 * {
-  box-sizing: border-box;
+  cursor: url("/cursor.png"), auto;
 }
 
 .iconButton {
@@ -97,6 +97,10 @@ a {
 body {
   /* background: none!important;
   background-color: transparent!important; */
+}
+
+.ReactPiano__Keyboard {
+  height: 40vh !important;
 }
 
 .museum-page {
