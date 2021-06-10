@@ -42,9 +42,6 @@ const Label = (props) => {
                     </Link>
                   </div>
                 </Grid>
-                <Grid item md={2}>
-                  <div className={styles.circle}></div>
-                </Grid>
               </Grid>
             </div>
           </div>

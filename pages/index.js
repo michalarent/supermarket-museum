@@ -13,11 +13,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className={styles.cdTransitionLayer}>
-          <div className={styles.bgLayer}>
-            <div className={styles.frontPageLabel}>
-              <Label header="witam" author="siemanko" pathname="/museum" />
-            </div>
+        <div className="frontPageBackground">
+          <div className={styles.frontPageLabel}>
+            <Label header="witam" author="siemanko" pathname="/museum" />
           </div>
         </div>
       </main>
