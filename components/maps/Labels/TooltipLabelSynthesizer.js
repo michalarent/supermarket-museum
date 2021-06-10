@@ -18,7 +18,10 @@ export default function TooltipLabelSynthesizer({
   artifactTitle,
   setShowSynthesizer,
 }) {
+  const [showThisTooltip, setShowThisTooltip] = React.useState(false);
+
   function handleShowSynthesizer() {
+    setShowThisTooltip(false);
     setShowSynthesizer(true);
     handleShow(artifactSlug);
   }
@@ -28,27 +31,26 @@ export default function TooltipLabelSynthesizer({
       enterTouchDelay="0"
       placement="right"
       onOpen={() => showTooltip(artifactSlug)}
-      leaveDelay={100}
       className={styles.tooltip}
       title={
         <>
-          <LabelContext.Provider value={isClicked}>
-            {!isClicked ? (
-              <LabelNoLink
-                slug={artifactSlug}
-                header={artifactTitle}
-                author={artifactSlug}
-                showButton={true}
-                onClick={() => handleShowSynthesizer()}
-              />
-            ) : null}
-          </LabelContext.Provider>
+          {showThisTooltip ? (
+            <LabelNoLink
+              slug={artifactSlug}
+              header={artifactTitle}
+              author="Somebody"
+              showButton={true}
+              onClick={handleShowSynthesizer}
+            />
+          ) : null}
         </>
       }
     >
       <div
+        onMouseEnter={() => setShowThisTooltip(true)}
+        onTouchStart={() => setShowThisTooltip(true)}
+        onTouchStart={() => setShowThisTooltip(true)}
         className={styles_map.pin}
-        onMouseEnter={console.log}
         style={{ top: yLocation, left: xLocation, color: borderColor }}
       />
     </Tooltip>

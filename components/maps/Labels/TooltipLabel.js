@@ -31,7 +31,6 @@ export default function TooltipLabel({
         enterTouchDelay="0"
         placement="right"
         onOpen={() => showTooltip(artifactSlug)}
-        leaveDelay={100}
         className={styles.tooltip}
         title={
           <>
@@ -41,7 +40,7 @@ export default function TooltipLabel({
                 header={artifactTitle}
                 author="Somebody"
                 showButton={true}
-                onClick={() => handleOpenArtifact()}
+                onClick={handleOpenArtifact}
               />
             ) : null}
           </>
@@ -49,6 +48,8 @@ export default function TooltipLabel({
       >
         <div
           onMouseEnter={() => setShowThisTooltip(true)}
+          onTouchStart={() => setShowThisTooltip(true)}
+          onTouchStart={() => setShowThisTooltip(true)}
           className={styles_map.pin}
           style={{ top: yLocation, left: xLocation, color: borderColor }}
         />

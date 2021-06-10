@@ -1,19 +1,21 @@
 import React from "react";
-
+import Link from "next/link";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import LabelContext from "./LabelContext";
 import styles from "./Label.module.css";
+import Divider from "@material-ui/core/Divider";
 
-const LabelNoLink = (props) => {
+const InfoLabel = (props) => {
   const showButton = true;
+  console.log(props.content);
 
   return (
     <LabelContext.Consumer>
       {(isClicked) => (
         <div className={styles.labelContainer}>
           <div className={styles.shadow}>
-            <div className={styles.label}>
+            <div className={styles.infoLabel}>
               <Grid
                 container
                 spacing={2}
@@ -21,23 +23,19 @@ const LabelNoLink = (props) => {
                   marginLeft: "1vw",
                 }}
               >
-                <Grid item md={8}>
+                <Grid item>
                   <div className={styles.labelContent}>
                     <h1>{props.header}</h1>
-                    <h2>{props.author}</h2>
-                    {true ? (
-                      <Button
-                        id={styles.buttonLabel}
-                        classes={{ label: styles.buttonLabel }}
-                        className={styles.button}
-                        variant="contained"
-                        onClick={props.onClick}
-                      >
-                        Buy
-                      </Button>
-                    ) : null}
+                    <h2>{props.category}</h2>
+                    <Divider className={styles.divider} />
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: props.content,
+                      }}
+                    />
                   </div>
                 </Grid>
+                <Grid item md={2}></Grid>
               </Grid>
             </div>
           </div>
@@ -47,4 +45,4 @@ const LabelNoLink = (props) => {
   );
 };
 
-export default LabelNoLink;
+export default InfoLabel;

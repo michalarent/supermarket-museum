@@ -8,6 +8,7 @@ import {
   getAllArtifacts,
   getArtifactById,
   getArtifactBySlug,
+  getAllLabels,
 } from "../../../api/graphcms.js";
 import SupermarketMap from "../../../components/maps/SupermarketMap";
 import Museum from "../../museum";
@@ -36,23 +37,29 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   console.log("Slugs:", params.slug);
   const data = await getArtifactBySlug(params.slug);
+  const { labels } = await getAllLabels();
   const artifactModels = await getAllArtifacts();
   return {
     props: {
       data,
       artifactModels,
+      labels
     },
   };
 }
 
-export default function OpenArtifactPage({ artifactModels, data }) {
+export default function OpenArtifactPage({ artifactModels, data, labels }) {
   const router = useRouter();
   const { slug } = router.query;
   console.log(data);
   return (
     <>
       <Fade in={true} timeout={500}>
-        <SupermarketMap artifactModels={artifactModels.artifactModels} openArtifact={slug} />
+        <SupermarketMap
+          artifactModels={artifactModels.artifactModels}
+          openArtifact={slug}
+          labels={labels}
+        />
       </Fade>
     </>
   );

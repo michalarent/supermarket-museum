@@ -7,14 +7,15 @@ import styles from "../styles/Home.module.css";
 import map_style from "../styles/map.module.css";
 
 import { GraphQLClient } from "graphql-request";
-import { getAllArtifacts } from "../api/graphcms";
+import { getAllArtifacts, getAllLabels } from "../api/graphcms";
 
 export async function getStaticProps() {
   const { artifactModels } = await getAllArtifacts();
+  const { labels } = await getAllLabels();
   console.log(artifactModels);
 
   return {
-    props: { artifactModels },
+    props: { artifactModels, labels },
   };
 }
 
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Museum({ artifactModels, openArtifact }) {
+function Museum({ artifactModels, openArtifact, labels }) {
   return (
     <>
       <SideDrawer />
@@ -34,6 +35,7 @@ function Museum({ artifactModels, openArtifact }) {
         <SupermarketMap
           artifactModels={artifactModels}
           openArtifact={openArtifact}
+          labels={labels}
         />
       </div>
     </>

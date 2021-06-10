@@ -712,7 +712,7 @@ export default function Synthesizer() {
 
   return (
     <>
-      <div style={{ height: "30vh", margin: "auto", display:"table-cell", verticalAlign:"middle" }}>
+      <div>
         <Piano
           noteRange={{ first: firstNote, last: lastNote }}
           playNote={(midiNumber) => {
@@ -725,7 +725,7 @@ export default function Synthesizer() {
           width={"80vw"}
           keyWidthToHeight={0.5}
           keyboardShortcuts={keyboardShortcuts}
-          style={{height: "40vh !important"}}
+          style={{ height: "40vh !important" }}
         />
       </div>
     </>

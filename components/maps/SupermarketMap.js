@@ -18,14 +18,19 @@ import styles from "./ExampleSvg.module.css";
 
 import Image from "next/image";
 import TooltipLabel from "./Labels/TooltipLabel";
+import TooltipInfo from "./Labels/TooltipInfo";
 import TooltipLabelSynthesizer from "./Labels/TooltipLabelSynthesizer";
 import Synthesizer from "../../pages/museum/artifacts/synthesizer";
 import UkraineArtifact from "../../pages/museum/artifacts/ukraine";
 
-export default function SupermarketMap({ artifactModels, openArtifact }) {
+export default function SupermarketMap({
+  artifactModels,
+  openArtifact,
+  labels,
+}) {
   const { makeContextualHref, returnHref } = useContextualRouting();
   const router = useRouter();
-  console.log(artifactModels);
+  console.log(labels);
   const [show, setShow] = React.useState(false);
   const [currentArtifact, setCurrentDisplayedArtifact] = React.useState({
     descriptionEn: { html: " " },
@@ -36,6 +41,7 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
     artifactContent: { html: " " },
     authors: { html: " " },
     slug: " ",
+    youMayAlsoLike: " ",
     videoIFrame: { html: " ", raw: " ", text: " " },
   });
   const [showSynthesizer, setShowSynthesizer] = React.useState(false);
@@ -127,36 +133,79 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
               <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
             </IconButton>
           </div>
-          <Box p={(2, 4)} className="boxContainer">
+          <Box p={(2, 4)} className="modalBoxContainer">
             <Grid item xs={12} md={12}>
-              <h1 className="heading">{currentArtifact.title}</h1>
-              {currentArtifact.slug == "recollections" ? (
-                <>
-                  <UkraineArtifact />
-                </>
-              ) : null}
-              {currentArtifact.slug == "supermarket-synthesizer" ? (
-                <>
-                  <Synthesizer />
-                </>
-              ) : null}
-              <>
-                {currentArtifact.videoIFrame.text > 10 ? (
+              <div className="modalContentAdjusted">
+                <h1 className="heading">{currentArtifact.title}</h1>
+                <div className="text-3xl"
+                  dangerouslySetInnerHTML={{
+                    __html: currentArtifact.authors.html,
+                  }}
+                />
+                {currentArtifact.slug == "recollections" ? (
                   <>
+                    <UkraineArtifact />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "supermarket-synthesizer" ? (
+                  <>
+                    <Synthesizer />
+                  </>
+                ) : null}
+                <>
+                  {currentArtifact.videoIFrame.text.length > 5 ? (
+                    <>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: currentArtifact.videoIFrame.text,
+                        }}
+                      />
+                    </>
+                  ) : (
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.videoIFrame.text,
+                        __html: currentArtifact.artifactContent.text,
                       }}
                     />
-                  </>
-                ) : (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: currentArtifact.artifactContent.text,
-                    }}
-                  />
-                )}
-              </>
+                  )}
+                </>
+                <Grid container spacing={5}>
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"artifactDescription"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.descriptionEn.html,
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"artifactDescription"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.descriptionOriginal.html,
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid container spacing={5} className={"technicalInformationContainer"}>
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"technicalInformation"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.technicalInformation.html,
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"technicalInformation"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.youMayAlsoLike.html,
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+              </div>
             </Grid>
           </Box>
         </div>
@@ -196,16 +245,21 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
     }
   }, []);
 
-  const handleBody = () => {
-    console.log(showSynthesizer);
-    if (showSynthesizer == true) {
-      return bodySynthesizer;
-    } else {
-      return body;
-    }
-  };
-
   const image = React.useRef();
+
+  function getLabelContentBySlug() {
+    var dict = {};
+
+    for (var i = 0; i < Object.values(labels).length; i++) {
+      console.log(labels[i]);
+      dict[labels[i].slug] = labels[i];
+    }
+
+    return dict;
+  }
+
+  var labelsDict = getLabelContentBySlug();
+  console.log(labelsDict["sensory-marketing"].content.html);
 
   return (
     <>
@@ -228,6 +282,18 @@ export default function SupermarketMap({ artifactModels, openArtifact }) {
               />
               <div className={styles_map.allTooltips}>
                 <div className={styles_map.tooltip}>
+                  {/*stand z pocztowkami*/}
+                  <TooltipInfo
+                    artifactSlug={"postcards-from-the-supermarket-museum"}
+                    artifactTitle={labelsDict["sensory-marketing"].title}
+                    category={labelsDict["sensory-marketing"].subtitle}
+                    content={labelsDict["sensory-marketing"].content.html}
+                    isClicked={isClicked}
+                    showTooltip={showTooltip}
+                    xLocation={"43.2%"}
+                    yLocation={"73.5%"}
+                  />
+
                   {/*stand z pocztowkami*/}
                   <TooltipLabel
                     artifactTitle={"stand z pocztówkami"}

@@ -46,10 +46,30 @@ export async function getAllArtifacts() {
           videoIFrame {
             text
           }
+          youMayAlsoLike {
+            html
+          }
           slug
         }
       }
     `);
+  return data;
+}
+
+export async function getAllLabels() {
+  const data = await fetchAPI(`
+    query MyQuery {
+      labels {
+        slug
+        subtitle
+        title
+        content {
+          html
+          text
+        }
+      }
+    }
+  `);
   return data;
 }
 
@@ -88,8 +108,8 @@ export async function getArtifactById(slug) {
 }
 
 export async function getArtifactBySlug(slug) {
-    const data = await fetchAPI(
-      `
+  const data = await fetchAPI(
+    `
       query MyQuery {
         artifactModel(where: {slug: ""}) {
           artifactContent {
@@ -117,6 +137,6 @@ export async function getArtifactBySlug(slug) {
         }
       }      
       `
-    );
-    return data;
-  }
+  );
+  return data;
+}

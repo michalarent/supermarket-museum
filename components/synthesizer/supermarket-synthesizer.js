@@ -1,7 +1,7 @@
 import React from "react";
 import Fade from "@material-ui/core/Fade";
-import SupermarketMap from "../../../components/maps/SupermarketMap";
-import SideDrawer from "../../../components/navigation/SideDrawer";
+import SupermarketMap from "../maps/SupermarketMap";
+import SideDrawer from "../navigation/SideDrawer";
 import styles from "../../../styles/Home.module.css";
 
 import { useRouter } from "next/router";
@@ -15,8 +15,8 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import router from "next/router";
-import Synthesizer from "./synthesizer";
-import { getAllArtifacts } from "../../../api/graphcms";
+import Synthesizer from "../../pages/museum/artifacts/synthesizer";
+import { getAllArtifacts } from "../../api/graphcms";
 
 export async function getStaticProps() {
   const { artifactModels } = await getAllArtifacts();

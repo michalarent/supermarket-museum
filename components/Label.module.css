@@ -1,11 +1,10 @@
 .shadow {
-  filter: drop-shadow(1px 1px 5px teal);
+  filter: drop-shadow(30px 30px rgba(0, 0, 0, 0));
 }
 .label {
   position: relative;
   z-index: -1;
-
-  height: 15rem;
+  height: 14rem;
   width: 28rem;
   clip-path: polygon(
     0 0,
@@ -17,28 +16,35 @@
     0% 80%,
     0% 20%
   );
-  box-shadow: 1px 1px 5px teal;
+
   background: rgb(208, 111, 94);
-  background-color: tomato;
+  background-color: #f4d588;
   border-radius: 15px;
+  background: radial-gradient(circle at 80% 50%, transparent 7%, #f4d588 7%);
 }
 
 .label .labelContent {
-  color: #f8e7ba;
   font-family: "Aleo-Black";
   margin: auto;
   top: 15%;
   position: absolute;
 }
 .label .labelContent h1 {
-  font-family: "Aleo-Bold";
-  font-size: 2.5rem;
+  font-family: "Now-Medium";
+  font-size: 2.2rem;
+  color: black;
 }
 .label .labelContent h2 {
-  font-family: "Aleo-Bold";
+  font-family: "Now-Light";
+  font-size: 1.5rem;
+  color: black;
 }
 .buttonLabel {
   font-family: "Aleo-Bold";
+}
+
+.button {
+  z-index: 1;
 }
 .label .circle {
   right: 5%;
@@ -48,4 +54,98 @@
   border-radius: 100%;
   height: 4rem;
   width: 4rem;
+}
+
+.labelContainer {
+}
+
+.infoLabel {
+  position: relative;
+  z-index: -1;
+  /* min-height: 24rem; */
+  width: 32rem;
+  clip-path: polygon(85% 0, 100% 20%, 100% 75%, 100% 100%, 0 100%, 0 0);
+  box-shadow: 1px 1px 5px teal;
+  background-color: #f4d588;
+}
+
+.infoLabel::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 0px;
+  height: 0px;
+  border-bottom: 4.2rem solid #fac94f00;
+  border-right: 4.4rem solid transparent;
+  -webkit-box-shadow: -7px 7px 7px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -7px 7px 7px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 0 3px white;
+}
+
+.infoLabel::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 0px;
+  height: 0px;
+  border-top: 3.8rem solid transparent;
+  border-left: 3.8rem solid transparent;
+}
+
+.infoLabel .labelContent h1 {
+  margin-top: 1rem;
+  font-family: "Now-Medium";
+  font-size: 2.3rem;
+  color: black;
+}
+.infoLabel .labelContent h2 {
+  font-family: "Now-Light";
+  font-size: 1.4rem;
+  color: black;
+}
+.infoLabel .labelContent p {
+  width: 110%;
+  line-height: 1.5rem;
+  font-family: "Aleo-Light";
+  font-size: 1.3rem;
+  color: black;
+}
+
+.buttonLabel {
+  font-family: "Aleo-Bold";
+}
+
+.infoLabel .labelContent {
+  width: 80%;
+}
+.infoLabel .labelContent .divider {
+  margin: 1rem 0;
+  border: solid 4px black;
+  border-radius: 15px;
+  width: 110%;
+  opacity: 1;
+  height: 1px;
+}
+
+@media only screen and (max-width: 600px) {
+  .label {
+    height: 10em;
+    width: 16em;
+  }
+  .label .labelContent h1 {
+    font-size: 1.5em;
+  }
+  .label .labelContent h2 {
+    font-size: 1.2em;
+  }
+  .buttonLabel {
+    font-family: "Aleo-Bold";
+    font-size: 1em;
+  }
+  .button {
+    width: 2em !important;
+    height: 2em !important;
+  }
 }
