@@ -11,7 +11,7 @@ body {
 }
 
 .frontPageBackground {
-  width:100vw;
+  width: 100vw;
   height: 100vh;
   background-image: url("/background_photo.png");
   background-size: cover;
@@ -103,6 +103,48 @@ a {
 @font-face {
   font-family: "Aleo-Light";
   src: local("Aleo-Light"), url(/fonts/Aleo/Aleo-Light.ttf) format("truetype");
+}
+
+.cd-transition-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.cd-transition-layer .bg-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-2%);
+  height: 100vh;
+  /* our sprite is composed of 25 frames */
+  width: 2500vw;
+  background: url("/ink.png") no-repeat 0 0;
+  background-size: 100vh 100vw;
+}
+
+@keyframes cd-sprite {
+  0% {
+    transform: translateY(-50%) translateX(-2%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-98%);
+  }
+}
+
+.cd-transition-layer.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.cd-transition-layer.opening .bg-layer {
+  animation: cd-sprite 0.8s steps(24);
+  animation-fill-mode: forwards;
 }
 
 body {

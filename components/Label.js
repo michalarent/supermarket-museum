@@ -25,21 +25,20 @@ const Label = (props) => {
                   <div className={styles.labelContent}>
                     <h1>{props.header}</h1>
                     <h2>{props.author}</h2>
-                    <Link href={props.pathname}>
-                      {true ? (
-                        <Button
-                          id={styles.buttonLabel}
-                          classes={{ label: styles.buttonLabel }}
-                          className={styles.button}
-                          variant="contained"
-                          onClick={props.onClick}
-                          as="artifacts"
-                          shallow
-                        >
-                          Buy
-                        </Button>
-                      ) : null}
-                    </Link>
+
+                    {true ? (
+                      <Button
+                        id={styles.buttonLabel}
+                        classes={{ label: styles.buttonLabel }}
+                        className={styles.button}
+                        variant="contained"
+                        onClick={props.onClick}
+                        as="artifacts"
+                        shallow
+                      >
+                        Buy
+                      </Button>
+                    ) : null}
                   </div>
                 </Grid>
               </Grid>
