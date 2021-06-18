@@ -25,24 +25,43 @@
 
 .pin {
   position: absolute;
-  top: 20%;
-  left: 30%;
-  background-color: transparent;
-  border: 1px solid blue;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  cursor: pointer;
+  background-color: #f4d588;
+  clip-path: polygon(
+    0 0,
+    80% 0%,
+    100% 25%,
+    100% 75%,
+    80% 100%,
+    0 100%,
+    0% 80%,
+    0% 20%
+  );
+  height: 1vh;
+  width: 1.6vh;
+  /* border-radius: 50%; */
 }
+
+.pin:hover {
+  visibility: none;
+  animation: pulse 0.2s linear;
+}
+/* .pin::after {
+  content: '';
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: transparent;
+} */
+
+
 
 @keyframes pulse {
   0% {
     transform: scale(1);
-    border-width: 3px;
     opacity: 1;
   }
   100% {
-    border-width: 5px;
     transform: scale(2);
     opacity: 0;
   }

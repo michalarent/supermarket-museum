@@ -269,7 +269,10 @@ export default function SupermarketMap({
 
   return (
     <>
-      <TransformWrapper options={{ limitToBounds: false, minScale: 0.3 }}>
+      <TransformWrapper
+        wheel={{ step: 100 }}
+        options={{ limitToBounds: false, minScale: 0.3 }}
+      >
         {({
           zoomIn,
           zoomOut,
@@ -335,8 +338,8 @@ export default function SupermarketMap({
                       />
                       {/*lockers*/}
                       <TooltipLabelSynthesizer
-                        artifactTitle={"Recollections Game"}
-                        artifactSlug={"recollections"}
+                        artifactTitle={"The Lives We Live By"}
+                        artifactSlug={"the-lives-we-live-by"}
                         isClicked={isClicked}
                         showTooltip={showTooltip}
                         handleShow={handleShow}
@@ -346,8 +349,8 @@ export default function SupermarketMap({
                       />
                       {/*lampa*/}
                       <TooltipLabel
-                        artifactTitle={"lampa"}
-                        artifactSlug={"supermarket-vr"}
+                        artifactTitle={"Invisible Supermarket"}
+                        artifactSlug={"invisible-supermarket"}
                         isClicked={isClicked}
                         showTooltip={showTooltip}
                         handleShow={handleShow}
@@ -377,7 +380,7 @@ export default function SupermarketMap({
                       {/*smietniki*/}
                       <TooltipLabel
                         artifactTitle={"śmietniki"}
-                        artifactSlug={"supermarket-vr"}
+                        artifactSlug={"sacrifice-offering"}
                         isClicked={isClicked}
                         showTooltip={showTooltip}
                         handleShow={handleShow}
@@ -424,16 +427,17 @@ export default function SupermarketMap({
                         xLocation={"68.3%"}
                         yLocation={"92%"}
                       />
-                      {/*stand z warzywami*/}
+                      {/*cukinie / papryki*/}
                       <TooltipLabel
-                        artifactTitle={"superdisconnect"}
-                        artifactSlug={"supermarket-vr"}
+                        artifactTitle={"Disconnect"}
+                        artifactSlug={"disconnect"}
                         isClicked={isClicked}
                         showTooltip={showTooltip}
                         handleShow={handleShow}
                         xLocation={"85.2%"}
                         yLocation={"66.8%"}
                       />
+
                       {/*kasa samoobslugowa*/}
                       <TooltipLabel
                         artifactTitle={"kasa samoobslugowa"}
@@ -456,13 +460,13 @@ export default function SupermarketMap({
                       />
                       {/*clothes*/}
                       <TooltipLabel
-                        artifactTitle={"lustro"}
+                        artifactTitle={"Ghostly Individuality"}
                         artifactSlug={"ghostly-individuality"}
                         isClicked={isClicked}
                         showTooltip={showTooltip}
                         handleShow={handleShow}
-                        xLocation={"39.2%"}
-                        yLocation={"50.6%"}
+                        xLocation={"44.2%"}
+                        yLocation={"49.6%"}
                       />
                     </div>
                   </div>

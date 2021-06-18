@@ -8,6 +8,7 @@ import styles from "./Label.module.css";
 const LabelNoLink = (props) => {
   const showButton = true;
 
+  const length = props.header.length;
   return (
     <LabelContext.Consumer>
       {(isClicked) => (

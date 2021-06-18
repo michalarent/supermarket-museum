@@ -38,11 +38,7 @@ function Museum({ artifactModels, openArtifact, labels }) {
           labels={labels}
         />
       </div>
-      <div
-        className={true ? "cd-transition-layer.opening" : "cd-transition-layer"}
-      >
-        <div className="bg-layer"></div>
-      </div>
+      
     </>
   );
 }

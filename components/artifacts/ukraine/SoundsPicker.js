@@ -122,7 +122,7 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
       <>
         <Grid container className={styles.GridContainer} spacing={2}>
           <Grid item xs={12} md={12} className={styles.GridItemHeader}>
-            <p>Select and hear the sounds by clicking on the boxes below.</p>
+            <p>How would you like your life to sound?</p>
           </Grid>
           <>
             {sounds.map((sound) => (

@@ -105,48 +105,6 @@ a {
   src: local("Aleo-Light"), url(/fonts/Aleo/Aleo-Light.ttf) format("truetype");
 }
 
-.cd-transition-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  height: 100vh;
-  width: 100vw;
-  opacity: 1;
-  visibility: hidden;
-  overflow: hidden;
-}
-
-.cd-transition-layer .bg-layer {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-2%);
-  height: 100vh;
-  /* our sprite is composed of 25 frames */
-  width: 2500vw;
-  background: url("/ink.png") no-repeat 0 0;
-  background-size: 100vh 100vw;
-}
-
-@keyframes cd-sprite {
-  0% {
-    transform: translateY(-50%) translateX(-2%);
-  }
-  100% {
-    transform: translateY(-50%) translateX(-98%);
-  }
-}
-
-.cd-transition-layer.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.cd-transition-layer.opening .bg-layer {
-  animation: cd-sprite 0.8s steps(24);
-  animation-fill-mode: forwards;
-}
-
 body {
   /* background: none!important;
   background-color: transparent!important; */
@@ -155,6 +113,7 @@ body {
 .ReactPiano__Keyboard {
   height: 40vh !important;
   width: 100% !important;
+  margin-bottom: 2rem;
 }
 
 .museum-page {
@@ -256,7 +215,8 @@ div[role="toolbar"] > button > svg {
 }
 
 .technicalInformation ul {
-  padding-left: 1rem;
+  padding-left: 1.13rem !important;
+  list-style: square;
 }
 
 .MuiBox-root-1 {
@@ -284,6 +244,10 @@ iframe > * {
 .vp-center {
   justify-content: left !important;
   align-items: left !important;
+}
+
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 4rem !important;
 }
 
 .closeIcon {
@@ -358,7 +322,7 @@ iframe > * {
 
   .modalContentAdjusted p {
     color: black;
-    font-family: "Aleo-Light";
+    font-family: "Aleo-Light", Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
     margin: 1rem 0;
   }

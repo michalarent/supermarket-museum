@@ -2,10 +2,12 @@
   filter: drop-shadow(30px 30px rgba(0, 0, 0, 0));
 }
 .label {
+  transform: translateY(-6vh);
   position: relative;
   z-index: -1;
   height: 14rem;
   width: 28rem;
+
   clip-path: polygon(
     0 0,
     80% 0%,
@@ -23,10 +25,19 @@
   background: radial-gradient(circle at 80% 50%, transparent 7%, #f4d588 7%);
 }
 
+/* center vertically!!! */
 .label .labelContent {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   font-family: "Aleo-Black";
-  margin: auto;
-  top: 15%;
+  /* margin: auto; */
+  /* top: 50%; */
+  max-width: 70%;
+
+  vertical-align: middle;
+
   position: absolute;
 }
 .label .labelContent h1 {

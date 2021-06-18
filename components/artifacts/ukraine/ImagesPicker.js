@@ -63,9 +63,9 @@ const ImagesPicker = ({
 
   return (
     <>
-      <Grid container className={styles.GridContainer} spacing={2}>
+      <Grid container alignItems="center" justify="center" className={styles.GridContainer} spacing={2}>
         <Grid item xs={6} md={12} className={styles.GridItemHeader}>
-          <p>Select images.</p>
+          <p>What kind of life do you have now?</p>
         </Grid>
         <>
           {images.map((image) => (
@@ -81,7 +81,7 @@ const ImagesPicker = ({
                       backgroundImage:
                         "url(" +
                         image.image +
-                        "), linear-gradient(rgba(144, 238, 144,0.5),rgba(144, 238, 144, 0.5)",
+                        ")",
                       backgroundBlendMode: "overlay",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",

@@ -29,7 +29,7 @@ export default function TooltipLabel({
       <Tooltip
         interactive
         enterTouchDelay="0"
-        placement="right"
+        placement="center"
         onOpen={() => showTooltip(artifactSlug)}
         className={styles.tooltip}
         title={

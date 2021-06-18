@@ -1,7 +1,7 @@
 .GridContainer {
   /* -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); */
-  width: 100%;
+  width: 110%;
   height: 100%;
 }
 
@@ -51,7 +51,7 @@
   align-items: center;
   /* padding: 1vh; */
 
-  background-color: lightcoral;
+  background-color: black;
   transition: background-image 0.2s;
   /* background-image: url("/utility_images/locker.png"); */
   background-size: contain;
@@ -65,7 +65,7 @@
   align-items: center;
   /* padding: 1vh; */
 
-  background: rgba(144, 238, 144, 0.29) !important;
+  background: #fcf7ed;
   transition: background-image 0.2s;
   /* background-image: url("/utility_images/locker.png"); */
   background-size: contain;
@@ -97,8 +97,8 @@
 }
 
 .GridItem > .Image_buttonContainer {
-  height: 16vh;
-  width: 16vh;
+  height: 26vh;
+  width: 26vh;
 
   justify-content: center;
   align-items: center;
@@ -107,14 +107,30 @@
   /* background-color: lightcoral; */
   transition: background-image 0.2s;
   background-size: contain;
+  filter: grayscale(1);
+}
+
+.GridItem > .Image_buttonContainer:hover {
+  filter: grayscale(0);
 }
 
 .GridItem > .Image_buttonContainerSelected {
-  height: 16vh;
-  width: 16vh;
+  height: 26vh;
+  width: 26vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* padding: 1vh; */
+
+  /* background: rgba(144, 238, 144, 0.29) !important; */
+}
+
+.GridItem > .Image_buttonContainerFinal {
+  height: 26vh;
+  width: 26vh;
+  background-size: contain;
+
+
   /* padding: 1vh; */
 
   /* background: rgba(144, 238, 144, 0.29) !important; */
@@ -125,9 +141,28 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.GridItem > .buttonContainerFinal {
+  height: 26vh;
+  width: 26vh;
+  background: black;
+}
+
+.GridItem > .buttonContainerFinal:hover {
+  height: 26vh;
+  width: 26vh;
+  background: #fcf7ed;
+  text-align: center;
+}
+.GridItem > .buttonContainerFinal:active {
+  height: 26vh;
+  width: 26vh;
+  background: #fcf7ed;
+  text-align: center;
+}
+
 .GridItem > .Image_buttonContainer:active,
 .buttonContainer:hover {
-  background-color: lightblue;
+  background-color: #fcf7ed;
   /* background-image: url("/utility_images/locker_open.png"); */
 }
 

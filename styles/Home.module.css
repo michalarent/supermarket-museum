@@ -59,10 +59,10 @@
   width: 2500vw;
   background: url("/ink.png") no-repeat 0 0;
   background-size: 100% 100%;
-  animation: cd-sequence 0.8s steps(24);
+  animation: cd-sequence 1.4s steps(24);
   animation-fill-mode: forwards;
 }
 .bgLayer {
-  animation: cd-sequence 0.8s steps(24);
+  animation: cd-sequence 1.4s steps(24);
   animation-fill-mode: forwards;
 }

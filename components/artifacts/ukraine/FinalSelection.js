@@ -144,12 +144,18 @@ export default function FinalSelection({
 
   return (
     <>
-      <Grid container className={styles.GridContainer} spacing={2}>
-        <Grid item xs={6} md={6}>
+      <Grid container alignItems="center" justify="center" className={styles.GridContainer} spacing={0}>
+        <Grid container alignItems="center" justify="center" xs={6} md={6} spacing={2}>
           {finalImages.map((image) => (
-            <Grid className={styles.GridItem} key={image.id}>
+            <Grid
+              item
+              md={6}
+              style={{ padding: "0", margin: "0" }}
+              className={styles.GridItem}
+              key={image.id}
+            >
               <div
-                className={styles.Image_buttonContainer}
+                className={styles.Image_buttonContainerFinal}
                 data-info={image.id}
                 style={{
                   backgroundImage: "url(" + image.image + ")",
@@ -160,12 +166,12 @@ export default function FinalSelection({
             </Grid>
           ))}
         </Grid>
-        <Grid item xs={6} md={6}>
+        <Grid container alignItems="center" justify="center" xs={6} md={6} spacing={2}>
           {finalSounds.map((sound) => (
             <Grid item className={styles.GridItem} key={sound.id}>
               <>
                 <div
-                  className={styles.buttonContainer}
+                  className={styles.buttonContainerFinal}
                   onClick={handleClick}
                   data-info={sound.id}
                 >
@@ -175,9 +181,9 @@ export default function FinalSelection({
             </Grid>
           ))}
         </Grid>
-        <Grid item xs={12} md={12}>
-          <button onClick={() => setCurrentStage(0)}>Start again!</button>
-        </Grid>
+      </Grid>
+      <Grid item xs={12} md={12}>
+        <button onClick={() => setCurrentStage(0)}>Start again!</button>
       </Grid>
     </>
   );
