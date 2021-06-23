@@ -19,8 +19,6 @@
     0% 20%
   );
 
-  background: rgb(208, 111, 94);
-  background-color: #f4d588;
   border-radius: 15px;
   background: radial-gradient(circle at 80% 50%, transparent 7%, #f4d588 7%);
 }

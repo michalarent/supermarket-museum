@@ -56,12 +56,62 @@ export async function getAllArtifacts() {
   return data;
 }
 
+export async function getAllGardenArtifacts() {
+  const data = await fetchAPI(`
+      {
+        gardenArtifactModels {
+          descriptionEn {
+            html
+          }
+          descriptionOriginal {
+            html
+          }
+          technicalInformation {
+            html
+          }
+          title
+          artifactContent {
+            html
+          }
+          authors {
+            html
+          }
+          slug
+          videoIFrame {
+            text
+          }
+          youMayAlsoLike {
+            html
+          }
+        }
+      }
+    `);
+  return data;
+}
+
 export async function getAllLabels() {
   const data = await fetchAPI(`
     query MyQuery {
       labels {
         slug
         subtitle
+        title
+        content {
+          html
+          text
+        }
+      }
+    }
+  `);
+  return data;
+}
+
+export async function getAllGardenLabels() {
+  const data = await fetchAPI(`
+    query MyQuery {
+      gardenLabels {
+        slug
+        subTitle
         title
         content {
           html
@@ -112,6 +162,40 @@ export async function getArtifactBySlug(slug) {
     `
       query MyQuery {
         artifactModel(where: {slug: ""}) {
+          artifactContent {
+            html
+            raw
+            text
+          }
+          authors {
+            html
+          }
+          descriptionEn {
+            html
+          }
+          descriptionOriginal {
+            html
+          }
+          title
+          youMayAlsoLike {
+            html
+          }
+          slug
+          videoIFrame {
+            text
+          }
+        }
+      }      
+      `
+  );
+  return data;
+}
+
+export async function getGardenArtifactBySlug(slug) {
+  const data = await fetchAPI(
+    `
+      query MyQuery {
+        gardenArtifactModel(where: {slug: ""}) {
           artifactContent {
             html
             raw

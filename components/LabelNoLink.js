@@ -14,7 +14,12 @@ const LabelNoLink = (props) => {
       {(isClicked) => (
         <div className={styles.labelContainer}>
           <div className={styles.shadow}>
-            <div className={styles.label}>
+            <div
+              className={styles.label}
+              style={{
+                background: `radial-gradient(circle at 80% 50%, transparent 7%, ${props.color == null ? "#f4d588" : props.color} 7%)`,
+              }}
+            >
               <Grid
                 container
                 spacing={2}

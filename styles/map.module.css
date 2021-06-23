@@ -14,8 +14,45 @@
   border-radius: 50%;
 }
 
+.tools {
+  z-index: 1;
+  position: absolute;
+  font-family: "Aleo-Black";
+  font-size: 2rem;
+  left: 1rem;
+  top: 1rem;
+}
+
+.tools > button {
+  background-image: url("/magnifying-glass.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  color: transparent !important;
+  width: 2rem !important;
+  max-width: 2rem !important;
+  border-radius: 0% !important;
+  box-shadow: 0 !important;
+  border: 0px black solid;
+  background-color: transparent !important;
+}
+
+.returnArrow {
+  position: absolute;
+  bottom: 0;
+  left: 1%;
+  transform: rotate(-90deg) scale(0.5);
+  box-shadow: green 1px;
+  z-index: 1;
+  transition: left 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.returnArrow:hover {
+  left: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
 .allTooltips {
-  
   position: absolute;
   width: 100%;
   height: 100%;
@@ -53,8 +90,6 @@
   border: 1px solid black;
   background-color: transparent;
 } */
-
-
 
 @keyframes pulse {
   0% {

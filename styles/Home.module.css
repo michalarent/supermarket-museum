@@ -5,12 +5,15 @@
   z-index: 1;
 }
 .frontPageLabel > div > div > div {
-  background: radial-gradient(circle at 80% 50%, transparent 7%, #fcf7ed 7%) !important;
-
+  background: radial-gradient(
+    circle at 80% 50%,
+    transparent 7%,
+    #fcf7ed 7%
+  ) !important;
 }
 
 .frontPageLabel > div > div > div > div > div > div > h1 {
-  font-family: 'Aleo-Bold' !important;
+  font-family: "Aleo-Bold" !important;
   text-align: center !important;
 }
 
@@ -19,6 +22,34 @@
   top: 50vh !important;
   right: 53vw !important;
   z-index: 2;
+}
+
+.landingImageContainer {
+  display: block;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.enterSupermarket {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  width: 40vw;
+  height: 30vw;
+}
+
+.enterGarden {
+  position: absolute;
+  right: 2%;
+  top: 8%;
+  width: 40vw;
+  height: 30vw;
+}
+
+.landingImage {
+  align-content: center;
+  max-height: 100vh;
+  margin: 0 auto;
 }
 
 @keyframes cd-sequence {

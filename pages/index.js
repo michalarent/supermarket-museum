@@ -16,7 +16,7 @@ export default function Home() {
   async function handleTransition() {
     setShowTransition(true);
     await timeout(1000);
-    router.push("/museum");
+    router.push("/choose");
   }
 
   async function handleTransitionArtifact() {
