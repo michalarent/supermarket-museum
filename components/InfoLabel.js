@@ -33,6 +33,11 @@ const InfoLabel = (props) => {
                         __html: props.content,
                       }}
                     />
+                    {props.modal == true ? (
+                      <p className={styles.link} onClick={props.onClick}>
+                        To read further...
+                      </p>
+                    ) : null}
                   </div>
                 </Grid>
                 <Grid item md={2}></Grid>

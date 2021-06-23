@@ -161,7 +161,7 @@ export async function getArtifactBySlug(slug) {
   const data = await fetchAPI(
     `
       query MyQuery {
-        artifactModel(where: {slug: ""}) {
+        artifactModel(where: {slug: "${slug}"}) {
           artifactContent {
             html
             raw

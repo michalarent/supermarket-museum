@@ -17,7 +17,8 @@ export default function TooltipLabel({
   artifactSlug,
   borderColor,
   artifactTitle,
-  color
+  modal,
+  color,
 }) {
   const [showThisTooltip, setShowThisTooltip] = React.useState(false);
 
@@ -43,6 +44,7 @@ export default function TooltipLabel({
                 showButton={true}
                 onClick={handleOpenArtifact}
                 color={color}
+                modal={modal}
               />
             ) : null}
           </>

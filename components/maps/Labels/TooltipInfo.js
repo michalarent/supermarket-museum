@@ -17,8 +17,18 @@ export default function TooltipInfo({
   artifactTitle,
   category,
   content,
+  handleShow,
+  showTooltip,
+  modal,
+  href,
 }) {
   var text = content;
+  const [showThisTooltip, setShowThisTooltip] = React.useState(false);
+
+  const handleOpenArtifact = () => {
+    handleShow(artifactSlug);
+    setShowThisTooltip(false);
+  };
 
   return (
     <>
@@ -26,20 +36,27 @@ export default function TooltipInfo({
         interactive
         placement="right"
         enterTouchDelay={0}
-        leaveDelay={100}
+        onOpen={() => showTooltip(artifactSlug)}
         className={styles.tooltip}
         title={
           <>
-            <InfoLabel
-              slug={artifactSlug}
-              header={artifactTitle}
-              category={category}
-              content={text}
-            />
+            {showThisTooltip ? (
+              <InfoLabel
+                slug={artifactSlug}
+                header={artifactTitle}
+                category={category}
+                content={text}
+                onClick={handleOpenArtifact}
+                modal={modal}
+              />
+            ) : null}
           </>
         }
       >
         <div
+          onMouseEnter={() => setShowThisTooltip(true)}
+          onTouchStart={() => setShowThisTooltip(true)}
+          onTouchStart={() => setShowThisTooltip(true)}
           className={styles_map.pin}
           style={{ top: yLocation, left: xLocation, color: borderColor }}
         />

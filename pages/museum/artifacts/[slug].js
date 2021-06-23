@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
   console.log(gardenArtifactModels);
   var paths = [];
-  for (var i = 0; i < Object.keys(artifactModels).length - 1; i++) {
+  for (var i = 0; i <= Object.keys(artifactModels).length - 1; i++) {
     console.log(Object.keys(artifactModels).length);
     paths.push({
       params: {

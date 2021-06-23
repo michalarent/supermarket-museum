@@ -9,7 +9,7 @@ import GardenMap from "../components/maps/GardenMap";
 
 import { GraphQLClient } from "graphql-request";
 import { getAllGardenArtifacts, getAllGardenLabels } from "../api/graphcms";
-import router from "next/router";
+import Router from "next/router";
 
 export async function getStaticProps() {
   const { gardenArtifactModels } = await getAllGardenArtifacts();
@@ -30,11 +30,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Garden({
-  gardenArtifactModels,
-  openArtifact,
-  gardenLabels,
-}) {
+function Garden({ gardenArtifactModels, openArtifact, gardenLabels }) {
+  async function handleTransitionChoose() {
+    setShowTransition(true);
+    await timeout(500);
+    Router.push("/choose");
+  }
+
+  const [showTransition, setShowTransition] = React.useState(false);
+  function timeout(delay) {
+    return new Promise((res) => setTimeout(res, delay));
+  }
+
   return (
     <>
       <SideDrawer />
@@ -42,7 +49,7 @@ export default function Garden({
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}
-          onMouseDown={() => router.push("/choose")}
+          onMouseDown={() => handleTransitionChoose()}
           style={{ cursor: "pointer" }}
         />
         <GardenMap
@@ -50,7 +57,12 @@ export default function Garden({
           openArtifact={openArtifact}
           labels={gardenLabels}
         />
+        <div className={showTransition ? styles.transitionOpening : ""}>
+          <div className={styles.bgLayer}></div>
+        </div>
       </div>
     </>
   );
 }
+
+export default Garden;

@@ -261,11 +261,16 @@ export default function SupermarketMap({
                       />
                     </>
                   ) : (
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact.artifactContent.html,
-                      }}
-                    />
+                    <Grid container spacing={5}>
+                      <Grid item xs={12} md={12} lg={12}>
+                        <div
+                          className={"artifactDescription"}
+                          dangerouslySetInnerHTML={{
+                            __html: currentArtifact.artifactContent.html,
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
                   )}
                 </>
                 <Grid container spacing={5}>
@@ -273,7 +278,7 @@ export default function SupermarketMap({
                     <div
                       className={"artifactDescription"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.descriptionEn.html,
+                        __html: currentArtifact.descriptionEn?.html,
                       }}
                     />
                   </Grid>
@@ -281,7 +286,7 @@ export default function SupermarketMap({
                     <div
                       className={"artifactDescription"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.descriptionOriginal.html,
+                        __html: currentArtifact.descriptionOriginal?.html,
                       }}
                     />
                   </Grid>
@@ -295,7 +300,7 @@ export default function SupermarketMap({
                     <div
                       className={"technicalInformation"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.technicalInformation.html,
+                        __html: currentArtifact.technicalInformation?.html,
                       }}
                     />
                   </Grid>
@@ -303,7 +308,7 @@ export default function SupermarketMap({
                     <div
                       className={"technicalInformation"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.youMayAlsoLike.html,
+                        __html: currentArtifact.youMayAlsoLike?.html,
                       }}
                     />
                   </Grid>
@@ -403,12 +408,14 @@ export default function SupermarketMap({
                       <div className={styles_map.tooltip}>
                         {/*stand z pocztowkami*/}
                         <TooltipInfo
-                          artifactSlug={"postcards-from-the-supermarket-museum"}
+                          artifactSlug={"info-artifact-example"}
                           artifactTitle={labelsDict["sensory-marketing"].title}
                           category={labelsDict["sensory-marketing"].subtitle}
                           content={labelsDict["sensory-marketing"].content.html}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
                           xLocation={"43.2%"}
                           yLocation={"73.5%"}
                         />

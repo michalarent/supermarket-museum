@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import SupermarketMap from "../components/maps/SupermarketMap";
 import styles from "../styles/Home.module.css";
 import map_style from "../styles/map.module.css";
+import Router from "next/router";
 
 import { GraphQLClient } from "graphql-request";
 import { getAllArtifacts, getAllLabels } from "../api/graphcms";
@@ -28,17 +29,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Museum({ artifactModels, openArtifact, labels }) {
+  async function handleTransitionChoose() {
+    setShowTransition(true);
+    await timeout(500);
+
+    Router.push("/choose");
+  }
+
+  const [showTransition, setShowTransition] = React.useState(false);
+  function timeout(delay) {
+    return new Promise((res) => setTimeout(res, delay));
+  }
+
   return (
     <>
       <SideDrawer />
       <div className={styles.museumPage}>
+        <img
+          src="/next-icon.png"
+          className={map_style.returnArrow}
+          onMouseDown={() => handleTransitionChoose()}
+          style={{ cursor: "pointer" }}
+        />
         <SupermarketMap
           artifactModels={artifactModels}
           openArtifact={openArtifact}
           labels={labels}
         />
+        <div className={showTransition ? styles.transitionOpening : ""}>
+          <div className={styles.bgLayer}></div>
+        </div>
       </div>
-      
     </>
   );
 }
