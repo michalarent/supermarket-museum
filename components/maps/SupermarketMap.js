@@ -23,6 +23,9 @@ import TooltipInfo from "./Labels/TooltipInfo";
 import TooltipLabelSynthesizer from "./Labels/TooltipLabelSynthesizer";
 import Synthesizer from "../../pages/museum/artifacts/synthesizer";
 import UkraineArtifact from "../../pages/museum/artifacts/ukraine";
+import Recollections from "../artifacts/ukraine/recollections";
+import AudioPlayer from "../audio-player/AudioPlayer";
+import PhotoCarousel from "../image-gallery/PhotoCarousel";
 
 export default function SupermarketMap({
   artifactModels,
@@ -71,6 +74,63 @@ export default function SupermarketMap({
     }
   };
 
+  const tasteOfTropicsImags = [
+    {
+      original: "/photo_gallery/taste-of-tropics/1.png",
+    },
+    {
+      original: "/photo_gallery/taste-of-tropics/2.png",
+    },
+    {
+      original: "/photo_gallery/taste-of-tropics/3.png",
+    },
+    {
+      original: "/photo_gallery/taste-of-tropics/4.png",
+    },
+    {
+      original: "/photo_gallery/taste-of-tropics/5.png",
+    },
+    {
+      original: "/photo_gallery/taste-of-tropics/6.png",
+    },
+    {
+      original: "/photo_gallery/taste-of-tropics/7.png",
+    },
+  ];
+
+  const irrationalRemaindersImages = [
+    {
+      original: "/photo_gallery/irrational-remainders/1.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/2.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/3.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/4.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/5.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/6.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/7.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/8.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/9.jpg",
+    },
+    {
+      original: "/photo_gallery/irrational-remainders/10.jpg",
+    },
+  ];
+
   const handleShow = (slug) => {
     hideTooltip();
     setIsClicked(true);
@@ -82,9 +142,21 @@ export default function SupermarketMap({
       router.push(makeContextualHref(), url, {
         shallow: true,
       });
-    } else if (slug == "recollections") {
+    } else if (slug == "the-lives-we-live-by") {
       setCurrentArtifact(slug);
-      const url = "museum/artifacts/" + "recollections";
+      const url = "museum/artifacts/" + "the-lives-we-live-by";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    } else if (slug == "who-am-i") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "who-am-i";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    } else if (slug == "invisible-supermarket") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "invisible-supermarket";
       router.push(makeContextualHref(), url, {
         shallow: true,
       });
@@ -144,7 +216,31 @@ export default function SupermarketMap({
                     __html: currentArtifact.authors.html,
                   }}
                 />
-                {currentArtifact.slug == "recollections" ? (
+                {currentArtifact.slug == "who-am-i" ? (
+                  <>
+                    <AudioPlayer url={"/audio-player/who-am-i.m4a"} />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "invisible-supermarket" ? (
+                  <>
+                    <AudioPlayer
+                      url={"/audio-player/invisible-supermarket.mp3"}
+                    />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "the-taste-of-the-tropics" ? (
+                  <>
+                    <AudioPlayer url={"/audio-player/taste-of-tropics.mp3"} />
+                    <div style={{ height: "5vh" }} />
+                    <PhotoCarousel images={tasteOfTropicsImags} />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "irrational-remainders" ? (
+                  <>
+                    <PhotoCarousel images={irrationalRemaindersImages} />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "the-lives-we-live-by" ? (
                   <>
                     <UkraineArtifact />
                   </>
@@ -155,7 +251,7 @@ export default function SupermarketMap({
                   </>
                 ) : null}
                 <>
-                  {currentArtifact.videoIFrame.text.length > 5 ? (
+                  {currentArtifact?.videoIFrame?.text.length > 5 ? (
                     <>
                       <div
                         dangerouslySetInnerHTML={{
@@ -166,7 +262,7 @@ export default function SupermarketMap({
                   ) : (
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.artifactContent.text,
+                        __html: currentArtifact.artifactContent.html,
                       }}
                     />
                   )}
@@ -256,7 +352,8 @@ export default function SupermarketMap({
   function getLabelContentBySlug() {
     var dict = {};
 
-    for (var i = 0; i < Object.values(labels).length; i++) {
+    if (labels == undefined) return;
+    for (var i = 0; i < Object.values(labels)?.length; i++) {
       console.log(labels[i]);
       dict[labels[i].slug] = labels[i];
     }
@@ -265,7 +362,6 @@ export default function SupermarketMap({
   }
 
   var labelsDict = getLabelContentBySlug();
-  console.log(labelsDict["sensory-marketing"].content.html);
 
   return (
     <>
@@ -304,7 +400,6 @@ export default function SupermarketMap({
                         xLocation={"43.2%"}
                         yLocation={"73.5%"}
                       />
-
                       {/*stand z pocztowkami*/}
                       <TooltipLabel
                         artifactTitle={"stand z pocztówkami"}
@@ -314,6 +409,16 @@ export default function SupermarketMap({
                         handleShow={handleShow}
                         xLocation={"39.2%"}
                         yLocation={"73.5%"}
+                      />
+                      {/*stand z kawą*/}
+                      <TooltipLabel
+                        artifactTitle={"Taste of Tropics"}
+                        artifactSlug={"the-taste-of-the-tropics"}
+                        isClicked={isClicked}
+                        showTooltip={showTooltip}
+                        handleShow={handleShow}
+                        xLocation={"61.2%"}
+                        yLocation={"29.5%"}
                       />
                       {/*salata*/}
                       <TooltipLabel
@@ -359,8 +464,8 @@ export default function SupermarketMap({
                       />
                       {/*okno*/}
                       <TooltipLabel
-                        artifactTitle={"okno"}
-                        artifactSlug={"supermarket-vr"}
+                        artifactTitle={"Irrational Remainders"}
+                        artifactSlug={"irrational-remainders"}
                         isClicked={isClicked}
                         showTooltip={showTooltip}
                         handleShow={handleShow}
@@ -440,8 +545,8 @@ export default function SupermarketMap({
 
                       {/*kasa samoobslugowa*/}
                       <TooltipLabel
-                        artifactTitle={"kasa samoobslugowa"}
-                        artifactSlug={"supermarket-vr"}
+                        artifactTitle={"Who Am I"}
+                        artifactSlug={"who-am-i"}
                         isClicked={isClicked}
                         showTooltip={showTooltip}
                         handleShow={handleShow}

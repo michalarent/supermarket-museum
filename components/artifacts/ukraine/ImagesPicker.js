@@ -63,7 +63,13 @@ const ImagesPicker = ({
 
   return (
     <>
-      <Grid container alignItems="center" justify="center" className={styles.GridContainer} spacing={2}>
+      <Grid
+        container
+        alignItems="center"
+        justify="center"
+        className={styles.GridContainer}
+        spacing={2}
+      >
         <Grid item xs={6} md={12} className={styles.GridItemHeader}>
           <p>What kind of life do you have now?</p>
         </Grid>
@@ -78,10 +84,7 @@ const ImagesPicker = ({
                     onMouseLeave={onLeave}
                     data-info={image.id}
                     style={{
-                      backgroundImage:
-                        "url(" +
-                        image.image +
-                        ")",
+                      backgroundImage: "url(" + image.image + ")",
                       backgroundBlendMode: "overlay",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
@@ -125,21 +128,17 @@ const ImagesPicker = ({
             </Grid>
           ))}
         </>
-      </Grid>
-      <Grid container className={styles.GridContainer2}>
-        <Grid item xs={6} md={12} className={styles.GridItem}>
-          <p>
-            You picked:
-            {pickedImages.map((item) => {
-              return item + " ";
-            })}
-          </p>
+        <Grid container className={styles.GridContainer2}>
+          {pickedImages.length == 6 ? (
+            <>
+              <img
+                src="/next-icon.png"
+                className={styles.nextIcon}
+                onMouseDown={() => setCurrentStage(3)}
+              />
+            </>
+          ) : null}
         </Grid>
-        {pickedImages.length == 6 ? (
-          <Grid item xs={6} md={12} className={styles.GridItem}>
-            <button onClick={() => setCurrentStage(3)}>Proceed</button>
-          </Grid>
-        ) : null}
       </Grid>
     </>
   );

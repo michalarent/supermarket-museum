@@ -1,6 +1,9 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import styles from "/styles/ukraine.module.css";
+import { PlayArrow } from "@material-ui/icons";
+import { Stop } from "@material-ui/icons";
+import { IconButton } from "@material-ui/core";
 
 import useSound from "use-sound";
 
@@ -39,7 +42,6 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
     { id: "15" },
   ];
 
-
   const initialArray = [];
 
   //   const [pickedSounds, setPickedSounds] = React.useState(initialArray);
@@ -61,7 +63,7 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
 
   const handleClick = (event) => {
     var id = event.target.dataset.info;
-    if(id == undefined) {
+    if (id == undefined) {
       return;
     }
     console.log(id);
@@ -134,7 +136,9 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
                       onClick={handleClick}
                       data-info={sound.id}
                     >
-                      <p className={styles.indicator}>{sound.id}</p>
+                      <p className={styles.indicator}>
+                        <Stop style={{ fill: "black" }} />
+                      </p>
                     </div>
                   </>
                 ) : (
@@ -143,7 +147,9 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
                     onClick={handleClick}
                     data-info={sound.id}
                   >
-                    <p className={styles.indicator}>{sound.id}</p>
+                    <p className={styles.indicator}>
+                      <PlayArrow style={{ fill: "white" }} />
+                    </p>
                   </div>
                 )}
               </Grid>
@@ -151,18 +157,14 @@ const SoundsPicker = ({ pickedSounds, setPickedSounds, setCurrentStage }) => {
           </>
         </Grid>
         <Grid container className={styles.GridContainer2}>
-          <Grid item xs={12} md={12} className={styles.GridItem}>
-            <p>
-              You picked:
-              {pickedSounds.map((item) => {
-                return item + " ";
-              })}
-            </p>
-          </Grid>
           {pickedSounds.length == 6 ? (
-            <Grid item xs={12} md={12} className={styles.GridItem}>
-              <button onClick={() => setCurrentStage(2)}>Proceed</button>
-            </Grid>
+            <>
+              <img
+                src="/next-icon.png"
+                className={styles.nextIcon}
+                onMouseDown={() => setCurrentStage(2)}
+              />
+            </>
           ) : null}
         </Grid>
       </>

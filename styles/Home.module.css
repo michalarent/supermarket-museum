@@ -1,8 +1,24 @@
 .frontPageLabel {
   position: absolute !important;
-  top: 33vh !important;
+  top: 45vh !important;
   right: 10px !important;
   z-index: 1;
+}
+.frontPageLabel > div > div > div {
+  background: radial-gradient(circle at 80% 50%, transparent 7%, #fcf7ed 7%) !important;
+
+}
+
+.frontPageLabel > div > div > div > div > div > div > h1 {
+  font-family: 'Aleo-Bold' !important;
+  text-align: center !important;
+}
+
+.centeredLabel {
+  position: absolute !important;
+  top: 50vh !important;
+  right: 53vw !important;
+  z-index: 2;
 }
 
 @keyframes cd-sequence {

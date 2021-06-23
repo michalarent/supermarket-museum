@@ -18,6 +18,13 @@ export default function Home() {
     await timeout(1000);
     router.push("/museum");
   }
+
+  async function handleTransitionArtifact() {
+    setShowTransition(true);
+    await timeout(1000);
+    router.push("/museum/artifacts/one-of-all");
+  }
+
   return (
     <>
       <Head>
@@ -30,13 +37,24 @@ export default function Home() {
         <div className="frontPageBackground">
           <div className={styles.frontPageLabel}>
             <Label
-              header="witam"
-              author="siemanko"
+              header="ENTER THE SUPERMARKET MUSEUM"
+              author=""
               onClick={() => {
                 handleTransition();
               }}
+              style={{ backgroundColor: "red" }}
+              hideButton={true}
             />
           </div>
+        </div>
+        <div className={styles.centeredLabel}>
+          <LabelNoLink
+            slug={"one-of-all"}
+            header={"ONE OF ALL"}
+            author="Somebody"
+            showButton={true}
+            onClick={() => handleTransitionArtifact()}
+          />
         </div>
       </main>
       <div className={showTransition ? styles.transitionOpening : ""}>

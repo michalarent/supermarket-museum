@@ -1,0 +1,66 @@
+
+
+.audio-player {
+  margin: 164px 64px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.playbackButton {
+  transition: 0.2s;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 32px;
+  cursor: pointer;
+}
+
+.playbackButton svg {
+  transition: 0.2s;
+  width: 18px;
+  height: 18px;
+  color: black;
+}
+
+.playbackButton:hover svg {
+  width: 18px;
+  height: 18px;
+  color: black;
+  transform: scale(1.03);
+}
+
+.timebar {
+  flex: 1 1;
+  margin-top: 12px;
+}
+
+.timebarBar {
+  height: 4px;
+}
+
+.timebarCircle {
+  background-color: black;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  transform: translate(-50%, calc(-50% + 2px));
+  box-shadow: 0px 0px 4px 0px black(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.timebarTimeInfo {
+  margin-top: 8px;
+  font-size: 11px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}

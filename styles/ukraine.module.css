@@ -130,10 +130,22 @@
   width: 26vh;
   background-size: contain;
 
-
   /* padding: 1vh; */
 
   /* background: rgba(144, 238, 144, 0.29) !important; */
+}
+
+.nextIcon {
+  transform: rotate(90deg);
+  transform: translateX(9vw) translateY(-25vh) rotate(90deg) scale(1);
+  transition: transform 0.1s linear;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.nextIcon:hover {
+  transform: translateX(10vw) translateY(-25vh) rotate(90deg) scale(1.1);
 }
 
 .GridItem > .Image_buttonContainerSelected::before {

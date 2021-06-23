@@ -13,7 +13,7 @@ const Label = (props) => {
       {(isClicked) => (
         <div className={styles.labelContainer}>
           <div className={styles.shadow}>
-            <div className={styles.label}>
+            <div className={styles.label} onMouseDown={props.onClick} style={ props.hideButton ? ({cursor: "pointer"}) : null}>
               <Grid
                 container
                 spacing={2}
@@ -26,7 +26,7 @@ const Label = (props) => {
                     <h1>{props.header}</h1>
                     <h2>{props.author}</h2>
 
-                    {true ? (
+                    {!props.hideButton ? (
                       <Button
                         id={styles.buttonLabel}
                         classes={{ label: styles.buttonLabel }}

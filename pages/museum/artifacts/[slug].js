@@ -43,7 +43,7 @@ export async function getStaticProps({ params }) {
     props: {
       data,
       artifactModels,
-      labels
+      labels,
     },
   };
 }
@@ -52,6 +52,7 @@ export default function OpenArtifactPage({ artifactModels, data, labels }) {
   const router = useRouter();
   const { slug } = router.query;
   console.log(data);
+  console.log(labels);
   return (
     <>
       <Fade in={true} timeout={500}>
