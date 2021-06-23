@@ -17,6 +17,7 @@ export default function TooltipLabel({
   artifactSlug,
   borderColor,
   artifactTitle,
+  artifactAuthor,
   modal,
   color,
 }) {
@@ -40,7 +41,7 @@ export default function TooltipLabel({
               <LabelNoLink
                 slug={artifactSlug}
                 header={artifactTitle}
-                author="Somebody"
+                author={artifactAuthor}
                 showButton={true}
                 onClick={handleOpenArtifact}
                 color={color}

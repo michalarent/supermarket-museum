@@ -17,7 +17,9 @@ const LabelNoLink = (props) => {
             <div
               className={styles.label}
               style={{
-                background: `radial-gradient(circle at 80% 50%, transparent 7%, ${props.color == null ? "#f4d588" : props.color} 7%)`,
+                background: `radial-gradient(circle at 80% 50%, transparent 7%, ${
+                  props.color == null ? "#f4d588" : props.color
+                } 7%)`,
               }}
             >
               <Grid
@@ -30,7 +32,11 @@ const LabelNoLink = (props) => {
                 <Grid item md={8}>
                   <div className={styles.labelContent}>
                     <h1>{props.header}</h1>
-                    <h2>{props.author}</h2>
+                    <h2
+                      dangerouslySetInnerHTML={{
+                        __html: props.author,
+                      }}
+                    />
                     {true ? (
                       <Button
                         id={styles.buttonLabel}

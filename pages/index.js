@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Label from "../components/Label";
 import LabelNoLink from "../components/LabelNoLink";
+import SideDrawer from "../components/navigation/SideDrawer";
 
 export default function Home() {
   const [showTransition, setShowTransition] = React.useState(false);
@@ -35,6 +36,7 @@ export default function Home() {
 
       <main>
         <div className="frontPageBackground">
+          <SideDrawer />
           <div className={styles.frontPageLabel}>
             <Label
               header="ENTER THE SUPERMARKET MUSEUM"

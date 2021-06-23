@@ -65,6 +65,7 @@ export default function SupermarketMap({
   const handleClose = () => {
     setCurrentArtifact(null);
     setShowSynthesizer(false);
+    setBlackBackground(false);
     setShowLabel(true);
     setIsClicked(false);
     setShow(false);
@@ -135,6 +136,50 @@ export default function SupermarketMap({
   const handleShow = (slug) => {
     hideTooltip();
     setIsClicked(true);
+    if (openArtifact != null) {
+      setCurrentArtifact(openArtifact);
+    } else if (slug == "supermarket-synthesizer") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "supermarket-synthesizer";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    } else if (slug == "the-lives-we-live-by") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "the-lives-we-live-by";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    } else if (slug == "who-am-i") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "who-am-i";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    } else if (slug == "invisible-supermarket") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "invisible-supermarket";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    } else {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + slug;
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    }
+    setIsClicked(true);
+    setShow(true);
+  };
+
+  const [blackBackground, setBlackBackground] = React.useState(false);
+
+  const handleShowLamp = (slug) => {
+    hideTooltip();
+    setIsClicked(true);
+    setBlackBackground(true);
+
     if (openArtifact != null) {
       setCurrentArtifact(openArtifact);
     } else if (slug == "supermarket-synthesizer") {
@@ -367,17 +412,38 @@ export default function SupermarketMap({
     return dict;
   }
 
+  function getArtifactAuthorBySlug() {
+    var dict = {};
+
+    if (artifactModels == undefined) return;
+    for (var i = 0; i < Object.values(artifactModels)?.length; i++) {
+      console.log(artifactModels[i]);
+      dict[artifactModels[i].slug] = artifactModels[i];
+    }
+
+    return dict;
+  }
+
+  var artifactsDict = getArtifactAuthorBySlug();
   var labelsDict = getLabelContentBySlug();
 
   return (
-    <>
+    <div
+      className={
+        !blackBackground == true ? styles_map.mapWrapper : styles_map.black
+      }
+    >
       <TransformWrapper
         wheel={{ step: 100 }}
-        options={{ limitToBounds: true, minScale: 0.5, maxScale: 2 }}
+        options={{
+          limitToBounds: false,
+          minScale: 0.5,
+          maxScale: 2,
+          initialScale: 0.5,
+        }}
         alignmentAnimation={{
           disabled: true,
         }}
-        initialScale={1}
       >
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
@@ -396,7 +462,13 @@ export default function SupermarketMap({
             </div>
             <TransformComponent className={styles_map.TransformComponent}>
               <Fade in={true} timeout={800}>
-                <div className={styles_map.mapWrapper}>
+                <div
+                  className={
+                    !blackBackground == true
+                      ? styles_map.mapWrapper
+                      : styles_map.black
+                  }
+                >
                   <img
                     ref={image}
                     className={styles_map.mapImage}
@@ -419,16 +491,299 @@ export default function SupermarketMap({
                           xLocation={"43.2%"}
                           yLocation={"73.5%"}
                         />
+                        {/*sensations, tool design // on top of sketch*/}
+                        <TooltipInfo
+                          artifactSlug={
+                            "corresponding-category-supermarket-sensations-design"
+                          }
+                          artifactTitle={
+                            labelsDict["category-supermarket-sensations-design"]
+                              .title
+                          }
+                          category={
+                            labelsDict["category-supermarket-sensations-design"]
+                              .subtitle
+                          }
+                          content={
+                            labelsDict["category-supermarket-sensations-design"]
+                              .content.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"50%"}
+                          yLocation={"0%"}
+                        />
+                        {/*sensations, tool color // walls*/}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"0%"}
+                          yLocation={"0.5%"}
+                        />
+                        {/*sensations, tool lighting // floor */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"20.2%"}
+                          yLocation={"30.5%"}
+                        />
+                        {/*sensations, tool smell // entrance */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"64.3%"}
+                          yLocation={"97%"}
+                        />
+                        {/*sensations, tool sound // speaker on wall */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"87.3%"}
+                          yLocation={"22%"}
+                        />
+                        {/*sensations, tool taste // cheese stand */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"40.3%"}
+                          yLocation={"15%"}
+                        />
+                        {/*sensations, tool taste // cheese stand */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"40.3%"}
+                          yLocation={"15%"}
+                        />
+                        {/*sensations, tool touch // fruits veggies */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"70.2%"}
+                          yLocation={"66.8%"}
+                        />
+                        {/*location, goods // at front */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"55.3%"}
+                          yLocation={"100%"}
+                        />
+                        {/*location, goods // at exit */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"35.3%"}
+                          yLocation={"100%"}
+                        />
+                        {/*location, goods // at exit */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"35.3%"}
+                          yLocation={"100%"}
+                        />
+                        {/*location, goods // przy kasie */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"35.3%"}
+                          yLocation={"90%"}
+                        />
+                        {/*location, goods // mięso */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"46.3%"}
+                          yLocation={"17%"}
+                        />
+                        {/*location, goods // fish */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"68.3%"}
+                          yLocation={"28%"}
+                        />
+                        {/*location, goods // bread */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"41.3%"}
+                          yLocation={"12%"}
+                        />
+                        {/*location, goods // trading hall entrance */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"46.3%"}
+                          yLocation={"21%"}
+                        />
+                        {/*location, goods // promotion */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"38.2%"}
+                          yLocation={"72.5%"}
+                        />
+                        {/*pricing strategies // trading hall entrance */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"20.2%"}
+                          yLocation={"72.5%"}
+                        />
+                        {/*pricing strategies // trading hall entrance */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"20.2%"}
+                          yLocation={"80.5%"}
+                        />
+                        {/*pricing strategies // trading hall entrance */}
+                        <TooltipInfo
+                          artifactSlug={"info-artifact-example"}
+                          artifactTitle={labelsDict["sensory-marketing"].title}
+                          category={labelsDict["sensory-marketing"].subtitle}
+                          content={labelsDict["sensory-marketing"].content.html}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          xLocation={"26.2%"}
+                          yLocation={"80.5%"}
+                        />
                         {/*stand z pocztowkami*/}
                         <TooltipLabel
                           artifactTitle={"stand z pocztówkami"}
                           artifactSlug={"postcards-from-the-supermarket-museum"}
+                          artifactAuthor={artifactsDict["postcards-from-the-supermarket-museum"].authors.html}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
-                          xLocation={"39.2%"}
-                          yLocation={"73.5%"}
+                          xLocation={"54.2%"}
+                          yLocation={"80.5%"}
                         />
+                        {/*nabiał*/}
+                        <TooltipLabel
+                          artifactTitle={"The Origin of the End"}
+                          artifactSlug={"the-origin-of-the-end"}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"71.2%"}
+                          yLocation={"49.5%"}
+                        />
+
                         {/*stand z kawą*/}
                         <TooltipLabel
                           artifactTitle={"Taste of Tropics"}
@@ -477,9 +832,9 @@ export default function SupermarketMap({
                           artifactSlug={"invisible-supermarket"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
-                          handleShow={handleShow}
-                          xLocation={"51.6%"}
-                          yLocation={"32.6%"}
+                          handleShow={handleShowLamp}
+                          xLocation={"54.6%"}
+                          yLocation={"34.6%"}
                         />
                         {/*okno*/}
                         <TooltipLabel
@@ -493,8 +848,8 @@ export default function SupermarketMap({
                         />
                         {/*stand z gazetkami*/}
                         <TooltipLabel
-                          artifactTitle={"stand z gazetkami"}
-                          artifactSlug={"supermarket-vr"}
+                          artifactTitle={"Best Value Discount Sale"}
+                          artifactSlug={"best-value-discount-sale"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
@@ -503,7 +858,7 @@ export default function SupermarketMap({
                         />
                         {/*smietniki*/}
                         <TooltipLabel
-                          artifactTitle={"śmietniki"}
+                          artifactTitle={"Sacrifice Offering"}
                           artifactSlug={"sacrifice-offering"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
@@ -511,20 +866,40 @@ export default function SupermarketMap({
                           xLocation={"95.3%"}
                           yLocation={"24.2%"}
                         />
+                        {/*wolne warzywa*/}
+                        <TooltipLabel
+                          artifactTitle={"Permaculture"}
+                          artifactSlug={"permaculture"}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"91.2%"}
+                          yLocation={"57.8%"}
+                        />
                         {/*stand z ksiazkami*/}
                         <TooltipLabel
-                          artifactTitle={"stand z ksiązkami"}
-                          artifactSlug={"supermarket-vr"}
+                          artifactTitle={"The Taste of the Past"}
+                          artifactSlug={"the-taste-of-the-past"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
                           xLocation={"16.8%"}
                           yLocation={"62.5%"}
                         />
+                        {/*ksiazka dla dzieci*/}
+                        <TooltipLabel
+                          artifactTitle={"All on the Ground"}
+                          artifactSlug={"all-on-the-ground"}
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"10.8%"}
+                          yLocation={"57.5%"}
+                        />
                         {/*nasiona do kupienia*/}
                         <TooltipLabel
-                          artifactTitle={"nasiona do kupienia"}
-                          artifactSlug={"supermarket-vr"}
+                          artifactTitle={"Seeds"}
+                          artifactSlug={"seeds"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
@@ -533,8 +908,8 @@ export default function SupermarketMap({
                         />
                         {/*jablka*/}
                         <TooltipLabel
-                          artifactTitle={"jablka"}
-                          artifactSlug={"supermarket-vr"}
+                          artifactTitle={"The Rotting Apple"}
+                          artifactSlug={"the-rotting-apple"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
@@ -543,7 +918,7 @@ export default function SupermarketMap({
                         />
                         {/*wozki*/}
                         <TooltipLabel
-                          artifactTitle={"wózki sklepowe"}
+                          artifactTitle={"Supermarket VR"}
                           artifactSlug={"supermarket-vr"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
@@ -574,13 +949,13 @@ export default function SupermarketMap({
                         />
                         {/*lustro*/}
                         <TooltipLabel
-                          artifactTitle={"lustro"}
-                          artifactSlug={"supermarket-vr"}
+                          artifactTitle={"Seeing Them There"}
+                          artifactSlug={"seeing-them-there"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
-                          xLocation={"39.2%"}
-                          yLocation={"50.6%"}
+                          xLocation={"42.2%"}
+                          yLocation={"52.6%"}
                         />
                         {/*clothes*/}
                         <TooltipLabel
@@ -604,6 +979,6 @@ export default function SupermarketMap({
       <Modal open={openArtifact == null ? show : true}>
         <>{body}</>
       </Modal>
-    </>
+    </div>
   );
 }

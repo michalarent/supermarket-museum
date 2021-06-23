@@ -57,7 +57,7 @@ export default function TooltipInfo({
           onMouseEnter={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
-          className={styles_map.pin}
+          className={styles_map.pinInfo}
           style={{ top: yLocation, left: xLocation, color: borderColor }}
         />
       </Tooltip>
