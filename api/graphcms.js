@@ -56,6 +56,35 @@ export async function getAllArtifacts() {
   return data;
 }
 
+export async function getAllAgroPermaLabInfo() {
+  const data = await fetchAPI(`
+      {
+        infoPages {
+          slug
+          title
+          content {
+            html
+          }
+        }
+      }
+    `);
+  return data;
+}
+
+export async function getAgroPermaLabInfoBySlug(slug) {
+  const data = await fetchAPI(`
+      {
+        infoPage(where: {slug: "${slug}"}) {
+          content {
+            html
+          }
+          title
+        }
+      }
+    `);
+  return data;
+}
+
 export async function getAllGardenArtifacts() {
   const data = await fetchAPI(`
       {

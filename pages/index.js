@@ -6,8 +6,20 @@ import styles from "../styles/Home.module.css";
 import Label from "../components/Label";
 import LabelNoLink from "../components/LabelNoLink";
 import SideDrawer from "../components/navigation/SideDrawer";
+import { getAllAgroPermaLabInfo } from "../api/graphcms";
 
-export default function Home() {
+export async function getStaticProps() {
+  const { infoPages } = await getAllAgroPermaLabInfo();
+  console.log("****");
+  console.log(infoPages);
+
+  return {
+    props: { infoPages },
+  };
+}
+
+export default function Home({ infoPages }) {
+  console.log(infoPages);
   const [showTransition, setShowTransition] = React.useState(false);
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));
@@ -36,7 +48,7 @@ export default function Home() {
 
       <main>
         <div className="frontPageBackground">
-          <SideDrawer />
+          <SideDrawer infoPages={infoPages} currentPage={""} />
           <div className={styles.frontPageLabel}>
             <Label
               header="ENTER THE SUPERMARKET MUSEUM"

@@ -50,6 +50,11 @@
   border: 0px black solid;
   background-color: transparent !important;
 }
+.arrowContainer {
+  width: 100%;
+  height: 100%;
+  position:absolute;
+}
 
 .returnArrow {
   position: absolute;

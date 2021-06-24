@@ -8,17 +8,22 @@ import map_style from "../styles/map.module.css";
 import GardenMap from "../components/maps/GardenMap";
 
 import { GraphQLClient } from "graphql-request";
-import { getAllGardenArtifacts, getAllGardenLabels } from "../api/graphcms";
+import {
+  getAllGardenArtifacts,
+  getAllGardenLabels,
+  getAllAgroPermaLabInfo,
+} from "../api/graphcms";
 import Router from "next/router";
 
 export async function getStaticProps() {
   const { gardenArtifactModels } = await getAllGardenArtifacts();
+  const { infoPages } = await getAllAgroPermaLabInfo();
   console.log(gardenArtifactModels);
   const { gardenLabels } = await getAllGardenLabels();
   console.log(gardenLabels);
 
   return {
-    props: { gardenArtifactModels, gardenLabels },
+    props: { gardenArtifactModels, gardenLabels, infoPages },
   };
 }
 
@@ -30,7 +35,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Garden({ gardenArtifactModels, openArtifact, gardenLabels }) {
+function Garden({
+  gardenArtifactModels,
+  openArtifact,
+  gardenLabels,
+  infoPages,
+}) {
   async function handleTransitionChoose() {
     setShowTransition(true);
     await timeout(500);
@@ -44,7 +54,7 @@ function Garden({ gardenArtifactModels, openArtifact, gardenLabels }) {
 
   return (
     <>
-      <SideDrawer />
+      <SideDrawer currentPage="garden" infoPages={infoPages} />
       <div className={styles.museumPage}>
         <img
           src="/next-icon.png"

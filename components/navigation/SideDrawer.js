@@ -12,6 +12,13 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Link from "next/link";
+import { useContextualRouting } from "next-use-contextual-routing";
+import { useRouter } from "next/router";
+import Modal from "@material-ui/core/Modal";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import { Box, Grid } from "@material-ui/core";
+
+import { getAllAgroPermaLabInfo } from "../../api/graphcms";
 
 import styles from "./SideDrawer.module.css";
 
@@ -35,10 +42,61 @@ import styles from "./SideDrawer.module.css";
 //   },
 // }));
 
-export default function PersistentDrawerRight() {
+export default function PersistentDrawerRight({
+  infoPages,
+  openInfoPage,
+  currentPage,
+}) {
   // const classes = useStyles();
   // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const { makeContextualHref, returnHref } = useContextualRouting();
+  const router = useRouter();
+  const [showManifesto, setShowManifesto] = React.useState(false);
+  const [show, setShow] = React.useState(false);
+  const [currentInfoPage, setCurrentInfoPage] = React.useState(null);
+
+  const handleShow = (slug) => {
+    console.log(openInfoPage);
+    if (openInfoPage != null) {
+      setCurrentDisplayedInfoPage(openInfoPage);
+    } else {
+      setCurrentDisplayedInfoPage(slug);
+      const url = "/" + slug;
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
+    }
+    setShow(true);
+  };
+
+  const setCurrentDisplayedInfoPage = (slug) => {
+    let infoPageId = -1;
+
+    for (var i = 0; i < infoPages.length; i++) {
+      // look for the entry with a matching `code` value
+      if (infoPages[i].slug === slug) {
+        infoPageId = i;
+      }
+    }
+    const infoPage = infoPages[infoPageId];
+    setCurrentInfoPage(infoPage);
+    console.log(infoPage);
+  };
+
+  React.useEffect(() => {
+    setShow(false);
+    if (openInfoPage != null) {
+      handleShow(openInfoPage);
+    }
+  }, []);
+
+  const handleShowManifesto = () => {
+    router.push(makeContextualHref(), "/manifesto", {
+      shallow: "true",
+    });
+    setShowManifesto(true);
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -47,6 +105,60 @@ export default function PersistentDrawerRight() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleClose = () => {
+    setShow(false);
+    console.log(currentPage);
+    router.push(`/${currentPage}`, undefined, {
+      shallow: "true",
+    });
+  };
+
+  const body = (
+    <>
+      {currentInfoPage != null ? (
+        <>
+          <div className="modalCanvas">
+            <div className="closeIcon">
+              <IconButton onClick={handleClose}>
+                <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
+              </IconButton>
+            </div>
+            <Box p={(2, 4)} className="modalBoxContainer">
+              <Grid item xs={12} md={12}>
+                <div className="modalContentAdjusted">
+                  <h1 className="heading">{currentInfoPage.title}</h1>
+                  <Grid container spacing={5}>
+                    <Grid item xs={12} md={12} lg={12}>
+                      <div
+                        className={"artifactDescription"}
+                        dangerouslySetInnerHTML={{
+                          __html: currentInfoPage.content.html,
+                        }}
+                      ></div>
+                    </Grid>
+                  </Grid>
+
+                  <Grid
+                    container
+                    spacing={5}
+                    className={"technicalInformationContainer"}
+                  >
+                    <Grid item xs={12} md={12} lg={6}>
+                      <div className={"technicalInformation"} />
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={6}>
+                      <div className={"technicalInformation"} />
+                    </Grid>
+                  </Grid>
+                </div>
+              </Grid>
+            </Box>
+          </div>
+        </>
+      ) : null}
+    </>
+  );
 
   return (
     <div className={styles.drawer}>
@@ -68,38 +180,81 @@ export default function PersistentDrawerRight() {
           </IconButton>
         </div>
         <Divider />
+
         <List>
-          <ListItem button key={"Home"}>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">{"Home"}</Typography>}
-            />
-          </ListItem>
-          <Link href="/museum/manifesto">
-            <ListItem button key={"Manifesto"}>
+          <Link href="/">
+            <ListItem button key={"Home"}>
               <ListItemText
                 disableTypography
-                primary={<Typography variant="h6">{"Manifesto"}</Typography>}
+                primary={<Typography variant="h6">{"Home"}</Typography>}
               />
             </ListItem>
           </Link>
-          <ListItem button key={"Supermarket Museum"}>
+          <Link href="/museum">
+            <ListItem button key={"Supermarket Museum"}>
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography variant="h6">{"Supermarket Museum"}</Typography>
+                }
+              />
+            </ListItem>
+          </Link>
+          <Link href="/garden">
+            <ListItem button key={"Garden"}>
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6">{"Garden"}</Typography>}
+              />
+            </ListItem>
+          </Link>
+          <ListItem
+            button
+            key={"Manifesto"}
+            onClick={() => handleShow("manifesto")}
+          >
             <ListItemText
               disableTypography
-              primary={
-                <Typography variant="h6">{"Supermarket Museum"}</Typography>
-              }
+              primary={<Typography variant="h6">{"Manifesto"}</Typography>}
             />
           </ListItem>
-          <ListItem button key={"About"}>
+          <ListItem
+            button
+            key={"Manifesto"}
+            onClick={() => handleShow("about")}
+          >
             <ListItemText
               disableTypography
               primary={<Typography variant="h6">{"About"}</Typography>}
             />
           </ListItem>
+
+          <ListItem
+            button
+            key={"Manifesto"}
+            onClick={() => handleShow("contact")}
+          >
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6">{"Contact"}</Typography>}
+            />
+          </ListItem>
+          <ListItem
+            button
+            key={"Manifesto"}
+            onClick={() => handleShow("materials")}
+          >
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6">{"Materials"}</Typography>}
+            />
+          </ListItem>
         </List>
         <Divider />
       </Drawer>
+      <Modal open={show}>
+        <>{body}</>
+      </Modal>
     </div>
   );
 }

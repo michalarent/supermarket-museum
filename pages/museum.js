@@ -8,15 +8,20 @@ import map_style from "../styles/map.module.css";
 import Router from "next/router";
 
 import { GraphQLClient } from "graphql-request";
-import { getAllArtifacts, getAllLabels } from "../api/graphcms";
+import {
+  getAllArtifacts,
+  getAllLabels,
+  getAllAgroPermaLabInfo,
+} from "../api/graphcms";
 
 export async function getStaticProps() {
   const { artifactModels } = await getAllArtifacts();
   const { labels } = await getAllLabels();
+  const { infoPages } = await getAllAgroPermaLabInfo();
   console.log(artifactModels);
 
   return {
-    props: { artifactModels, labels },
+    props: { artifactModels, labels, infoPages },
   };
 }
 
@@ -28,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Museum({ artifactModels, openArtifact, labels }) {
+function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   async function handleTransitionChoose() {
     setShowTransition(true);
     await timeout(500);
@@ -43,7 +48,7 @@ function Museum({ artifactModels, openArtifact, labels }) {
 
   return (
     <>
-      <SideDrawer />
+      <SideDrawer currentPage="museum" infoPages={infoPages} />
       <div className={styles.museumPage}>
         <img
           src="/next-icon.png"
