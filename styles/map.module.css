@@ -99,11 +99,16 @@
 
 .pinInfo {
   position: absolute;
-  background-color: #ffd562;
-  clip-path: polygon(85% 0, 100% 20%, 100% 75%, 100% 100%, 0 100%, 0 0);
-  height: 1vh;
-  width: 1.6vh;
+  /* background-color: #f4d588; */
+  /* clip-path: polygon(85% 0, 100% 20%, 100% 75%, 100% 100%, 0 100%, 0 0); */
+  background-color: #f4d588;
   /* border-radius: 50%; */
+}
+
+.pinInfo > svg {
+  fill: black;
+  width: 1vh;
+  height: 1vh;
 }
 
 .pin:hover {

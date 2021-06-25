@@ -376,7 +376,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*stand z pocztowkami*/}
                         <TooltipLabel
                           artifactTitle={"Tutaj Tytul"}
-                          artifactSlug={"tutaj-tytul"}
+                          artifactSlug={"ok"}
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}

@@ -194,14 +194,22 @@ div[role="toolbar"] > button > svg {
   margin-top: 0rem;
   margin-bottom: 1rem;
   max-width: 100%;
-  word-break: break-all;
 }
 .technicalInformationContainer {
   margin: 12rem 0;
 }
 
+.artifactDescription td {
+  margin-right: 2rem;
+}
+
 .image-gallery-icon {
   color: white;
+  filter: none;
+}
+
+.image-gallery-icon:hover {
+  color: #615b63;
   filter: none;
 }
 
@@ -211,6 +219,10 @@ div[role="toolbar"] > button > svg {
 
 .image-gallery-thumbnail {
   border: 4px solid #615b637c;
+}
+
+.image-gallery-thumbnail:hover {
+  border: 4px solid white;
 }
 
 image-gallery-icon image-gallery-left-nav {
