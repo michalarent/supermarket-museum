@@ -5,8 +5,8 @@
   transform: translateY(-6vh);
   position: relative;
   z-index: -1;
-  height: 14rem;
-  width: 28rem;
+  min-height: 12vw;
+  width: 26vw;
 
   clip-path: polygon(
     0 0,
@@ -46,16 +46,49 @@
 }
 .label .labelContent h1 {
   font-family: "Now-Medium";
-  font-size: 2.2rem;
+  font-size: 1.6vw;
   color: black;
 }
 .label .labelContent h2 {
   font-family: "Now-Light";
-  font-size: 1.5rem;
+  font-size: 1vw;
   color: black;
 }
 .buttonLabel {
-  font-family: "Aleo-Bold";
+  font-family: "Now-Medium" !important;
+  font-size: 0.8vw !important;
+  text-align: left !important;
+  align-items: left !important;
+  padding-left: 1vw;
+}
+
+.label p {
+  margin-bottom: 0;
+  font-size: 0.8vw;
+}
+
+.label button {
+  height: 2.5vw;
+  padding: 0;
+  margin-top: 0.5vw;
+  width: 6vw !important;
+  min-width: 6vw !important;
+  text-align: left !important;
+  float: right;
+
+  clip-path: polygon(
+    0 0,
+    85% 0%,
+    100% 25%,
+    100% 75%,
+    85% 100%,
+    0 100%,
+    0% 80%,
+    0% 20%
+  ) !important;
+
+  border-radius: 0.5vw;
+  background: radial-gradient(circle at 80% 50%, transparent 7%, #fdf5e1 7%);
 }
 
 .button {
@@ -78,7 +111,7 @@
   position: relative;
   z-index: -1;
   /* min-height: 24rem; */
-  width: 32rem;
+  width: 28rem;
   clip-path: polygon(85% 0, 100% 20%, 100% 75%, 100% 100%, 0 100%, 0 0);
   box-shadow: 1px 1px 5px teal;
   background-color: #f4d588;
@@ -112,19 +145,19 @@
 .infoLabel .labelContent h1 {
   margin-top: 1rem;
   font-family: "Now-Medium";
-  font-size: 2.3rem;
+  font-size: 2rem;
   color: black;
 }
 .infoLabel .labelContent h2 {
   font-family: "Now-Light";
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: black;
 }
 .infoLabel .labelContent p {
   width: 110%;
-  line-height: 1.5rem;
+  line-height: 1.2rem;
   font-family: "Aleo-Light";
-  font-size: 1.3rem;
+  font-size: 0.9rem;
   color: black;
 }
 
@@ -160,17 +193,24 @@
     width: 16em;
   }
   .label .labelContent h1 {
-    font-size: 1.5em;
+    font-size: 1.2em !important;
   }
   .label .labelContent h2 {
-    font-size: 1.2em;
+    font-size: 1.5em !important;
+  }
+
+  .label p {
+    font-size: 0.5em;
   }
   .buttonLabel {
     font-family: "Aleo-Bold";
-    font-size: 1em;
+    font-size: 0.5em !important;
   }
-  .button {
-    width: 2em !important;
-    height: 2em !important;
+
+  .label button {
+    width: 3em !important;
+    min-width: 3em !important; 
+    height: 1.5em !important;
   }
+  
 }

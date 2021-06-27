@@ -31,7 +31,15 @@ const LabelNoLink = (props) => {
               >
                 <Grid item md={8}>
                   <div className={styles.labelContent}>
-                    <h1>{props.header}</h1>
+                    <h1
+                      style={{
+                        fontSize: `${
+                          props.header.length > 15 ? "1.3vw" : "1.8vw"
+                        }`,
+                      }}
+                    >
+                      {props.header}
+                    </h1>
                     <h2
                       dangerouslySetInnerHTML={{
                         __html: props.author,
@@ -42,7 +50,6 @@ const LabelNoLink = (props) => {
                         id={styles.buttonLabel}
                         classes={{ label: styles.buttonLabel }}
                         className={styles.button}
-                        variant="contained"
                         onClick={props.onClick}
                       >
                         Buy
