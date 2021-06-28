@@ -53,7 +53,7 @@
 .arrowContainer {
   width: 100%;
   height: 100%;
-  position:absolute;
+  position: absolute;
 }
 
 .returnArrow {
@@ -97,15 +97,27 @@
   /* border-radius: 50%; */
 }
 
+.pin > p {
+  position: absolute;
+  top: 50%;
+  left: 25%; 
+  margin: 0;
+  transform: translateY(-50%);
+  font-size: 0.4vh;
+  text-align: center;
+  font-family: "Now-Regular";
+}
+
 .pinInfo {
   position: absolute;
   /* background-color: #f4d588; */
   /* clip-path: polygon(85% 0, 100% 20%, 100% 75%, 100% 100%, 0 100%, 0 0); */
-  background-color: #f4d588;
+
   /* border-radius: 50%; */
 }
 
 .pinInfo > svg {
+  background-color: #f4d588;
   fill: black;
   width: 1vh;
   height: 1vh;

@@ -17,6 +17,7 @@ export default function TooltipLabelSynthesizer({
   borderColor,
   artifactTitle,
   setShowSynthesizer,
+  artifactAuthor,
 }) {
   const [showThisTooltip, setShowThisTooltip] = React.useState(false);
 
@@ -38,7 +39,7 @@ export default function TooltipLabelSynthesizer({
             <LabelNoLink
               slug={artifactSlug}
               header={artifactTitle}
-              author="Somebody"
+              author={artifactAuthor}
               showButton={true}
               onClick={handleShowSynthesizer}
             />

@@ -173,7 +173,12 @@ export default function PersistentDrawerRight({
         <MenuIcon fontSize="large" />
       </IconButton>
 
-      <Drawer variant="persistent" anchor="right" open={open}>
+      <Drawer
+        className={styles.drawerBackground}
+        variant="persistent"
+        anchor="right"
+        open={open}
+      >
         <div>
           <IconButton onClick={handleDrawerClose} color="inherit">
             <ChevronRightIcon />
@@ -181,7 +186,7 @@ export default function PersistentDrawerRight({
         </div>
         <Divider />
 
-        <List>
+        <List className={styles.listItems}>
           <Link href="/">
             <ListItem button key={"Home"}>
               <ListItemText

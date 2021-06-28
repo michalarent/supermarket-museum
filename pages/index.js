@@ -7,6 +7,8 @@ import Label from "../components/Label";
 import LabelNoLink from "../components/LabelNoLink";
 import SideDrawer from "../components/navigation/SideDrawer";
 import { getAllAgroPermaLabInfo } from "../api/graphcms";
+import Tooltip from "@material-ui/core/Tooltip";
+import TooltipLabel from "../components/maps/Labels/TooltipLabel";
 
 export async function getStaticProps() {
   const { infoPages } = await getAllAgroPermaLabInfo();
@@ -38,6 +40,12 @@ export default function Home({ infoPages }) {
     router.push("/museum/artifacts/one-of-all");
   }
 
+  const showTooltip = (slug) => {
+    setIsClicked(false);
+  };
+
+  const [isClicked, setIsClicked] = React.useState(false);
+
   return (
     <>
       <Head>
@@ -62,12 +70,15 @@ export default function Home({ infoPages }) {
           </div>
         </div>
         <div className={styles.centeredLabel}>
-          <LabelNoLink
-            slug={"one-of-all"}
-            header={"ONE OF ALL"}
-            author="Somebody"
-            showButton={true}
-            onClick={() => handleTransitionArtifact()}
+          <TooltipLabel
+            artifactTitle={"One Of All"}
+            artifactSlug={"one-of-all"}
+            artifactAuthor={"Clemens Büntig"}
+            isClicked={isClicked}
+            showTooltip={showTooltip}
+            handleShow={handleTransitionArtifact}
+            xLocation={"44.2%"}
+            yLocation={"49.6%"}
           />
         </div>
       </main>

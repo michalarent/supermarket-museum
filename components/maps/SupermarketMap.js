@@ -448,17 +448,11 @@ export default function SupermarketMap({
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <div className={styles_map.tools}>
-              <Button  onClick={zoomIn}>
-                +
-              </Button>
+              <Button onClick={zoomIn}>+</Button>
               <br />
-              <Button  onClick={zoomOut}>
-                -
-              </Button>
+              <Button onClick={zoomOut}>-</Button>
               <br />
-              <Button  onClick={resetTransform}>
-                x
-              </Button>
+              <Button onClick={resetTransform}>x</Button>
             </div>
             <TransformComponent className={styles_map.TransformComponent}>
               <Fade in={true} timeout={800}>
@@ -828,13 +822,23 @@ export default function SupermarketMap({
                           />
                           {/*location, goods // trading hall entrance */}
                           <TooltipInfo
-                            artifactSlug={"corresponding-category-location-of-products-departments"}
-                            artifactTitle={
-                              labelsDict["category-location-of-products-departments"].title
+                            artifactSlug={
+                              "corresponding-category-location-of-products-departments"
                             }
-                            category={labelsDict["category-location-of-products-departments"].subtitle}
+                            artifactTitle={
+                              labelsDict[
+                                "category-location-of-products-departments"
+                              ].title
+                            }
+                            category={
+                              labelsDict[
+                                "category-location-of-products-departments"
+                              ].subtitle
+                            }
                             content={
-                              labelsDict["category-location-of-products-departments"].content.html
+                              labelsDict[
+                                "category-location-of-products-departments"
+                              ].content.html
                             }
                             isClicked={isClicked}
                             showTooltip={showTooltip}
@@ -847,11 +851,19 @@ export default function SupermarketMap({
                           <TooltipInfo
                             artifactSlug={"info-artifact-example"}
                             artifactTitle={
-                              labelsDict["category-pricing-strategies-aisle-ends"].title
+                              labelsDict[
+                                "category-pricing-strategies-aisle-ends"
+                              ].title
                             }
-                            category={labelsDict["category-pricing-strategies-aisle-ends"].subtitle}
+                            category={
+                              labelsDict[
+                                "category-pricing-strategies-aisle-ends"
+                              ].subtitle
+                            }
                             content={
-                              labelsDict["category-pricing-strategies-aisle-ends"].content.html
+                              labelsDict[
+                                "category-pricing-strategies-aisle-ends"
+                              ].content.html
                             }
                             isClicked={isClicked}
                             showTooltip={showTooltip}
@@ -864,11 +876,19 @@ export default function SupermarketMap({
                           <TooltipInfo
                             artifactSlug={"info-artifact-example"}
                             artifactTitle={
-                              labelsDict["category-pricing-strategies-multi-buy"].title
+                              labelsDict[
+                                "category-pricing-strategies-multi-buy"
+                              ].title
                             }
-                            category={labelsDict["category-pricing-strategies-multi-buy"].subtitle}
+                            category={
+                              labelsDict[
+                                "category-pricing-strategies-multi-buy"
+                              ].subtitle
+                            }
                             content={
-                              labelsDict["category-pricing-strategies-multi-buy"].content.html
+                              labelsDict[
+                                "category-pricing-strategies-multi-buy"
+                              ].content.html
                             }
                             isClicked={isClicked}
                             showTooltip={showTooltip}
@@ -881,11 +901,19 @@ export default function SupermarketMap({
                           <TooltipInfo
                             artifactSlug={"info-artifact-example"}
                             artifactTitle={
-                              labelsDict["category-pricing-strategies-known-value-items"].title
+                              labelsDict[
+                                "category-pricing-strategies-known-value-items"
+                              ].title
                             }
-                            category={labelsDict["category-pricing-strategies-known-value-items"].subtitle}
+                            category={
+                              labelsDict[
+                                "category-pricing-strategies-known-value-items"
+                              ].subtitle
+                            }
                             content={
-                              labelsDict["category-pricing-strategies-known-value-items"].content.html
+                              labelsDict[
+                                "category-pricing-strategies-known-value-items"
+                              ].content.html
                             }
                             isClicked={isClicked}
                             showTooltip={showTooltip}
@@ -898,11 +926,16 @@ export default function SupermarketMap({
                           <TooltipInfo
                             artifactSlug={"info-artifact-example"}
                             artifactTitle={
-                              labelsDict["category-pricing-strategies-cards"].title
+                              labelsDict["category-pricing-strategies-cards"]
+                                .title
                             }
-                            category={labelsDict["category-pricing-strategies-cards"].subtitle}
+                            category={
+                              labelsDict["category-pricing-strategies-cards"]
+                                .subtitle
+                            }
                             content={
-                              labelsDict["category-pricing-strategies-cards"].content.html
+                              labelsDict["category-pricing-strategies-cards"]
+                                .content.html
                             }
                             isClicked={isClicked}
                             showTooltip={showTooltip}
@@ -913,7 +946,11 @@ export default function SupermarketMap({
                           />
                           {/*stand z pocztowkami*/}
                           <TooltipLabel
-                            artifactTitle={"stand z pocztówkami"}
+                            artifactTitle={
+                              artifactsDict[
+                                "postcards-from-the-supermarket-museum"
+                              ].title
+                            }
                             artifactSlug={
                               "postcards-from-the-supermarket-museum"
                             }
@@ -930,7 +967,9 @@ export default function SupermarketMap({
                           />
                           {/*nabiał*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["the-origin-of-the-end"].title}
+                            artifactTitle={
+                              artifactsDict["the-origin-of-the-end"].title
+                            }
                             artifactSlug={"the-origin-of-the-end"}
                             artifactAuthor={
                               artifactsDict["the-origin-of-the-end"].authors
@@ -945,7 +984,9 @@ export default function SupermarketMap({
 
                           {/*stand z kawą*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["the-taste-of-the-tropics"].title}
+                            artifactTitle={
+                              artifactsDict["the-taste-of-the-tropics"].title
+                            }
                             artifactSlug={"the-taste-of-the-tropics"}
                             artifactAuthor={
                               artifactsDict["the-taste-of-the-tropics"].authors
@@ -959,7 +1000,9 @@ export default function SupermarketMap({
                           />
                           {/*salata*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["unobvious-difference"].title}
+                            artifactTitle={
+                              artifactsDict["unobvious-difference"].title
+                            }
                             artifactSlug={"unobvious-difference"}
                             artifactAuthor={
                               artifactsDict["unobvious-difference"].authors.html
@@ -972,7 +1015,9 @@ export default function SupermarketMap({
                           />
                           {/*dzial muzyczny*/}
                           <TooltipLabelSynthesizer
-                            artifactTitle={artifactsDict["supermarket-synthesizer"].title}
+                            artifactTitle={
+                              artifactsDict["supermarket-synthesizer"].title
+                            }
                             artifactSlug={"supermarket-synthesizer"}
                             artifactAuthor={
                               artifactsDict["supermarket-synthesizer"].authors
@@ -987,7 +1032,9 @@ export default function SupermarketMap({
                           />
                           {/*lockers*/}
                           <TooltipLabelSynthesizer
-                            artifactTitle={artifactsDict["the-lives-we-live-by"].title}
+                            artifactTitle={
+                              artifactsDict["the-lives-we-live-by"].title
+                            }
                             artifactSlug={"the-lives-we-live-by"}
                             artifactAuthor={
                               artifactsDict["the-lives-we-live-by"].authors.html
@@ -1001,7 +1048,9 @@ export default function SupermarketMap({
                           />
                           {/*lampa*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["invisible-supermarket"].title}
+                            artifactTitle={
+                              artifactsDict["invisible-supermarket"].title
+                            }
                             artifactSlug={"invisible-supermarket"}
                             artifactAuthor={
                               artifactsDict["invisible-supermarket"].authors
@@ -1015,7 +1064,9 @@ export default function SupermarketMap({
                           />
                           {/*okno*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["irrational-remainders"].title}
+                            artifactTitle={
+                              artifactsDict["irrational-remainders"].title
+                            }
                             artifactSlug={"irrational-remainders"}
                             artifactAuthor={
                               artifactsDict["irrational-remainders"].authors
@@ -1029,7 +1080,9 @@ export default function SupermarketMap({
                           />
                           {/*stand z gazetkami*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["best-value-discount-sale"].title}
+                            artifactTitle={
+                              artifactsDict["best-value-discount-sale"].title
+                            }
                             artifactSlug={"best-value-discount-sale"}
                             artifactAuthor={
                               artifactsDict["best-value-discount-sale"].authors
@@ -1043,7 +1096,9 @@ export default function SupermarketMap({
                           />
                           {/*smietniki*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["sacrifice-offering"].title}
+                            artifactTitle={
+                              artifactsDict["sacrifice-offering"].title
+                            }
                             artifactSlug={"sacrifice-offering"}
                             artifactAuthor={
                               artifactsDict["sacrifice-offering"].authors.html
@@ -1069,7 +1124,9 @@ export default function SupermarketMap({
                           />
                           {/*stand z ksiazkami*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["the-taste-of-the-past"].title}
+                            artifactTitle={
+                              artifactsDict["the-taste-of-the-past"].title
+                            }
                             artifactSlug={"the-taste-of-the-past"}
                             artifactAuthor={
                               artifactsDict["the-taste-of-the-past"].authors
@@ -1083,7 +1140,9 @@ export default function SupermarketMap({
                           />
                           {/*ksiazka dla dzieci*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["all-on-the-ground"].title}
+                            artifactTitle={
+                              artifactsDict["all-on-the-ground"].title
+                            }
                             artifactSlug={"all-on-the-ground"}
                             artifactAuthor={
                               artifactsDict["all-on-the-ground"].authors.html
@@ -1107,7 +1166,9 @@ export default function SupermarketMap({
                           />
                           {/*jablka*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["the-rotting-apple"].title}
+                            artifactTitle={
+                              artifactsDict["the-rotting-apple"].title
+                            }
                             artifactSlug={"the-rotting-apple"}
                             artifactAuthor={
                               artifactsDict["the-rotting-apple"].authors.html
@@ -1120,7 +1181,9 @@ export default function SupermarketMap({
                           />
                           {/*wozki*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["supermarket-vr"].title}
+                            artifactTitle={
+                              artifactsDict["supermarket-vr"].title
+                            }
                             artifactSlug={"supermarket-vr"}
                             artifactAuthor={
                               artifactsDict["supermarket-vr"].authors.html
@@ -1160,7 +1223,9 @@ export default function SupermarketMap({
                           />
                           {/*lustro*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["seeing-them-there"].title}
+                            artifactTitle={
+                              artifactsDict["seeing-them-there"].title
+                            }
                             artifactSlug={"seeing-them-there"}
                             artifactAuthor={
                               artifactsDict["seeing-them-there"].authors.html
@@ -1173,7 +1238,9 @@ export default function SupermarketMap({
                           />
                           {/*clothes*/}
                           <TooltipLabel
-                            artifactTitle={artifactsDict["ghostly-individuality"].title}
+                            artifactTitle={
+                              artifactsDict["ghostly-individuality"].title
+                            }
                             artifactSlug={"ghostly-individuality"}
                             artifactAuthor={
                               artifactsDict["ghostly-individuality"].authors

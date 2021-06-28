@@ -139,6 +139,10 @@ div[role="toolbar"] {
   background-color: transparent !important;
 }
 
+tr > td > p {
+  max-width: 80% !important;
+  
+}
 div[role="toolbar"] > button > svg {
   stroke: black;
   stroke-width: 0.8px;
@@ -226,7 +230,7 @@ div[role="toolbar"] > button > svg {
 }
 
 image-gallery-icon image-gallery-left-nav {
-    fill: black;
+  fill: black;
 }
 
 .technicalInformation h3 {
