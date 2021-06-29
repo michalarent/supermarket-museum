@@ -8,7 +8,6 @@ import styles_map from "../styles/map.module.css";
 import Router from "next/router";
 import Fade from "@material-ui/core/Fade";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import Grid from "@material-ui/core/Grid";
 
 import { GraphQLClient } from "graphql-request";
 import {
@@ -52,35 +51,48 @@ export default function Museum({ infoPages }) {
     return new Promise((res) => setTimeout(res, delay));
   }
 
-  const [smHovered, setSMHovered] = React.useState(false);
-  const [gHovered, setGHovered] = React.useState(false);
-
   return (
     <>
       <SideDrawer currentPage={"choose"} infoPages={infoPages} />
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6} lg={6}>
-          <div>
+      <TransformWrapper
+        wheel={{ step: 100 }}
+        options={{
+          limitToBounds: false,
+          minScale: 0.5,
+          maxScale: 2,
+          initialScale: 0.5,
+        }}
+      >
+        <div className={styles.allArrows}>
+          {/* <IconButton> */}
+          <img
+            className={styles.supermarketArrow}
+            src="/next-icon.png"
+            onMouseDown={() => handleTransitionMuseum()}
+            style={{ cursor: "pointer" }}
+          />
+          {/* </IconButton> */}
+          <img
+            src="/next-icon.png"
+            className={styles.gardenArrow}
+            onMouseDown={() => handleTransitionGarden()}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+        <Fade in={true} timeout={800}>
+          <TransformComponent className={styles_map.TransformComponent}>
             <img
+<<<<<<< HEAD
               className={styles.SupermarketMap}
               src="/supermarket/supermarketGrubszy.png"
+=======
+              className={styles.landingImage}
+              src="/supermarket/landing.png"
+>>>>>>> parent of 951922b (cjhanges)
             />
-            <h1 className={styles.supermarketTitle}>
-              Enter the supermarket museum
-            </h1>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={6} lg={6}>
-          <div className={styles.hoverDiv}>
-            <h1 className={styles.gardenTitle}>Enter the garden museum</h1>
-            <img
-              className={styles.GardenMap}
-              src="/supermarket/garden_2.png"
-            ></img>
-          </div>
-        </Grid>
-      </Grid>
-
+          </TransformComponent>
+        </Fade>
+      </TransformWrapper>
       <div className={showTransition ? styles.transitionOpening : ""}>
         <div className={styles.bgLayer}></div>
       </div>

@@ -51,7 +51,7 @@
 }
 .label .labelContent h2 {
   font-family: "Now-Light";
-  font-size: 1.3vw;
+  font-size: 1vw;
   color: black;
 }
 .buttonLabel {
@@ -59,11 +59,12 @@
   font-size: 0.8vw !important;
   text-align: left !important;
   align-items: left !important;
+  padding-left: 1vw;
 }
 
-.label .labelContent p {
+.label p {
   margin-bottom: 0;
-  font-size: 1.1vw;
+  font-size: 0.8vw;
 }
 
 .label button {
@@ -110,7 +111,7 @@
   position: relative;
   z-index: -1;
   /* min-height: 24rem; */
-  width: 28vw;
+  width: 28rem;
   clip-path: polygon(85% 0, 100% 20%, 100% 75%, 100% 100%, 0 100%, 0 0);
   box-shadow: 1px 1px 5px teal;
   background-color: #f4d588;
@@ -123,11 +124,15 @@
   right: 0%;
   width: 0px;
   height: 0px;
-  border-bottom: 4vw solid #fac94f00;
-  border-right: 4.4vw solid transparent;
+  border-bottom: 4.2rem solid #fac94f00;
+  border-right: 4.4rem solid transparent;
   -webkit-box-shadow: -7px 7px 7px rgba(0, 0, 0, 1);
   -moz-box-shadow: -7px 7px 7px rgba(0, 0, 0, 1);
+<<<<<<< HEAD
   box-shadow: 0 0 0  white;
+=======
+  box-shadow: 0 0 0 3px white;
+>>>>>>> parent of 951922b (cjhanges)
 }
 
 .infoLabel::after {
@@ -137,26 +142,26 @@
   right: 0%;
   width: 0px;
   height: 0px;
-  border-top: 3.8vw solid transparent;
-  border-left: 3.8vw solid transparent;
+  border-top: 3.8rem solid transparent;
+  border-left: 3.8rem solid transparent;
 }
 
 .infoLabel .labelContent h1 {
   margin-top: 1rem;
   font-family: "Now-Medium";
-  font-size: 1.6vw;
+  font-size: 2rem;
   color: black;
 }
 .infoLabel .labelContent h2 {
   font-family: "Now-Light";
-  font-size: 1.1vw;
+  font-size: 1.1rem;
   color: black;
 }
 .infoLabel .labelContent p {
   width: 110%;
-  line-height: 1.4vw;
+  line-height: 1.2rem;
   font-family: "Aleo-Light";
-  font-size: 1.1vw;
+  font-size: 0.9rem;
   color: black;
 }
 

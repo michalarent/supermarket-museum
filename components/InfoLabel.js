@@ -6,7 +6,6 @@ import LabelContext from "./LabelContext";
 import styles from "./Label.module.css";
 import Divider from "@material-ui/core/Divider";
 
-
 const InfoLabel = (props) => {
   const showButton = true;
   console.log(props.content);

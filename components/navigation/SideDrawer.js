@@ -173,12 +173,7 @@ export default function PersistentDrawerRight({
         <MenuIcon fontSize="large" />
       </IconButton>
 
-      <Drawer
-        className={styles.drawerBackground}
-        variant="persistent"
-        anchor="right"
-        open={open}
-      >
+      <Drawer variant="persistent" anchor="right" open={open}>
         <div>
           <IconButton onClick={handleDrawerClose} color="inherit">
             <ChevronRightIcon />
@@ -186,6 +181,7 @@ export default function PersistentDrawerRight({
         </div>
         <Divider />
 
+<<<<<<< HEAD
         <List className={styles.listItems}>
           <ListItem button key={"Home"} onClick={() => router.push("/")}>
             <ListItemText
@@ -214,6 +210,35 @@ export default function PersistentDrawerRight({
             />
           </ListItem>
 
+=======
+        <List>
+          <Link href="/">
+            <ListItem button key={"Home"}>
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6">{"Home"}</Typography>}
+              />
+            </ListItem>
+          </Link>
+          <Link href="/museum">
+            <ListItem button key={"Supermarket Museum"}>
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography variant="h6">{"Supermarket Museum"}</Typography>
+                }
+              />
+            </ListItem>
+          </Link>
+          <Link href="/garden">
+            <ListItem button key={"Garden"}>
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6">{"Garden"}</Typography>}
+              />
+            </ListItem>
+          </Link>
+>>>>>>> parent of 951922b (cjhanges)
           <ListItem
             button
             key={"Manifesto"}
