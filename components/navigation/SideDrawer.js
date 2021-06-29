@@ -11,7 +11,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Link from "next/link";
+
 import { useContextualRouting } from "next-use-contextual-routing";
 import { useRouter } from "next/router";
 import Modal from "@material-ui/core/Modal";
@@ -187,32 +187,33 @@ export default function PersistentDrawerRight({
         <Divider />
 
         <List className={styles.listItems}>
-          <Link href="/">
-            <ListItem button key={"Home"}>
-              <ListItemText
-                disableTypography
-                primary={<Typography variant="h6">{"Home"}</Typography>}
-              />
-            </ListItem>
-          </Link>
-          <Link href="/museum">
-            <ListItem button key={"Supermarket Museum"}>
-              <ListItemText
-                disableTypography
-                primary={
-                  <Typography variant="h6">{"Supermarket Museum"}</Typography>
-                }
-              />
-            </ListItem>
-          </Link>
-          <Link href="/garden">
-            <ListItem button key={"Garden"}>
-              <ListItemText
-                disableTypography
-                primary={<Typography variant="h6">{"Garden"}</Typography>}
-              />
-            </ListItem>
-          </Link>
+          <ListItem button key={"Home"} onClick={() => router.push("/")}>
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6">{"Home"}</Typography>}
+            />
+          </ListItem>
+
+          <ListItem
+            button
+            key={"Supermarket Museum"}
+            onClick={() => router.push("/museum")}
+          >
+            <ListItemText
+              disableTypography
+              primary={
+                <Typography variant="h6">{"Supermarket Museum"}</Typography>
+              }
+            />
+          </ListItem>
+
+          <ListItem button key={"Garden"}>
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="h6">{"Garden"}</Typography>}
+            />
+          </ListItem>
+
           <ListItem
             button
             key={"Manifesto"}
