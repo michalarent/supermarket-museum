@@ -63,7 +63,7 @@ export default function Museum({ infoPages }) {
           <div>
             <img
               className={styles.SupermarketMap}
-              src="/supermarket/supermarket_1-grubszy.png"
+              src="/supermarket/supermarketGrubszy.png"
             />
             <h1 className={styles.supermarketTitle}>
               Enter the supermarket museum

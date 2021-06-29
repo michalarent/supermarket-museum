@@ -467,7 +467,7 @@ export default function SupermarketMap({
                     <img
                       ref={image}
                       className={styles_map.mapImage}
-                      src="/supermarket/supermarket_1-grubszy.png"
+                      src="/supermarket/supermarketGrubszy.png"
                       // onLoad={handleLoad}
                     />
                     <Fade in={true} timeout={1000}>
