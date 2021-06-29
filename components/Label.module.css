@@ -51,7 +51,6 @@
 }
 .label .labelContent h2 {
   font-family: "Now-Light";
-<<<<<<< HEAD
   font-size: 1.3vw;
   color: black;
 }
@@ -89,13 +88,6 @@
 
   border-radius: 0.5vw;
   background: radial-gradient(circle at 80% 50%, transparent 7%, #fdf5e1 7%);
-=======
-  font-size: 1.5rem;
-  color: black;
-}
-.buttonLabel {
-  font-family: "Aleo-Bold";
->>>>>>> parent of 5f194ec (resizing)
 }
 
 .button {
@@ -118,11 +110,7 @@
   position: relative;
   z-index: -1;
   /* min-height: 24rem; */
-<<<<<<< HEAD
   width: 28vw;
-=======
-  width: 32rem;
->>>>>>> parent of 5f194ec (resizing)
   clip-path: polygon(85% 0, 100% 20%, 100% 75%, 100% 100%, 0 100%, 0 0);
   box-shadow: 1px 1px 5px teal;
   background-color: #f4d588;
@@ -156,33 +144,19 @@
 .infoLabel .labelContent h1 {
   margin-top: 1rem;
   font-family: "Now-Medium";
-<<<<<<< HEAD
   font-size: 1.6vw;
-=======
-  font-size: 2.3rem;
->>>>>>> parent of 5f194ec (resizing)
   color: black;
 }
 .infoLabel .labelContent h2 {
   font-family: "Now-Light";
-<<<<<<< HEAD
   font-size: 1.1vw;
-=======
-  font-size: 1.4rem;
->>>>>>> parent of 5f194ec (resizing)
   color: black;
 }
 .infoLabel .labelContent p {
   width: 110%;
-<<<<<<< HEAD
   line-height: 1.4vw;
   font-family: "Aleo-Light";
   font-size: 1.1vw;
-=======
-  line-height: 1.5rem;
-  font-family: "Aleo-Light";
-  font-size: 1.3rem;
->>>>>>> parent of 5f194ec (resizing)
   color: black;
 }
 
