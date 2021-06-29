@@ -5,8 +5,8 @@
   transform: translateY(-6vh);
   position: relative;
   z-index: -1;
-  min-height: 12vw;
-  width: 26vw;
+  height: 14rem;
+  width: 28rem;
 
   clip-path: polygon(
     0 0,
@@ -46,7 +46,7 @@
 }
 .label .labelContent h1 {
   font-family: "Now-Medium";
-  font-size: 1.6vw;
+  font-size: 2.2rem;
   color: black;
 }
 .label .labelContent h2 {
@@ -192,24 +192,17 @@
     width: 16em;
   }
   .label .labelContent h1 {
-    font-size: 1.2em !important;
+    font-size: 1.5em;
   }
   .label .labelContent h2 {
-    font-size: 1.5em !important;
-  }
-
-  .label p {
-    font-size: 0.5em;
+    font-size: 1.2em;
   }
   .buttonLabel {
     font-family: "Aleo-Bold";
-    font-size: 0.5em !important;
+    font-size: 1em;
   }
-
-  .label button {
-    width: 3em !important;
-    min-width: 3em !important; 
-    height: 1.5em !important;
+  .button {
+    width: 2em !important;
+    height: 2em !important;
   }
-  
 }
