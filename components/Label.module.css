@@ -128,11 +128,7 @@
   border-right: 4.4rem solid transparent;
   -webkit-box-shadow: -7px 7px 7px rgba(0, 0, 0, 1);
   -moz-box-shadow: -7px 7px 7px rgba(0, 0, 0, 1);
-<<<<<<< HEAD
-  box-shadow: 0 0 0  white;
-=======
-  box-shadow: 0 0 0 3px white;
->>>>>>> parent of 951922b (cjhanges)
+  box-shadow: 0 0 0 white;
 }
 
 .infoLabel::after {

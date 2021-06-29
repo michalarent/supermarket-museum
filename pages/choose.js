@@ -82,13 +82,8 @@ export default function Museum({ infoPages }) {
         <Fade in={true} timeout={800}>
           <TransformComponent className={styles_map.TransformComponent}>
             <img
-<<<<<<< HEAD
               className={styles.SupermarketMap}
               src="/supermarket/supermarketGrubszy.png"
-=======
-              className={styles.landingImage}
-              src="/supermarket/landing.png"
->>>>>>> parent of 951922b (cjhanges)
             />
           </TransformComponent>
         </Fade>

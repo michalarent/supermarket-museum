@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import Modal from "@material-ui/core/Modal";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import { Box, Grid } from "@material-ui/core";
+import { NoSsr } from "@material-ui/core";
 
 import { getAllAgroPermaLabInfo } from "../../api/graphcms";
 
@@ -161,67 +162,40 @@ export default function PersistentDrawerRight({
   );
 
   return (
-    <div className={styles.drawer}>
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        edge="end"
-        size="medium"
-        onClick={handleDrawerOpen}
-        id={styles.menuButton}
-      >
-        <MenuIcon fontSize="large" />
-      </IconButton>
+    <NoSsr>
+      <div className={styles.drawer}>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="end"
+          size="medium"
+          onClick={handleDrawerOpen}
+          id={styles.menuButton}
+        >
+          <MenuIcon fontSize="large" />
+        </IconButton>
 
-      <Drawer variant="persistent" anchor="right" open={open}>
-        <div>
-          <IconButton onClick={handleDrawerClose} color="inherit">
-            <ChevronRightIcon />
-          </IconButton>
-        </div>
-        <Divider />
+        <Drawer variant="persistent" anchor="right" open={open}>
+          <div>
+            <IconButton onClick={handleDrawerClose} color="inherit">
+              <ChevronRightIcon />
+            </IconButton>
+          </div>
+          <Divider />
 
-<<<<<<< HEAD
-        <List className={styles.listItems}>
-          <ListItem button key={"Home"} onClick={() => router.push("/")}>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">{"Home"}</Typography>}
-            />
-          </ListItem>
-
-          <ListItem
-            button
-            key={"Supermarket Museum"}
-            onClick={() => router.push("/museum")}
-          >
-            <ListItemText
-              disableTypography
-              primary={
-                <Typography variant="h6">{"Supermarket Museum"}</Typography>
-              }
-            />
-          </ListItem>
-
-          <ListItem button key={"Garden"}>
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">{"Garden"}</Typography>}
-            />
-          </ListItem>
-
-=======
-        <List>
-          <Link href="/">
-            <ListItem button key={"Home"}>
+          <List className={styles.listItems}>
+            <ListItem button key={"Home"} onClick={() => router.push("/")}>
               <ListItemText
                 disableTypography
                 primary={<Typography variant="h6">{"Home"}</Typography>}
               />
             </ListItem>
-          </Link>
-          <Link href="/museum">
-            <ListItem button key={"Supermarket Museum"}>
+
+            <ListItem
+              button
+              key={"Supermarket Museum"}
+              onClick={() => router.push("/museum")}
+            >
               <ListItemText
                 disableTypography
                 primary={
@@ -229,63 +203,62 @@ export default function PersistentDrawerRight({
                 }
               />
             </ListItem>
-          </Link>
-          <Link href="/garden">
+
             <ListItem button key={"Garden"}>
               <ListItemText
                 disableTypography
                 primary={<Typography variant="h6">{"Garden"}</Typography>}
               />
             </ListItem>
-          </Link>
->>>>>>> parent of 951922b (cjhanges)
-          <ListItem
-            button
-            key={"Manifesto"}
-            onClick={() => handleShow("manifesto")}
-          >
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">{"Manifesto"}</Typography>}
-            />
-          </ListItem>
-          <ListItem
-            button
-            key={"Manifesto"}
-            onClick={() => handleShow("about")}
-          >
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">{"About"}</Typography>}
-            />
-          </ListItem>
 
-          <ListItem
-            button
-            key={"Manifesto"}
-            onClick={() => handleShow("contact")}
-          >
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">{"Contact"}</Typography>}
-            />
-          </ListItem>
-          <ListItem
-            button
-            key={"Manifesto"}
-            onClick={() => handleShow("materials")}
-          >
-            <ListItemText
-              disableTypography
-              primary={<Typography variant="h6">{"Materials"}</Typography>}
-            />
-          </ListItem>
-        </List>
-        <Divider />
-      </Drawer>
-      <Modal open={show}>
-        <>{body}</>
-      </Modal>
-    </div>
+            <ListItem
+              button
+              key={"Manifesto"}
+              onClick={() => handleShow("manifesto")}
+            >
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6">{"Manifesto"}</Typography>}
+              />
+            </ListItem>
+            <ListItem
+              button
+              key={"Manifesto"}
+              onClick={() => handleShow("about")}
+            >
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6">{"About"}</Typography>}
+              />
+            </ListItem>
+
+            <ListItem
+              button
+              key={"Manifesto"}
+              onClick={() => handleShow("contact")}
+            >
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6">{"Contact"}</Typography>}
+              />
+            </ListItem>
+            <ListItem
+              button
+              key={"Manifesto"}
+              onClick={() => handleShow("materials")}
+            >
+              <ListItemText
+                disableTypography
+                primary={<Typography variant="h6">{"Materials"}</Typography>}
+              />
+            </ListItem>
+          </List>
+          <Divider />
+        </Drawer>
+        <Modal open={show}>
+          <>{body}</>
+        </Modal>
+      </div>
+    </NoSsr>
   );
 }
