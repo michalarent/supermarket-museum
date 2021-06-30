@@ -25,17 +25,6 @@ export async function getStaticProps() {
 }
 
 function Museum({ artifactModels, openArtifact, labels, infoPages }) {
-  // async function handleTransitionChoose() {
-  //   setShowTransition(true);
-  //   await timeout(500);
-  //   Router.push("/choose");
-  // }
-
-  // const [showTransition, setShowTransition] = React.useState(false);
-  // function timeout(delay) {
-  //   return new Promise((res) => setTimeout(res, delay));
-  // }
-
   return (
     <>
       <SideDrawer currentPage="museum" infoPages={infoPages} />

@@ -26,50 +26,26 @@ export async function getStaticProps() {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  grid: {
-    width: "90vw",
-    margin: "120px",
-  },
-}));
-
 export default function Garden({
   gardenArtifactModels,
   openArtifact,
   gardenLabels,
   infoPages,
 }) {
-  async function handleTransitionChoose() {
-    setShowTransition(true);
-    await timeout(500);
-    Router.push("/choose");
-  }
-
-  const [showTransition, setShowTransition] = React.useState(false);
-  function timeout(delay) {
-    return new Promise((res) => setTimeout(res, delay));
-  }
-
   return (
     <>
-      <SideDrawer currentPage="garden" infoPages={infoPages} />
+      <SideDrawer currentPage="museum" infoPages={infoPages} />
       <div className={styles.museumPage}>
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}
-          onMouseDown={() => handleTransitionChoose()}
           style={{ cursor: "pointer" }}
         />
         <GardenMap
           artifactModels={gardenArtifactModels}
           openArtifact={openArtifact}
           labels={gardenLabels}
-          infoPages={infoPages}
         />
-        <div className={showTransition ? styles.transitionOpening : ""}>
-          <div className={styles.bgLayer}></div>
-        </div>
       </div>
     </>
   );
