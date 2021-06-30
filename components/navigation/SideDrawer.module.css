@@ -18,3 +18,7 @@
 .drawer > div > div {
   background-color: #f4d588de !important;
 }
+
+.drawer {
+  visibility: visible;
+}
