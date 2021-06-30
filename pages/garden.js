@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Garden({
+export default function Garden({
   gardenArtifactModels,
   openArtifact,
   gardenLabels,
@@ -65,6 +65,7 @@ function Garden({
           artifactModels={gardenArtifactModels}
           openArtifact={openArtifact}
           labels={gardenLabels}
+          infoPages={infoPages}
         />
         <div className={showTransition ? styles.transitionOpening : ""}>
           <div className={styles.bgLayer}></div>
@@ -73,5 +74,3 @@ function Garden({
     </>
   );
 }
-
-export default Garden;
