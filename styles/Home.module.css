@@ -165,3 +165,63 @@
   width: 100%;
   display: block;
 }
+
+.supermarketMini,
+.gardenMini {
+  object-fit: cover;
+  height: 100vh;
+
+  transition: height 0.2s ease-in, object-position 0.5s ease-in;
+}
+.supermarketMini {
+  object-position: 30% 80%;
+}
+
+.supermarketMini:hover {
+  height: 110vh;
+}
+
+.gardenMini:hover {
+  height: 110vh;
+}
+
+.textCentered {
+  background: white;
+  position: absolute;
+  margin: 0 12.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 25%;
+}
+
+.gardenTitle .landingImage {
+  overflow: hidden;
+  
+}
+
+.gardenTitle,
+.supermarketTitle {
+  font-family: "Now-Regular";
+  font-size: 1.5vw;
+  margin: 2.5vw;
+  text-align: center;
+}
+
+.chooseModal {
+  outline: none;
+  overflow: auto;
+  background-color: #f4d588de;
+  position: absolute;
+  left: 35vw;
+  top: 50%;
+
+  width: calc(100vw - 2 * (35vw));
+  transform: translateY(-50%);
+}
+
+.chooseModalIcon {
+  z-index: 1;
+  position: fixed;
+  right: 0;
+}
