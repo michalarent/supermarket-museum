@@ -51,9 +51,6 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
           openArtifact={openArtifact}
           labels={labels}
         />
-        <div className={showTransition ? styles.transitionOpening : ""}>
-          <div className={styles.bgLayer}></div>
-        </div>
       </div>
     </>
   );
