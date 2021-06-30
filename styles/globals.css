@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 html,
@@ -105,11 +101,6 @@ a {
 @font-face {
   font-family: "Aleo-Light";
   src: local("Aleo-Light"), url(/fonts/Aleo/Aleo-Light.ttf) format("truetype");
-}
-
-body {
-  /* background: none!important;
-  background-color: transparent!important; */
 }
 
 .ReactPiano__Keyboard {
@@ -424,10 +415,6 @@ iframe > * {
     font-family: "Aleo-Light";
     font-size: 1.3rem;
     margin-top: 1rem;
-  }
-
-  .technicalInformation ul {
-    /* padding-left: 1rem; */
   }
 
   .image-gallery-download-button {

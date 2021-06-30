@@ -82,7 +82,7 @@ export default function Choose({ infoPages }) {
   );
 
   return (
-    <NoSsr>
+    <>
       <SideDrawer
         currentPage={"choose"}
         infoPages={infoPages}
@@ -117,6 +117,6 @@ export default function Choose({ infoPages }) {
       <div className={showTransition ? styles.transitionOpening : ""}>
         <div className={styles.bgLayer}></div>
       </div>
-    </NoSsr>
+    </>
   );
 }
