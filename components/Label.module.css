@@ -2,7 +2,6 @@
   filter: drop-shadow(30px 30px rgba(0, 0, 0, 0));
 }
 .label {
-  transform: translateY(-6vh);
   position: relative;
   z-index: -1;
   height: 12vw;

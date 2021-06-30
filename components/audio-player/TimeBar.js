@@ -1,6 +1,6 @@
 import React from "react";
 import { useDrag } from "react-use-gesture";
-
+import { directstyled, useDirectStyle } from "direct-styled";
 import styles from "./audio.module.css";
 
 function formatTime(seconds) {
@@ -43,6 +43,8 @@ function TimeBar({
 }) {
   const barRef = React.useRef(null);
 
+  const [barStyle, setBarStyle] = useDirectStyle();
+  const [circleStyle, setCircleStyle] = useDirectStyle();
   const [ignoreTimeUpdates, setIgnoreTimeUpdates] = React.useState(false);
 
   function setStyles(progress) {
@@ -90,15 +92,18 @@ function TimeBar({
   }, [progress]);
 
   return (
-    <div className={styles.timebar} style={{ position: "relative", ...style }}>
-      <div
+    <div
+      className={styles.timebar}
+      style={{ position: "relative", ...style }}
+    >
+      <directstyled.div
         ref={barRef}
         className={styles.timebarBar}
         style={{
           background: `linear-gradient(to right, #3d858c 0%, #3d858c ${progress}%, #737373 ${progress}%, #737373 100%)`,
         }}
       />
-      <div
+      <directstyled.div
         {...bind()}
         className={styles.timebarCircle}
         style={{ left: `${progress}%` }}

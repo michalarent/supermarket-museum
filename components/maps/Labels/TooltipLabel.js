@@ -32,7 +32,7 @@ export default function TooltipLabel({
       <Tooltip
         interactive
         enterTouchDelay="0"
-        placement="center"
+        placement="auto"
         onOpen={() => showTooltip(artifactSlug)}
         title={
           <>

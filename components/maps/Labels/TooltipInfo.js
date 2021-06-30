@@ -35,7 +35,7 @@ export default function TooltipInfo({
     <>
       <Tooltip
         interactive
-        placement="right"
+        placement="auto"
         enterTouchDelay={0}
         onOpen={() => showTooltip(artifactSlug)}
         title={
