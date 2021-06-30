@@ -438,9 +438,7 @@ export default function SupermarketMap({
 
   return (
     <div
-      className={
-        !blackBackground == true ? styles_map.mapWrapper : styles_map.black
-      }
+      
     >
       <TransformWrapper
         wheel={{ step: 100 }}
@@ -467,11 +465,8 @@ export default function SupermarketMap({
               <Fade in={true} timeout={800}>
                 {!blackBackground ? (
                   <div
-                    className={
-                      !blackBackground == true
-                        ? styles_map.mapWrapper
-                        : styles_map.black
-                    }
+                    
+                    
                   >
                     <img
                       ref={image}

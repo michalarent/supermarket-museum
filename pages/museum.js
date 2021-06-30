@@ -18,7 +18,6 @@ export async function getStaticProps() {
   const { artifactModels } = await getAllArtifacts();
   const { labels } = await getAllLabels();
   const { infoPages } = await getAllAgroPermaLabInfo();
-  
 
   return {
     props: { artifactModels, labels, infoPages },
@@ -47,7 +46,7 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
 
   return (
     <>
-      {/* <SideDrawer currentPage="museum" infoPages={infoPages} /> */}
+      <SideDrawer currentPage="museum" infoPages={infoPages} />
       <div className={styles.museumPage}>
         <img
           src="/next-icon.png"
