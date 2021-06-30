@@ -334,7 +334,14 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
   return (
     <>
-      <TransformWrapper wheel={{ step: 100 }} options={{ limitToBounds: true }}>
+      <TransformWrapper
+        options={{
+          limitToBounds: false,
+          minScale: 0.3,
+          maxScale: 3,
+        }}
+        wheel={{ step: 100 }}
+      >
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <div className={styles_map.tools}>
@@ -350,7 +357,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                   <img
                     ref={image}
                     className={styles_map.mapImage}
-                    src="/supermarket/garden.png"
+                    src="/supermarket/gardenGrubszy.png"
                     // onLoad={handleLoad}
                   />
                   <Fade in={true} timeout={1000}>

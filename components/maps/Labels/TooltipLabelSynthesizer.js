@@ -16,6 +16,7 @@ export default function TooltipLabelSynthesizer({
   artifactSlug,
   borderColor,
   artifactTitle,
+  artifactAuthor,
   setShowSynthesizer,
 }) {
   const [showThisTooltip, setShowThisTooltip] = React.useState(false);
@@ -38,7 +39,7 @@ export default function TooltipLabelSynthesizer({
             <LabelNoLink
               slug={artifactSlug}
               header={artifactTitle}
-              author="Somebody"
+              author={artifactAuthor}
               showButton={true}
               onClick={handleShowSynthesizer}
             />
@@ -52,7 +53,9 @@ export default function TooltipLabelSynthesizer({
         onTouchStart={() => setShowThisTooltip(true)}
         className={styles_map.pin}
         style={{ top: yLocation, left: xLocation, color: borderColor }}
-      />
+      >
+        <p className={styles_map.pinText}>BUY</p>
+      </div>
     </Tooltip>
   );
 }
