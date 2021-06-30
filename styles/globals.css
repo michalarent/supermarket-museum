@@ -168,6 +168,24 @@ div[role="toolbar"] > button > svg {
   bottom: 74px;
   width: calc(100vw - 2 * (10vw));
 }
+
+.modalCanvas::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.modalCanvas::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.modalCanvas::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.modalCanvas::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 0, 0);
+}
 .modalCanvasGallery {
   outline: none;
   overflow: auto;
@@ -245,11 +263,13 @@ image-gallery-icon image-gallery-left-nav {
   font-family: "Aleo-Light";
   font-size: 1.3rem;
   margin-top: 1rem;
+  vertical-align: middle;
 }
 
 .technicalInformation ul {
   padding-left: 1.13rem !important;
   list-style: square;
+  list-style-position: outside;
 }
 
 .MuiBox-root-1 {
@@ -347,8 +367,6 @@ iframe > * {
     width: calc(100vw - 2 * (10vw));
   }
 
-  
-
   .modalContentAdjusted h1 {
     /* color: black; */
     font-family: "Now-Medium";
@@ -366,7 +384,23 @@ iframe > * {
     margin-top: calc(0.5rem + 20px);
     font-family: "Now-Medium";
     font-weight: 300;
-    font-size: 1.5em;
+    font-size: 1.5rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
   }
 
   .artifactDescription p {
@@ -394,5 +428,16 @@ iframe > * {
 
   .technicalInformation ul {
     /* padding-left: 1rem; */
+  }
+
+  .image-gallery-download-button {
+    padding: 20px !important;
+    bottom: 0 !important;
+    right: 20% !important;
+  }
+
+  .image-gallery-download-button > svg {
+    height: 28px;
+    width: 28px;
   }
 }

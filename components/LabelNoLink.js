@@ -31,7 +31,15 @@ const LabelNoLink = (props) => {
               >
                 <Grid item md={8}>
                   <div className={styles.labelContent}>
-                    <h1>{props.header}</h1>
+                    <h1
+                      style={{
+                        fontSize: `${
+                          props.header.length > 30 ? "1.5vw" : "1.8vw"
+                        }`,
+                      }}
+                    >
+                      {props.header}
+                    </h1>
                     <h2
                       dangerouslySetInnerHTML={{
                         __html: props.author,

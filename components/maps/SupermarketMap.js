@@ -27,6 +27,7 @@ import UkraineArtifact from "../../pages/museum/artifacts/ukraine";
 import Recollections from "../artifacts/ukraine/recollections";
 import AudioPlayer from "../audio-player/AudioPlayer";
 import PhotoCarousel from "../image-gallery/PhotoCarousel";
+import Postcards from "../artifacts/postcards/Postcards";
 
 export default function SupermarketMap({
   artifactModels,
@@ -156,6 +157,12 @@ export default function SupermarketMap({
       router.push(makeContextualHref(), url, {
         shallow: true,
       });
+    } else if (slug == "postcards-from-the-supermarket-museum") {
+      setCurrentArtifact(slug);
+      const url = "museum/artifacts/" + "postcards-from-the-supermarket-museum";
+      router.push(makeContextualHref(), url, {
+        shallow: true,
+      });
     } else if (slug == "invisible-supermarket") {
       setCurrentArtifact(slug);
       const url = "museum/artifacts/" + "invisible-supermarket";
@@ -263,6 +270,12 @@ export default function SupermarketMap({
                 {currentArtifact.slug == "who-am-i" ? (
                   <>
                     <AudioPlayer url={"/audio-player/who-am-i.m4a"} />
+                  </>
+                ) : null}
+                {currentArtifact.slug ==
+                "postcards-from-the-supermarket-museum" ? (
+                  <>
+                    <Postcards />
                   </>
                 ) : null}
                 {currentArtifact.slug == "invisible-supermarket" ? (
@@ -942,7 +955,11 @@ export default function SupermarketMap({
                           />
                           {/*stand z pocztowkami*/}
                           <TooltipLabel
-                            artifactTitle={"stand z pocztówkami"}
+                            artifactTitle={
+                              artifactsDict[
+                                "postcards-from-the-supermarket-museum"
+                              ].title
+                            }
                             artifactSlug={
                               "postcards-from-the-supermarket-museum"
                             }
