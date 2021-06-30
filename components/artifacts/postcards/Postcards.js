@@ -142,7 +142,7 @@ export default function Postcards() {
 
   return (
     <ImageGallery
-      items={postcards_gallery}
+      items={postcards}
       renderCustomControls={_renderCustomControls}
       ref={imgRef}
     />
