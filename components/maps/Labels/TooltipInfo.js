@@ -5,7 +5,7 @@ import LabelNoLink from "../../LabelNoLink";
 import InfoLabel from "../../InfoLabel";
 
 import styles_map from "../../../styles/map.module.css";
-import styles from "../ExampleSvg.module.css";
+
 import LabelContext from "../../LabelContext";
 import ShowLabelContext from "../../ShowLabelContext";
 import LiveHelpIcon from "@material-ui/icons/LiveHelp";
@@ -61,7 +61,7 @@ export default function TooltipInfo({
           className={styles_map.pinInfo}
           style={{ top: yLocation, left: xLocation, color: borderColor }}
         >
-          <LiveHelpIcon style={{}}/>{" "}
+          <LiveHelpIcon style={{}} />{" "}
         </div>
       </Tooltip>
     </>

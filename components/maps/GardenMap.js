@@ -16,7 +16,6 @@ import Button from "@material-ui/core/Button";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import styles_map from "../../styles/map.module.css";
-import styles from "./ExampleSvg.module.css";
 
 import Image from "next/image";
 import TooltipLabel from "./Labels/TooltipLabel";
@@ -335,10 +334,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
   return (
     <>
-      <TransformWrapper
-        wheel={{ step: 100 }}
-        options={{ limitToBounds: true}}
-      >
+      <TransformWrapper wheel={{ step: 100 }} options={{ limitToBounds: true }}>
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <div className={styles_map.tools}>

@@ -27,7 +27,7 @@ export async function getStaticProps() {
 function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   return (
     <>
-      <div className={styles.museumPage}>
+      <div>
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}

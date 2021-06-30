@@ -87,7 +87,7 @@ export default function Choose({ infoPages }) {
         <Grid item xs={12} md={6} lg={6}>
           <img
             className={styles.supermarketMini}
-            onClick={handleTransitionMuseum}
+            onClick={() => handleTransitionMuseum}
             src="/supermarket/supermarketGrubszy.png"
           ></img>
         </Grid>
@@ -95,7 +95,7 @@ export default function Choose({ infoPages }) {
           <div className={styles.hoverDiv}>
             <img
               className={styles.gardenMini}
-              onClick={handleTransitionGarden}
+              onClick={() => handleTransitionGarden}
               src="/supermarket/gardenGrubszy.png"
             ></img>
           </div>
