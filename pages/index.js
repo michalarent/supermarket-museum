@@ -30,12 +30,6 @@ export default function Home({ infoPages }) {
     router.push("/choose");
   }
 
-  const [isClicked, setIsClicked] = React.useState(false);
-
-  const showTooltip = (slug) => {
-    setIsClicked(false);
-  };
-
   async function handleTransitionArtifact() {
     setShowTransition(true);
     await timeout(100);
@@ -75,18 +69,7 @@ export default function Home({ infoPages }) {
             />
           </div>
         </div>
-        <div className={styles.centeredLabel}>
-          <TooltipLabel
-            artifactTitle={"ONE OF ALL"}
-            artifactSlug={"one-of-all"}
-            artifactAuthor={"Clemens Büntig"}
-            isClicked={isClicked}
-            showTooltip={showTooltip}
-            handleShow={handleTransitionArtifact}
-            xLocation={"54.2%"}
-            yLocation={"80.5%"}
-          />
-        </div>
+        <div className={styles.centeredLabel}></div>
       </main>
       {/* <div className={showTransition ? styles.transitionOpening : ""}>
         <div className={styles.bgLayer}></div>
