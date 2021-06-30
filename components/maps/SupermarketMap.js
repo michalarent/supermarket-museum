@@ -437,21 +437,8 @@ export default function SupermarketMap({
   var labelsDict = getLabelContentBySlug();
 
   return (
-    <div
-      
-    >
-      <TransformWrapper
-        wheel={{ step: 100 }}
-        options={{
-          limitToBounds: true,
-          minScale: 0.5,
-          maxScale: 2,
-          initialScale: 0.5,
-        }}
-        alignmentAnimation={{
-          disabled: true,
-        }}
-      >
+    <div>
+      <TransformWrapper wheel={{ step: 100 }}>
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <div className={styles_map.tools}>
@@ -464,10 +451,7 @@ export default function SupermarketMap({
             <TransformComponent className={styles_map.TransformComponent}>
               <Fade in={true} timeout={800}>
                 {!blackBackground ? (
-                  <div
-                    
-                    
-                  >
+                  <div>
                     <img
                       ref={image}
                       className={styles_map.mapImage}

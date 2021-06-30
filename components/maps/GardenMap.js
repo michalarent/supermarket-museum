@@ -31,7 +31,7 @@ import PhotoCarousel from "../image-gallery/PhotoCarousel";
 export default function GardenMap({ artifactModels, openArtifact, labels }) {
   const { makeContextualHref, returnHref } = useContextualRouting();
   const router = useRouter();
-  
+
   const [show, setShow] = React.useState(false);
   const [currentArtifact, setCurrentDisplayedArtifact] = React.useState({
     descriptionEn: { html: " " },
@@ -146,7 +146,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
   const setCurrentArtifact = (slug) => {
     let artifactModelId = -1;
-    
+
     if (openArtifact == null) {
       for (var i = 0; i < artifactModels.length; i++) {
         // look for the entry with a matching `code` value
@@ -165,10 +165,8 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
     const artifactModel = artifactModels[artifactModelId];
     setCurrentDisplayedArtifact(artifactModel);
-    
   };
   {
-    
   }
   const body = (
     <>
@@ -309,13 +307,13 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
   const handleLoad = () => {
     setIsImageReady(true);
-    
+
     typeof onLoad === "function" && onLoad(e);
   };
 
   // React.useEffect(() => {
   //   if (image.current.complete) {
-  
+
   //     setIsImageReady(true);
   //   }
   // }, []);
@@ -327,7 +325,6 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
     if (labels == undefined) return;
     for (var i = 0; i < Object.values(labels)?.length; i++) {
-      
       dict[labels[i].slug] = labels[i];
     }
 
@@ -340,26 +337,16 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
     <>
       <TransformWrapper
         wheel={{ step: 100 }}
-        options={{ limitToBounds: true, minScale: 0.5, maxScale: 2 }}
-        alignmentAnimation={{
-          disabled: true,
-        }}
-        initialScale={1}
+        options={{ limitToBounds: true}}
       >
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <div className={styles_map.tools}>
-              <Button  onClick={zoomIn}>
-                +
-              </Button>
+              <Button onClick={zoomIn}>+</Button>
               <br />
-              <Button  onClick={zoomOut}>
-                -
-              </Button>
+              <Button onClick={zoomOut}>-</Button>
               <br />
-              <Button  onClick={resetTransform}>
-                x
-              </Button>
+              <Button onClick={resetTransform}>x</Button>
             </div>
             <TransformComponent className={styles_map.TransformComponent}>
               <Fade in={true} timeout={800}>
