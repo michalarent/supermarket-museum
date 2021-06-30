@@ -1,0 +1,54 @@
+.sideDrawer {
+  height: 100%;
+  background-color: #f4d588de;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20vw;
+  z-index: 200;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  transform: translateX(20vw);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.sideDrawer.open {
+  transform: translateX(0);
+}
+
+.listItem {
+  width: 100%;
+  height: 7vh;
+  transition: background-color 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.listItem:hover {
+  background-color: #fcf7ed;
+}
+
+.listItemText {
+  width: 100%;
+  font-family: "Now-Regular";
+  font-size: 1.8vw;
+  margin: 0 2vw;
+  line-height: 7vh;
+}
+
+.showButton {
+  position: absolute !important;
+  right: 10px !important;
+  top: 0 !important;
+  z-index: 199;
+}
+
+.closeIconContainer {
+  max-width: 100%;
+  height: 5vh;
+}
+
+.closeIcon {
+  fill: black !important;
+  font-size: 2rem !important;
+  max-width: 100%;
+}
