@@ -13,8 +13,7 @@ import Modal from "@material-ui/core/Modal";
 import Box from "@material-ui/core/Box";
 import Backrop from "@material-ui/core/Backdrop";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-
-import { GraphQLClient } from "graphql-request";
+import { NoSsr } from "@material-ui/core";
 import {
   getAllArtifacts,
   getAllLabels,
@@ -86,7 +85,7 @@ export default function Choose({ infoPages }) {
   );
 
   return (
-    <>
+    <NoSsr>
       <SideDrawer
         currentPage={"choose"}
         infoPages={infoPages}
@@ -121,6 +120,6 @@ export default function Choose({ infoPages }) {
       <div className={showTransition ? styles.transitionOpening : ""}>
         <div className={styles.bgLayer}></div>
       </div>
-    </>
+    </NoSsr>
   );
 }
