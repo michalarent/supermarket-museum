@@ -1,3 +1,4 @@
+import React from "react";
 import "../styles/globals.css";
 import "../styles/maps.css";
 import "bootstrap/dist/css/bootstrap.min.css";
