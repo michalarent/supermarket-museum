@@ -38,7 +38,7 @@ export default function Home({ infoPages }) {
 
   async function handleTransitionArtifact() {
     setShowTransition(true);
-    await timeout(1000);
+    await timeout(100);
     router.push("/museum/artifacts/one-of-all");
   }
 

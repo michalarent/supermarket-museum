@@ -37,8 +37,6 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   async function handleTransitionChoose() {
     setShowTransition(true);
     await timeout(500);
-    
-
     Router.push("/choose");
   }
 
