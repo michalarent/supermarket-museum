@@ -162,7 +162,7 @@ export default function PersistentDrawerRight({
     </>
   );
 
-  return;
+  return <></>;
   // <div className={styles.drawer}>
   //   <IconButton
   //     color={iconColor}
