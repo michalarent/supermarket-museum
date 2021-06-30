@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Museum({ infoPages }) {
+export default function Choose({ infoPages }) {
   async function handleTransitionMuseum() {
     setShowTransition(true);
     await timeout(500);
