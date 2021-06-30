@@ -28,8 +28,8 @@
 
 .centeredLabel {
   position: absolute !important;
-  top: 56vh !important;
-  right: 49vw !important;
+  top: 50% !important;
+  right: 49% !important;
   z-index: 2;
 }
 
