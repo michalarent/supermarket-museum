@@ -34,7 +34,7 @@ export default function Garden({
 }) {
   return (
     <>
-      <div className={styles.museumPage}>
+      <div>
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}
