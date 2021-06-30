@@ -34,7 +34,6 @@ export default function TooltipLabel({
         enterTouchDelay="0"
         placement="center"
         onOpen={() => showTooltip(artifactSlug)}
-        className={styles.tooltip}
         title={
           <>
             {showThisTooltip ? (
