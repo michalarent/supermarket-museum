@@ -24,25 +24,17 @@ export async function getStaticProps() {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  grid: {
-    width: "90vw",
-    margin: "120px",
-  },
-}));
-
 function Museum({ artifactModels, openArtifact, labels, infoPages }) {
-  async function handleTransitionChoose() {
-    setShowTransition(true);
-    await timeout(500);
-    Router.push("/choose");
-  }
+  // async function handleTransitionChoose() {
+  //   setShowTransition(true);
+  //   await timeout(500);
+  //   Router.push("/choose");
+  // }
 
-  const [showTransition, setShowTransition] = React.useState(false);
-  function timeout(delay) {
-    return new Promise((res) => setTimeout(res, delay));
-  }
+  // const [showTransition, setShowTransition] = React.useState(false);
+  // function timeout(delay) {
+  //   return new Promise((res) => setTimeout(res, delay));
+  // }
 
   return (
     <>
@@ -51,7 +43,6 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}
-          onMouseDown={() => handleTransitionChoose()}
           style={{ cursor: "pointer" }}
         />
         <SupermarketMap
