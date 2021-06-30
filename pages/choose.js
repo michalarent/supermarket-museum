@@ -83,11 +83,6 @@ export default function Choose({ infoPages }) {
 
   return (
     <>
-      <SideDrawer
-        currentPage={"choose"}
-        infoPages={infoPages}
-        iconColor={"black"}
-      />
       <Grid container className={styles.landingPage}>
         <Grid item xs={12} md={6} lg={6}>
           <img

@@ -34,7 +34,6 @@ export default function Garden({
 }) {
   return (
     <>
-      <SideDrawer currentPage="museum" infoPages={infoPages} />
       <div className={styles.museumPage}>
         <img
           src="/next-icon.png"

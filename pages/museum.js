@@ -27,7 +27,6 @@ export async function getStaticProps() {
 function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   return (
     <>
-      <SideDrawer currentPage="museum" infoPages={infoPages} />
       <div className={styles.museumPage}>
         <img
           src="/next-icon.png"
