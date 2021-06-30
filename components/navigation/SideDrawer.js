@@ -164,7 +164,7 @@ export default function PersistentDrawerRight({
 
   return (
     <div className={styles.drawer}>
-      {/* <IconButton
+      <IconButton
         color={iconColor}
         aria-label="open drawer"
         edge="end"
@@ -260,7 +260,7 @@ export default function PersistentDrawerRight({
       </Drawer>
       <Modal open={show}>
         <>{body}</>
-      </Modal> */}
+      </Modal>
     </div>
   );
 }
