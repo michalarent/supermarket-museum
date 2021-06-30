@@ -154,8 +154,8 @@ div[role="toolbar"] > button > svg {
 .modalContentAdjusted p {
   color: black;
   font-family: "Aleo-Light";
-  font-size: 2rem;
-  margin: 3rem 0;
+  font-size: 1.3rem;
+  margin: 1.3rem 0;
 }
 
 .modalCanvas {
@@ -187,7 +187,7 @@ div[role="toolbar"] > button > svg {
   margin-top: calc(3rem + 20px);
   font-family: "Now-Medium";
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .artifactDescription p {
@@ -226,14 +226,14 @@ div[role="toolbar"] > button > svg {
 }
 
 image-gallery-icon image-gallery-left-nav {
-    fill: black;
+  fill: black;
 }
 
 .technicalInformation h3 {
-  margin-top: 3.5rem;
+  margin-top: 1.5rem;
   font-family: "Now-Medium";
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
 }
 .technicalInformation p {
@@ -347,6 +347,8 @@ iframe > * {
     width: calc(100vw - 2 * (10vw));
   }
 
+  
+
   .modalContentAdjusted h1 {
     /* color: black; */
     font-family: "Now-Medium";
@@ -356,7 +358,7 @@ iframe > * {
   .modalContentAdjusted p {
     color: black;
     font-family: "Aleo-Light", Arial, Helvetica, sans-serif;
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin: 1rem 0;
   }
 

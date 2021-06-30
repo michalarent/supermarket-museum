@@ -19,14 +19,14 @@ export async function getStaticPaths() {
   const { infoPages } = await getAllAgroPermaLabInfo();
   var paths = [];
   for (var j = 0; j <= Object.keys(infoPages).length - 1; j++) {
-    console.log(infoPages[j].slug);
+    
     paths.push({
       params: {
         slug: infoPages[j].slug,
       },
     });
   }
-  console.log(paths);
+  
   return {
     paths: paths,
     fallback: false,
@@ -34,10 +34,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("Slugs:", params.slug);
+  
   const data = await getAgroPermaLabInfoBySlug(params.slug);
-  console.log(data);
-  console.log("*****");
+  
   const { infoPages } = await getAllAgroPermaLabInfo();
   return {
     props: {
@@ -50,7 +49,7 @@ export async function getStaticProps({ params }) {
 export default function OpenArtifactPage({ infoPages }) {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug);
+  
 
   return (
     <>

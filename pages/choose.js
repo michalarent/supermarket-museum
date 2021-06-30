@@ -9,6 +9,10 @@ import Router from "next/router";
 import Fade from "@material-ui/core/Fade";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Grid from "@material-ui/core/Grid";
+import Modal from "@material-ui/core/Modal";
+import Box from "@material-ui/core/Box";
+import Backrop from "@material-ui/core/Backdrop";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 import { GraphQLClient } from "graphql-request";
 import {
@@ -41,6 +45,7 @@ export default function Museum({ infoPages }) {
     Router.push("/museum");
   }
 
+  const [show, setShow] = React.useState(true);
   async function handleTransitionGarden() {
     setShowTransition(true);
     await timeout(500);
@@ -55,36 +60,64 @@ export default function Museum({ infoPages }) {
   const [smHovered, setSMHovered] = React.useState(false);
   const [gHovered, setGHovered] = React.useState(false);
 
+  const handleClose = () => {
+    setShow(false);
+  };
+
+  const body = (
+    <>
+      <>
+        <div className={styles.chooseModal}>
+          <div className={styles.chooseModalIcon}>
+            <IconButton onClick={handleClose}>
+              <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
+            </IconButton>
+          </div>
+
+          <Grid item xs={12} md={12}>
+            <h1 className={styles.gardenTitle}>
+              You can choose the path you visit by clicking either at the
+              supermarket’s map or garden’s map.
+            </h1>
+          </Grid>
+        </div>
+      </>
+    </>
+  );
+
   return (
     <>
-      <SideDrawer currentPage={"choose"} infoPages={infoPages} />
-      <Grid container spacing={4}>
+      <SideDrawer
+        currentPage={"choose"}
+        infoPages={infoPages}
+        iconColor={"black"}
+      />
+      <Grid container className={styles.landingPage}>
         <Grid item xs={12} md={6} lg={6}>
-          <div>
-            <img
-              className={styles.SupermarketMap}
-              onMouseEnter={() => setSMHovered(true)}
-              onMouseLeave={() => setSMHovered(false)}
-              src="/supermarket/supermarketGrubszy.png"
-            ></img>
-            <h1 className={styles.supermarketTitle}>
-              Enter the supermarket museum
-            </h1>
-          </div>
+          <img
+            className={styles.supermarketMini}
+            onClick={handleTransitionMuseum}
+            src="/supermarket/supermarketGrubszy.png"
+          ></img>
         </Grid>
         <Grid item xs={12} md={6} lg={6}>
           <div className={styles.hoverDiv}>
-            <h1 className={styles.gardenTitle}>Enter the garden museum</h1>
             <img
-              onMouseEnter={() => setGHovered(true)}
-              onMouseLeave={() => setGHovered(false)}
-              className={styles.GardenMap}
-              src="/supermarket/garden.png"
+              className={styles.gardenMini}
+              onClick={handleTransitionGarden}
+              src="/supermarket/gardenGrubszy.png"
             ></img>
           </div>
         </Grid>
       </Grid>
-
+      <Modal
+        open={show}
+        disableAutoFocus={true}
+        hideBackdrop={true}
+        BackdropProps={{ open: false, invisible: true }}
+      >
+        {body}
+      </Modal>
       <div className={showTransition ? styles.transitionOpening : ""}>
         <div className={styles.bgLayer}></div>
       </div>

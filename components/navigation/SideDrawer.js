@@ -47,6 +47,7 @@ export default function PersistentDrawerRight({
   infoPages,
   openInfoPage,
   currentPage,
+  iconColor,
 }) {
   // const classes = useStyles();
   // const theme = useTheme();
@@ -164,14 +165,17 @@ export default function PersistentDrawerRight({
   return (
     <div className={styles.drawer}>
       <IconButton
-        color="inherit"
+        color={iconColor}
         aria-label="open drawer"
         edge="end"
         size="medium"
         onClick={handleDrawerOpen}
         id={styles.menuButton}
       >
-        <MenuIcon fontSize="large" />
+        <MenuIcon
+          fontSize="large"
+          style={{ fill: iconColor ? iconColor : "#fcf7ed" }}
+        />
       </IconButton>
 
       <Drawer variant="persistent" anchor="right" open={open}>

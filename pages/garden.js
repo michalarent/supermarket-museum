@@ -18,9 +18,9 @@ import Router from "next/router";
 export async function getStaticProps() {
   const { gardenArtifactModels } = await getAllGardenArtifacts();
   const { infoPages } = await getAllAgroPermaLabInfo();
-  console.log(gardenArtifactModels);
+  
   const { gardenLabels } = await getAllGardenLabels();
-  console.log(gardenLabels);
+  
 
   return {
     props: { gardenArtifactModels, gardenLabels, infoPages },

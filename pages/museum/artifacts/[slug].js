@@ -20,10 +20,10 @@ export async function getStaticPaths() {
   const { artifactModels } = await getAllArtifacts();
   const { gardenArtifactModels } = await getAllGardenArtifacts();
 
-  console.log(gardenArtifactModels);
+  
   var paths = [];
   for (var i = 0; i <= Object.keys(artifactModels).length - 1; i++) {
-    console.log(Object.keys(artifactModels).length);
+    
     paths.push({
       params: {
         slug: artifactModels[i].slug,
@@ -31,14 +31,14 @@ export async function getStaticPaths() {
     });
   }
   for (var j = 0; j <= Object.keys(gardenArtifactModels).length - 1; j++) {
-    console.log(gardenArtifactModels[j].slug);
+    
     paths.push({
       params: {
         slug: gardenArtifactModels[j].slug,
       },
     });
   }
-  console.log(paths);
+  
   return {
     paths: paths,
     fallback: false,
@@ -46,14 +46,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("Slugs:", params.slug);
+  
   const data = await getArtifactBySlug(params.slug);
-  console.log(data);
-  console.log("*****");
+
   if (data.artifactModel == null || data.artifactModel == undefined) {
     const dataGarden = await getGardenArtifactBySlug(params.slug);
-    console.log(dataGarden);
-    console.log("*****");
+  
     const { gardenLabels } = await getAllGardenLabels();
     const gardenArtifactModels = await getAllGardenArtifacts();
     return {
@@ -85,7 +83,7 @@ export default function OpenArtifactPage({
 }) {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug);
+  
 
   return (
     <>

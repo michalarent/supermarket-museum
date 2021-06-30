@@ -7,11 +7,10 @@ import Label from "../components/Label";
 import LabelNoLink from "../components/LabelNoLink";
 import SideDrawer from "../components/navigation/SideDrawer";
 import { getAllAgroPermaLabInfo } from "../api/graphcms";
+import TooltipLabel from "../components/maps/Labels/TooltipLabel";
 
 export async function getStaticProps() {
   const { infoPages } = await getAllAgroPermaLabInfo();
-  console.log("****");
-  console.log(infoPages);
 
   return {
     props: { infoPages },
@@ -19,7 +18,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ infoPages }) {
-  console.log(infoPages);
   const [showTransition, setShowTransition] = React.useState(false);
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));
@@ -31,6 +29,12 @@ export default function Home({ infoPages }) {
     await timeout(1000);
     router.push("/choose");
   }
+
+  const [isClicked, setIsClicked] = React.useState(false);
+
+  const showTooltip = (slug) => {
+    setIsClicked(false);
+  };
 
   async function handleTransitionArtifact() {
     setShowTransition(true);
@@ -48,10 +52,20 @@ export default function Home({ infoPages }) {
 
       <main>
         <div className="frontPageBackground">
-          <SideDrawer infoPages={infoPages} currentPage={""} />
+          <SideDrawer
+            infoPages={infoPages}
+            currentPage={""}
+            iconColor={"#fcf7ed"}
+          />
           <div className={styles.frontPageLabel}>
             <Label
-              header="ENTER THE SUPERMARKET MUSEUM"
+              header={
+                <h1>
+                  ENTER
+                  <br />
+                  THE SUPERMARKET MUSEUM
+                </h1>
+              }
               author=""
               onClick={() => {
                 handleTransition();
@@ -62,12 +76,15 @@ export default function Home({ infoPages }) {
           </div>
         </div>
         <div className={styles.centeredLabel}>
-          <LabelNoLink
-            slug={"one-of-all"}
-            header={"ONE OF ALL"}
-            author="Somebody"
-            showButton={true}
-            onClick={() => handleTransitionArtifact()}
+          <TooltipLabel
+            artifactTitle={"ONE OF ALL"}
+            artifactSlug={"one-of-all"}
+            artifactAuthor={"Clemens Büntig"}
+            isClicked={isClicked}
+            showTooltip={showTooltip}
+            handleShow={handleTransitionArtifact}
+            xLocation={"54.2%"}
+            yLocation={"80.5%"}
           />
         </div>
       </main>

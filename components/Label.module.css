@@ -5,8 +5,8 @@
   transform: translateY(-6vh);
   position: relative;
   z-index: -1;
-  height: 14rem;
-  width: 28rem;
+  height: 12vw;
+  width: 28vw;
 
   clip-path: polygon(
     0 0,
@@ -46,12 +46,12 @@
 }
 .label .labelContent h1 {
   font-family: "Now-Medium";
-  font-size: 2.2rem;
+  font-size: 1.8vw;
   color: black;
 }
 .label .labelContent h2 {
   font-family: "Now-Light";
-  font-size: 1vw;
+  font-size: 1.2vw;
   color: black;
 }
 .buttonLabel {
@@ -64,7 +64,7 @@
 
 .label p {
   margin-bottom: 0;
-  font-size: 0.8vw;
+  font-size: 1.2vw;
 }
 
 .label button {
@@ -86,7 +86,7 @@
     0% 80%,
     0% 20%
   ) !important;
-
+  filter: none !important;
   border-radius: 0.5vw;
   background: radial-gradient(circle at 80% 50%, transparent 7%, #fdf5e1 7%);
 }

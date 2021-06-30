@@ -31,7 +31,7 @@ import PhotoCarousel from "../image-gallery/PhotoCarousel";
 export default function GardenMap({ artifactModels, openArtifact, labels }) {
   const { makeContextualHref, returnHref } = useContextualRouting();
   const router = useRouter();
-  console.log(labels);
+  
   const [show, setShow] = React.useState(false);
   const [currentArtifact, setCurrentDisplayedArtifact] = React.useState({
     descriptionEn: { html: " " },
@@ -146,7 +146,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
   const setCurrentArtifact = (slug) => {
     let artifactModelId = -1;
-    console.log(artifactModels);
+    
     if (openArtifact == null) {
       for (var i = 0; i < artifactModels.length; i++) {
         // look for the entry with a matching `code` value
@@ -165,10 +165,10 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
     const artifactModel = artifactModels[artifactModelId];
     setCurrentDisplayedArtifact(artifactModel);
-    console.log(currentArtifact);
+    
   };
   {
-    console.log(currentArtifact);
+    
   }
   const body = (
     <>
@@ -309,13 +309,13 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
   const handleLoad = () => {
     setIsImageReady(true);
-    console.log("ready");
+    
     typeof onLoad === "function" && onLoad(e);
   };
 
   // React.useEffect(() => {
   //   if (image.current.complete) {
-  //     console.log("ready");
+  
   //     setIsImageReady(true);
   //   }
   // }, []);
@@ -327,7 +327,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
     if (labels == undefined) return;
     for (var i = 0; i < Object.values(labels)?.length; i++) {
-      console.log(labels[i]);
+      
       dict[labels[i].slug] = labels[i];
     }
 

@@ -18,7 +18,7 @@ export async function getStaticProps() {
   const { artifactModels } = await getAllArtifacts();
   const { labels } = await getAllLabels();
   const { infoPages } = await getAllAgroPermaLabInfo();
-  console.log(artifactModels);
+  
 
   return {
     props: { artifactModels, labels, infoPages },
@@ -37,7 +37,7 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   async function handleTransitionChoose() {
     setShowTransition(true);
     await timeout(500);
-    console.log(infoPages);
+    
 
     Router.push("/choose");
   }
