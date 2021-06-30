@@ -109,12 +109,6 @@ a {
   margin-bottom: 2rem;
 }
 
-.museum-page {
-  z-index: 1;
-  position: absolute !important;
-  overflow: hidden;
-}
-
 .TransformComponent-module_container__3NwNd {
   overflow: hidden !important;
   width: 100vw !important;
