@@ -55,6 +55,7 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
           style={{ cursor: "pointer" }}
         />
         <SupermarketMap
+          supressHydrationWarning={true}
           artifactModels={artifactModels}
           openArtifact={openArtifact}
           labels={labels}
