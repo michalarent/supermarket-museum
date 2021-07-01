@@ -30,7 +30,6 @@ export default function Home({ oneOfAll }) {
   const router = useRouter();
 
   React.useEffect(() => {
-    // Prefetch the dashboard page
     router.prefetch("/choose");
   }, []);
 
