@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import styles_map from "../styles/map.module.css";
 import Label from "../components/Label";
 import LabelNoLink from "../components/LabelNoLink";
 import SideDrawer from "../components/navigation/SideDrawer";
@@ -10,6 +11,7 @@ import { getAllAgroPermaLabInfo, getArtifactBySlug } from "../api/graphcms";
 import TooltipLabel from "../components/maps/Labels/TooltipLabel";
 import { IconButton, Grid, Box } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
+import Tooltip from "@material-ui/core/Tooltip";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 export async function getStaticProps() {
@@ -139,6 +141,13 @@ export default function Home({ infoPages, oneOfAll }) {
     </>
   );
 
+  const [showThisTooltip, setShowThisTooltip] = React.useState(false);
+
+  const handleOpenArtifact = () => {
+    handleTransitionArtifact();
+    setShowThisTooltip(false);
+  };
+
   return (
     <>
       <Head>
@@ -149,11 +158,6 @@ export default function Home({ infoPages, oneOfAll }) {
 
       <main>
         <div className="frontPageBackground">
-          <SideDrawer
-            infoPages={infoPages}
-            currentPage={""}
-            iconColor={"#fcf7ed"}
-          />
           <div className={styles.frontPageLabel}>
             <Label
               header={
@@ -173,14 +177,32 @@ export default function Home({ infoPages, oneOfAll }) {
           </div>
         </div>
         <div className={styles.centeredLabel}>
-          <TooltipLabel
-            artifactTitle={"ONE OF ALL"}
-            artifactSlug={"one-of-all"}
-            artifactAuthor={"Clemens Büntig"}
-            isClicked={isClicked}
-            showTooltip={showTooltip}
-            handleShow={() => handleTransitionArtifact()}
-          />
+          <Tooltip
+            interactive
+            enterTouchDelay="0"
+            placement="auto"
+            // onOpen={() => showTooltip(artifactSlug)}
+            title={
+              <>
+                {showThisTooltip ? (
+                  <LabelNoLink
+                    slug={"one-of-all"}
+                    header={"One Of All"}
+                    author={"Clemens Büntig"}
+                    showButton={true}
+                    onClick={handleOpenArtifact}
+                  />
+                ) : null}
+              </>
+            }
+          >
+            <div
+              onMouseEnter={() => setShowThisTooltip(true)}
+              onTouchStart={() => setShowThisTooltip(true)}
+              onTouchStart={() => setShowThisTooltip(true)}
+              className={styles.centerClickField}
+            ></div>
+          </Tooltip>
         </div>
       </main>
       <Modal open={showOneOfAll}>{body}</Modal>

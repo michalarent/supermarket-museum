@@ -197,7 +197,6 @@
 
 .gardenTitle .landingImage {
   overflow: hidden;
-  
 }
 
 .gardenTitle,
@@ -224,4 +223,16 @@
   z-index: 1;
   position: fixed;
   right: 0;
+}
+
+.centerClickField {
+  position: absolute;
+  background-color: transparent;
+  top: 50%;
+  height: 35vh;
+  width: 35vh;
+  margin: 0 auto;
+  margin-left: -15vh;
+  border-radius: 100%;
+  transform: translateY(-50%);
 }
