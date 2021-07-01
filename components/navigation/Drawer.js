@@ -4,12 +4,14 @@ import Menu from "@material-ui/icons/Menu";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import { useRouter } from "next/router";
 import React from "react";
+
 import { useContextualRouting } from "next-use-contextual-routing";
 import Modal from "@material-ui/core/Modal";
 import { getAllAgroPermaLabInfo } from "../../api/graphcms";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import NProgress from "nprogress";
 
 export default function Drawer({
   handleOpen,
@@ -121,6 +123,30 @@ export default function Drawer({
     });
   };
 
+  //
+
+  React.useEffect(() => {
+    const handleStart = (url) => {
+      console.log(`Loading: ${url}`);
+      NProgress.start();
+    };
+    const handleStop = () => {
+      NProgress.done();
+    };
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleStop);
+    router.events.on("routeChangeError", handleStop);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleStop);
+      router.events.off("routeChangeError", handleStop);
+    };
+  }, [router]);
+
+  //
+
   const body = (
     <>
       {currentInfoPage != null ? (
@@ -201,22 +227,13 @@ export default function Drawer({
         >
           <p className={styles.listItemText}>Manifesto</p>
         </div>
-        <div
-          className={styles.listItem}
-          onClick={() => handleShow("about")}
-        >
+        <div className={styles.listItem} onClick={() => handleShow("about")}>
           <p className={styles.listItemText}>About</p>
         </div>
-        <div
-          className={styles.listItem}
-          onClick={() => handleShow("contact")}
-        >
+        <div className={styles.listItem} onClick={() => handleShow("contact")}>
           <p className={styles.listItemText}>Contact</p>
         </div>
-        <div
-          className={styles.listItem}
-          onClick={() => handleShow("contact")}
-        >
+        <div className={styles.listItem} onClick={() => handleShow("contact")}>
           <p className={styles.listItemText}>Materials</p>
         </div>
       </div>
