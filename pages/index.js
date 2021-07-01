@@ -35,7 +35,6 @@ export default function Home({ oneOfAll }) {
 
   async function handleTransition() {
     setShowTransition(true);
-    await timeout(1000);
     router.push("/choose");
   }
 
