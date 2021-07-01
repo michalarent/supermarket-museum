@@ -83,34 +83,38 @@ export default function Choose({ infoPages }) {
 
   return (
     <>
-      <Grid container className={styles.landingPage}>
-        <Grid item xs={12} md={6} lg={6}>
-          <img
-            className={styles.supermarketMini}
-            onClick={() => handleTransitionMuseum}
-            src="/supermarket/supermarketGrubszy.png"
-          ></img>
+      <div className="frontPageBackground">
+        <Grid container className={styles.landingPage}>
+          <Grid item xs={12} md={6} lg={6}>
+            <div className={styles.supermarketMiniContainer}>
+              <img
+                className={styles.supermarketMini}
+                onClick={() => handleTransitionMuseum}
+                src="/supermarket/supermarketGrubszy.png"
+              ></img>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={6} lg={6}>
+            <div className={styles.gardenMiniContainer}>
+              <img
+                className={styles.gardenMini}
+                onClick={() => handleTransitionGarden}
+                src="/supermarket/gardenGrubszy.png"
+              ></img>
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6} lg={6}>
-          <div className={styles.hoverDiv}>
-            <img
-              className={styles.gardenMini}
-              onClick={() => handleTransitionGarden}
-              src="/supermarket/gardenGrubszy.png"
-            ></img>
-          </div>
-        </Grid>
-      </Grid>
-      <Modal
-        open={show}
-        disableAutoFocus={true}
-        hideBackdrop={true}
-        BackdropProps={{ open: false, invisible: true }}
-      >
-        {body}
-      </Modal>
-      <div className={showTransition ? styles.transitionOpening : ""}>
-        <div className={styles.bgLayer}></div>
+        <Modal
+          open={show}
+          disableAutoFocus={true}
+          hideBackdrop={true}
+          BackdropProps={{ open: false, invisible: true }}
+        >
+          {body}
+        </Modal>
+        <div className={showTransition ? styles.transitionOpening : ""}>
+          <div className={styles.bgLayer}></div>
+        </div>
       </div>
     </>
   );

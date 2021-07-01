@@ -166,11 +166,47 @@
   display: block;
 }
 
+.supermarketMiniContainer, .gardenMiniContainer {
+  border: 2px solid black;
+}
+.supermarketMiniContainer {
+  animation: float 6s ease-in-out infinite;
+  position: absolute;
+  top: 50%;
+  left: 5vw;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 40vw;
+  height: 40vw;
+  background: white;
+  border-radius: 100%;
+}
+
+.gardenMiniContainer {
+  animation: float 6s ease-in-out infinite;
+  position: absolute;
+  top: 50%;
+  right: 5vw;
+  margin: 0 auto;
+  width: 40vw;
+  height: 40vw;
+  background: white;
+  border-radius: 100%;
+}
+
+.supermarketMiniContainer:hover,
+.gardenMiniContainer:hover {
+  animation: float-hovered 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
 .supermarketMini,
 .gardenMini {
+  border-radius: 100%;
   object-fit: cover;
-  height: 100vh;
-
+  height: 100%;
+  width: 100%;
+  object-position: center;
   transition: height 0.2s ease-in, object-position 0.5s ease-in;
 }
 .supermarketMini {
@@ -178,11 +214,9 @@
 }
 
 .supermarketMini:hover {
-  height: 110vh;
 }
 
 .gardenMini:hover {
-  height: 110vh;
 }
 
 .textCentered {
@@ -235,4 +269,34 @@
   margin-left: -15vh;
   border-radius: 100%;
   transform: translateY(-50%);
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(-48%) scale(1.02);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@keyframes float-hovered {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(-45%) scale(1.1);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1);
+  }
 }
