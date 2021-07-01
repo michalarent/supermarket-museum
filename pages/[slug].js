@@ -10,6 +10,7 @@ import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import {
   getAllAgroPermaLabInfo,
   getAgroPermaLabInfoBySlug,
+  getArtifactBySlug,
 } from "../api/graphcms";
 
 import Head from "next/head";
@@ -29,6 +30,11 @@ export async function getStaticPaths() {
       },
     });
   }
+  paths.push({
+    params: {
+      slug: "one-of-all",
+    },
+  });
   console.log(paths);
   return {
     paths: paths,
@@ -39,21 +45,126 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   console.log("Slugs:", params.slug);
   const infoPage = await getAgroPermaLabInfoBySlug(params.slug);
+  const oneOfAll = await getArtifactBySlug("one-of-all");
   const currentInfoPage = infoPage.infoPage;
   console.log("*****");
 
   return {
     props: {
       currentInfoPage,
+      oneOfAll,
     },
   };
 }
 
-export default function OpenArtifactPage({ currentInfoPage }) {
+export default function OpenArtifactPage({ currentInfoPage, oneOfAll }) {
   React.useEffect(() => {
     // Prefetch the dashboard page
     router.prefetch("/");
   }, []);
+
+  const [showOneOfAll, setShowOneOfAll] = React.useState(false);
+  const [showInfoPage, setShowInfoPage] = React.useState(true);
+
+  React.useEffect(() => {
+    if (slug == "one-of-all") {
+      setShowInfoPage(false);
+      setShowOneOfAll(true);
+    }
+  });
+
+  const currentArtifact = oneOfAll.artifactModel;
+
+  console.log(currentArtifact);
+
+  const body = (
+    <>
+      {currentArtifact != null ? (
+        <div className="modalCanvas">
+          <div className="closeIcon">
+            <IconButton onClick={() => router.push("/")}>
+              <HighlightOffIcon />
+            </IconButton>
+          </div>
+          <Box p={(2, 4)} className="modalBoxContainer">
+            <Grid item xs={12} md={12}>
+              <div className="modalContentAdjusted">
+                <h1 className="heading">{currentArtifact.title}</h1>
+                <div
+                  className="text-3xl"
+                  dangerouslySetInnerHTML={{
+                    __html: currentArtifact.authors.html,
+                  }}
+                />
+                <>
+                  {currentArtifact?.videoIFrame?.text.length > 5 ? (
+                    <>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: currentArtifact.videoIFrame.text,
+                        }}
+                      />
+                    </>
+                  ) : (
+                    <Grid container spacing={5}>
+                      <Grid item xs={12} md={12} lg={12}>
+                        <div
+                          className={"artifactDescription"}
+                          dangerouslySetInnerHTML={{
+                            __html: currentArtifact.artifactContent.html,
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                  )}
+                </>
+                <Grid container spacing={5}>
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"artifactDescription"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.descriptionEn?.html,
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"artifactDescription"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.descriptionOriginal?.html,
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  spacing={5}
+                  className={"technicalInformationContainer"}
+                >
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"technicalInformation"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.technicalInformation?.html,
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={12} lg={6}>
+                    <div
+                      className={"technicalInformation"}
+                      dangerouslySetInnerHTML={{
+                        __html: currentArtifact.youMayAlsoLike?.html,
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+              </div>
+            </Grid>
+          </Box>
+        </div>
+      ) : null}
+    </>
+  );
 
   const router = useRouter();
   const { slug } = router.query;
@@ -94,7 +205,7 @@ export default function OpenArtifactPage({ currentInfoPage }) {
             </div>
             {console.log(currentInfoPage)}
           </main>
-          <Modal open={true}>
+          <Modal open={showInfoPage}>
             <>
               <>
                 {currentInfoPage != null ? (
@@ -141,6 +252,7 @@ export default function OpenArtifactPage({ currentInfoPage }) {
               </>
             </>
           </Modal>
+          <Modal open={showOneOfAll}>{body}</Modal>
         </>
       </Fade>
     </>
