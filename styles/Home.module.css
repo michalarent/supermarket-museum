@@ -170,7 +170,7 @@
   border: 2px solid black;
 }
 .supermarketMiniContainer {
-  animation: float 6s ease-in-out infinite;
+  animation: float 12s ease-in-out infinite;
   position: absolute;
   top: 50%;
   left: 5vw;
@@ -178,25 +178,25 @@
   margin: 0 auto;
   width: 40vw;
   height: 40vw;
-  background: white;
+  background: rgba(255, 255, 255, 0.753);
   border-radius: 100%;
 }
 
 .gardenMiniContainer {
-  animation: float 6s ease-in-out infinite;
+  animation: float 12s ease-in-out infinite;
   position: absolute;
   top: 50%;
   right: 5vw;
   margin: 0 auto;
   width: 40vw;
   height: 40vw;
-  background: white;
+  background: rgba(255, 255, 255, 0.753);
   border-radius: 100%;
 }
 
 .supermarketMiniContainer:hover,
 .gardenMiniContainer:hover {
-  animation: float-hovered 3s ease-in-out infinite;
+  animation: float-hovered 6s ease-in-out infinite;
   cursor: pointer;
 }
 
