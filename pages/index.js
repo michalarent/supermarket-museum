@@ -30,7 +30,7 @@ export default function Home({ infoPages }) {
     router.push("/choose");
   }
 
-  const [isClicked, setIsClicked] = React.useState(false);
+  const [isClicked, setIsClicked] = React.useState(true);
 
   const showTooltip = (slug) => {
     setIsClicked(false);

@@ -19,6 +19,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Drawer
+        openInfoPage={pageProps?.data?.infoPage.slug}
+        infoPagesInitial={pageProps?.infoPages}
         handleOpen={handleOpenMenu}
         handleHide={handleHideMenu}
         show={show}

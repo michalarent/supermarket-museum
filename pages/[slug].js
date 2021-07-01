@@ -3,6 +3,9 @@ import React from "react";
 import SideDrawer from "../components/navigation/SideDrawer";
 import Fade from "@material-ui/core/Fade";
 import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import { IconButton, Box, Grid } from "@material-ui/core";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 import {
   getAllAgroPermaLabInfo,
@@ -19,14 +22,14 @@ export async function getStaticPaths() {
   const { infoPages } = await getAllAgroPermaLabInfo();
   var paths = [];
   for (var j = 0; j <= Object.keys(infoPages).length - 1; j++) {
-    
+    console.log(infoPages[j].slug);
     paths.push({
       params: {
         slug: infoPages[j].slug,
       },
     });
   }
-  
+  console.log(paths);
   return {
     paths: paths,
     fallback: false,
@@ -34,22 +37,27 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  
-  const data = await getAgroPermaLabInfoBySlug(params.slug);
-  
-  const { infoPages } = await getAllAgroPermaLabInfo();
+  console.log("Slugs:", params.slug);
+  const infoPage = await getAgroPermaLabInfoBySlug(params.slug);
+  const currentInfoPage = infoPage.infoPage;
+  console.log("*****");
+
   return {
     props: {
-      data,
-      infoPages,
+      currentInfoPage,
     },
   };
 }
 
-export default function OpenArtifactPage({ infoPages }) {
+export default function OpenArtifactPage({ currentInfoPage }) {
+  React.useEffect(() => {
+    // Prefetch the dashboard page
+    router.prefetch("/");
+  }, []);
+
   const router = useRouter();
   const { slug } = router.query;
-  
+  console.log(slug);
 
   return (
     <>
@@ -63,7 +71,6 @@ export default function OpenArtifactPage({ infoPages }) {
 
           <main>
             <div className="frontPageBackground">
-              <SideDrawer openInfoPage={slug} infoPages={infoPages} currentPage="" />
               <div className={styles.frontPageLabel}>
                 <Label
                   header="ENTER THE SUPERMARKET MUSEUM"
@@ -85,7 +92,55 @@ export default function OpenArtifactPage({ infoPages }) {
                 onClick={() => handleTransitionArtifact()}
               />
             </div>
+            {console.log(currentInfoPage)}
           </main>
+          <Modal open={true}>
+            <>
+              <>
+                {currentInfoPage != null ? (
+                  <>
+                    <div className="modalCanvas">
+                      <div className="closeIcon">
+                        <IconButton onClick={() => router.push("/")}>
+                          <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
+                        </IconButton>
+                      </div>
+                      <Box p={(2, 4)} className="modalBoxContainer">
+                        <Grid item xs={12} md={12}>
+                          <div className="modalContentAdjusted">
+                            <h1 className="heading">{currentInfoPage.title}</h1>
+                            <Grid container spacing={5}>
+                              <Grid item xs={12} md={12} lg={12}>
+                                <div
+                                  className={"artifactDescription"}
+                                  dangerouslySetInnerHTML={{
+                                    __html: currentInfoPage.content.html,
+                                  }}
+                                ></div>
+                              </Grid>
+                            </Grid>
+
+                            <Grid
+                              container
+                              spacing={5}
+                              className={"technicalInformationContainer"}
+                            >
+                              <Grid item xs={12} md={12} lg={6}>
+                                <div className={"technicalInformation"} />
+                              </Grid>
+                              <Grid item xs={12} md={12} lg={6}>
+                                <div className={"technicalInformation"} />
+                              </Grid>
+                            </Grid>
+                          </div>
+                        </Grid>
+                      </Box>
+                    </div>
+                  </>
+                ) : null}
+              </>
+            </>
+          </Modal>
         </>
       </Fade>
     </>
