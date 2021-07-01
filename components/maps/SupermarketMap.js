@@ -63,6 +63,11 @@ export default function SupermarketMap({
     }
   }, [show]);
 
+  React.useEffect(() => {
+    // Prefetch the museum page
+    router.prefetch("/museum");
+  }, []);
+
   const handleClose = () => {
     setCurrentArtifact(null);
     setShowSynthesizer(false);
