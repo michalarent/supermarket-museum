@@ -33,8 +33,7 @@ export default function Home({ oneOfAll }) {
     router.prefetch("/choose");
   }, []);
 
-  async function handleTransition() {
-    setShowTransition(true);
+  function handleTransition() {
     router.push("/choose");
   }
 

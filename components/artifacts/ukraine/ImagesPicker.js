@@ -71,7 +71,10 @@ const ImagesPicker = ({
         spacing={2}
       >
         <Grid item xs={6} md={12} className={styles.GridItemHeader}>
-          <p>What kind of life do you have now?</p>
+          <p>
+            What kind of pictures and sceneries do you actually have around you
+            on a daily basis? Choose six and click next.
+          </p>
         </Grid>
         <>
           {images.map((image) => (

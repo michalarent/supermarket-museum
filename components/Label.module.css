@@ -54,16 +54,18 @@
   color: black;
 }
 .buttonLabel {
+  position: absolute !important;
+  top: 53% !important;
+  margin: 0 -1vw;
+
+  transform: translateY(-50%) !important;
   font-family: "Now-Medium" !important;
   font-size: 0.8vw !important;
-  text-align: left !important;
-  align-items: left !important;
-  padding-left: 1vw;
 }
 
 .label p {
   margin-bottom: 0;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .label button {

@@ -35,13 +35,17 @@
 .GridItem {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: right;
 }
 
 .GridItemHeader {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.GridItemHeader > p {
+  font-family: "Now-Regular";
 }
 .GridItem > .buttonContainer {
   height: 16vh;
@@ -90,6 +94,7 @@
   /* cursor: default; */
   pointer-events: none;
 }
+
 .ImageHover {
   position: absolute !important;
   top: 10% !important;
@@ -140,12 +145,13 @@
   transform: translateX(9vw) translateY(-25vh) rotate(90deg) scale(1);
   transition: transform 0.1s linear;
   position: absolute;
-  right: 0;
+  right: 20px;
   z-index: 1;
 }
 
 .nextIcon:hover {
   transform: translateX(10vw) translateY(-25vh) rotate(90deg) scale(1.1);
+  cursor: pointer;
 }
 
 .GridItem > .Image_buttonContainerSelected::before {

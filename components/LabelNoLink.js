@@ -34,18 +34,13 @@ const LabelNoLink = (props) => {
                     <h1
                       style={{
                         fontSize: `${
-                          props.header.length > 18 ? "1.5vw" : "1.8vw"
+                          props.header.length > 18 ? "1.35vw" : "1.8vw"
                         }`,
                       }}
                     >
                       {props.header}
                     </h1>
                     <h2
-                      style={{
-                        fontSize: `${
-                          props.header.length > 30 ? "1vw" : "1.2vw"
-                        }`,
-                      }}
                       dangerouslySetInnerHTML={{
                         __html: props.author,
                       }}

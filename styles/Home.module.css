@@ -166,20 +166,29 @@
   display: block;
 }
 
-.supermarketMiniContainer, .gardenMiniContainer {
-  border: 2px solid black;
+.supermarketMiniContainer,
+.gardenMiniContainer {
+  /* border: 2px solid black; */
 }
 .supermarketMiniContainer {
   animation: float 12s ease-in-out infinite;
   position: absolute;
   top: 50%;
   left: 5vw;
-  transform: translateY(-50%);
   margin: 0 auto;
   width: 40vw;
   height: 40vw;
-  background: rgba(255, 255, 255, 0.753);
+  background: white;
+  mask-image: radial-gradient(rgba(255, 255, 255, 1) 30%, rgba(0, 0, 0, 0) 90%);
+
+  mask-position: center;
+  /* mask-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 30%,
+    rgba(0, 0, 0, 0) 70%
+  ); */
   border-radius: 100%;
+  cursor: pointer;
 }
 
 .gardenMiniContainer {
@@ -190,14 +199,37 @@
   margin: 0 auto;
   width: 40vw;
   height: 40vw;
-  background: rgba(255, 255, 255, 0.753);
+  background: white;
+  mask-image: radial-gradient(
+      rgba(255, 255, 255, 1) 30%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  mask-position: 1rem 1rem, center;
   border-radius: 100%;
+  cursor: pointer;
+}
+
+@keyframes clip-fade {
+  0% {
+    mask-image: radial-gradient(
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  }
+  100% {
+    mask-image: radial-gradient(
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
 }
 
 .supermarketMiniContainer:hover,
 .gardenMiniContainer:hover {
-  animation: float-hovered 6s ease-in-out infinite;
-  cursor: pointer;
+  mask-size: contain;
+  
+  animation: float 12s ease-in-out infinite, clip-fade 12s linear infinite;
+
 }
 
 .supermarketMini,
@@ -273,15 +305,17 @@
 
 @keyframes float {
   0% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    mask-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 30%,
+      rgba(0, 0, 0, 0) 70%
+    );
     transform: translateY(-50%) scale(1);
   }
   50% {
-    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
     transform: translateY(-48%) scale(1.02);
   }
   100% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
     transform: translateY(-50%) scale(1);
   }
 }
