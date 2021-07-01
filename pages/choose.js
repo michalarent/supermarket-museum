@@ -84,34 +84,40 @@ export default function Choose({ infoPages }) {
   return (
     <>
       <div className="frontPageBackground">
-        <Grid container className={styles.landingPage}>
-          <Grid item xs={12} md={6} lg={6}>
-            <div className={styles.supermarketMiniContainer}>
-              <img
-                className={styles.supermarketMini}
-                onClick={() => handleTransitionMuseum}
-                src="/supermarket/supermarketGrubszy.png"
-              ></img>
-            </div>
+        <Fade in={true} timeout={500}>
+          <Grid container className={styles.landingPage}>
+            <Grid item xs={12} md={6} lg={6}>
+              <div className={styles.supermarketMiniContainer}>
+                <img
+                  className={styles.supermarketMini}
+                  onClick={() => handleTransitionMuseum}
+                  src="/supermarket/supermarketGrubszy.png"
+                ></img>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6} lg={6}>
+              <div className={styles.gardenMiniContainer}>
+                <img
+                  className={styles.gardenMini}
+                  onClick={() => handleTransitionGarden}
+                  src="/supermarket/gardenGrubszy.png"
+                ></img>
+              </div>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={6} lg={6}>
-            <div className={styles.gardenMiniContainer}>
-              <img
-                className={styles.gardenMini}
-                onClick={() => handleTransitionGarden}
-                src="/supermarket/gardenGrubszy.png"
-              ></img>
-            </div>
-          </Grid>
-        </Grid>
+        </Fade>
+
         <Modal
-          open={show}
+          disableEnforceFocus
           disableAutoFocus={true}
+          open={show}
           hideBackdrop={true}
-          BackdropProps={{ open: false, invisible: true }}
         >
-          {body}
+          <Fade in={show} timeout={800}>
+            <div>{body}</div>
+          </Fade>
         </Modal>
+
         <div className={showTransition ? styles.transitionOpening : ""}>
           <div className={styles.bgLayer}></div>
         </div>

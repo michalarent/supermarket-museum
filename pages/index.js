@@ -15,20 +15,24 @@ import Tooltip from "@material-ui/core/Tooltip";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 export async function getStaticProps() {
-  const { infoPages } = await getAllAgroPermaLabInfo();
   const oneOfAll = await getArtifactBySlug("one-of-all");
 
   return {
-    props: { infoPages, oneOfAll },
+    props: { oneOfAll },
   };
 }
 
-export default function Home({ infoPages, oneOfAll }) {
+export default function Home({ oneOfAll }) {
   const [showTransition, setShowTransition] = React.useState(false);
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));
   }
   const router = useRouter();
+
+  React.useEffect(() => {
+    // Prefetch the dashboard page
+    router.prefetch("/choose");
+  }, []);
 
   async function handleTransition() {
     setShowTransition(true);
