@@ -206,9 +206,9 @@ export default function Home({ infoPages, oneOfAll }) {
         </div>
       </main>
       <Modal open={showOneOfAll}>{body}</Modal>
-      <div className={showTransition ? styles.transitionOpening : ""}>
+      {/* <div className={showTransition ? styles.transitionOpening : ""}>
         <div className={styles.bgLayer}></div>
-      </div>
+      </div> */}
     </>
   );
 }
