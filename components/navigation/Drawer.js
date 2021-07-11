@@ -236,6 +236,23 @@ export default function Drawer({
         <div className={styles.listItem} onClick={() => handleShow("contact")}>
           <p className={styles.listItemText}>Materials</p>
         </div>
+        <div className={styles.footer}>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <img className={styles.logo} src="/agropermalab-logo.png"></img>
+            </Grid>
+            <Grid item xs={6}>
+              <div className={styles.footerText}>
+                <h2>AgroPermaLab</h2>
+                <h3>
+                  contact [at] agropermalab.org
+                  <br />
+                  <a href="https://www.agropermalab.org">agropermalab.org</a>
+                </h3>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
       </div>
       <Modal open={open}>
         <>{body}</>

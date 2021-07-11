@@ -243,16 +243,16 @@ div[role="toolbar"] > button > svg {
 
 /* Track */
 .modalCanvas::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f4d588de;
 }
 
 /* Handle */
 .modalCanvas::-webkit-scrollbar-thumb {
-  background: #888;
+  background: black;
 }
 
 .modalCanvas::-webkit-scrollbar-thumb:hover {
-  background: rgb(255, 0, 0);
+  background: white;
 }
 .modalCanvasGallery {
   outline: none;
@@ -407,7 +407,6 @@ vp-center {
   width: 100%;
 }
 
-
 #player {
   max-width: 100% !important;
 }
@@ -516,7 +515,7 @@ vp-center {
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: red;
+    background: black;
     border-radius: 10px;
   }
 
