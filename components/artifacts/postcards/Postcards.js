@@ -4,7 +4,6 @@ import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FileSaver from "file-saver";
-import dynamic from "next/dynamic";
 
 const postcards = [
   {
@@ -85,12 +84,6 @@ const postcards_gallery = [
 ];
 
 export default function Postcards() {
-  const ImageGallery = dynamic(
-    () => import("react-image-gallery"),
-    {
-      ssr: false,
-    }
-  );
   const imgRef = React.useRef(null);
 
   function handleSaveFile(index) {

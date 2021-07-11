@@ -28,19 +28,13 @@ import Recollections from "../artifacts/ukraine/recollections";
 import AudioPlayer from "../audio-player/AudioPlayer";
 import PhotoCarousel from "../image-gallery/PhotoCarousel";
 import Postcards from "../artifacts/postcards/Postcards";
-import dynamic from "next/dynamic";
 
 export default function SupermarketMap({
   artifactModels,
   openArtifact,
   labels,
 }) {
-  const PhotoCarousel = dynamic(
-    () => import("../image-gallery/PhotoCarousel"),
-    {
-      ssr: false,
-    }
-  );
+  
   const { makeContextualHref, returnHref } = useContextualRouting();
   const router = useRouter();
 
