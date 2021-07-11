@@ -37,7 +37,6 @@ export default function Garden({
   return (
     <>
       <div>
-        <PopupModal />
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}
