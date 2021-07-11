@@ -190,21 +190,51 @@
 
 @media only screen and (max-width: 600px) {
   .label {
-    height: 10em;
-    width: 16em;
+    height: 25vw;
+    width: 50vw;
+  }
+  .readMore {
+    font-family: "Now-Light";
+    font-size: 2.5vw;
+    color: black;
   }
   .label .labelContent h1 {
-    font-size: 1.5em;
+    font-family: "Now-Medium";
+    font-size: 3vw !important;
+    color: black;
+  }
+
+  .label p {
+    margin-bottom: 0;
+    font-size: 2.5vw;
   }
   .label .labelContent h2 {
-    font-size: 1.2em;
+    font-family: "Now-Light";
+    font-size: 2vw;
+    color: black;
   }
   .buttonLabel {
     font-family: "Aleo-Bold";
     font-size: 1em;
   }
   .button {
-    width: 2em !important;
-    height: 2em !important;
+    width: 3vw !important;
+    height: 3vw !important;
+  }
+
+  .infoLabel {
+    width: 28vh;
+  }
+
+  .infoLabel .labelContent h1 {
+    font-size: 3vw !important;
+  }
+
+  .infoLabel .labelContent h2 {
+    font-size: 2.5vw !important;
+  }
+
+  .infoLabel .labelContent p {
+    font-size: 2.5vw !important;
   }
 }

@@ -229,15 +229,14 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         }}
                       />
                     </>
-                  ) : (
-                    <div
-                      className={"artifactDescription"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact.artifactContent.html,
-                      }}
-                    />
-                  )}
+                  ) : null}
                 </>
+                <div
+                  className={"artifactDescription"}
+                  dangerouslySetInnerHTML={{
+                    __html: currentArtifact.artifactContent.html,
+                  }}
+                />
                 <Grid container spacing={5}>
                   <Grid item xs={12} md={12} lg={6}>
                     <div
@@ -501,17 +500,12 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*herb spiral*/}
                         <TooltipLabel
                           artifactTitle={
-                            artifactsDict[
-                              "learning-the-natural-way"
-                            ].title
+                            artifactsDict["learning-the-natural-way"].title
                           }
-                          artifactSlug={
-                            "learning-the-natural-way"
-                          }
+                          artifactSlug={"learning-the-natural-way"}
                           artifactAuthor={
-                            artifactsDict[
-                              "learning-the-natural-way"
-                            ].authors.html
+                            artifactsDict["learning-the-natural-way"].authors
+                              .html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
@@ -520,24 +514,34 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           yLocation={"75.5%"}
                           color={"#e3f393"}
                         />
-                        {/*compost*/}
+                        {/*compost bins*/}
                         <TooltipLabel
-                          artifactTitle={
-                            "compost?"
-                          }
-                          artifactSlug={
-                            "learning-the-natural-way"
-                          }
+                          artifactTitle={"compost?"}
+                          artifactSlug={"learning-the-natural-way"}
                           artifactAuthor={
-                            artifactsDict[
-                              "learning-the-natural-way"
-                            ].authors.html
+                            artifactsDict["learning-the-natural-way"].authors
+                              .html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
                           xLocation={"35.2%"}
                           yLocation={"31.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*compost toilet*/}
+                        <TooltipLabel
+                          artifactTitle={"compost?"}
+                          artifactSlug={"learning-the-natural-way"}
+                          artifactAuthor={
+                            artifactsDict["learning-the-natural-way"].authors
+                              .html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"45.2%"}
+                          yLocation={"27.5%"}
                           color={"#e3f393"}
                         />
                       </div>

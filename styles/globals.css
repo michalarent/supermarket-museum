@@ -369,14 +369,26 @@ image-gallery-icon image-gallery-left-nav {
 }
 
 .modalBoxContainer iframe {
-  max-height: 70vw;
+  /* max-height: 70vw; */
 }
 
 iframe > * {
   justify-content: left;
+  width: 100%;
+}
+
+body .vp-center {
+  justify-content: left !important;
+  align-items: left !important;
 }
 
 .modalBoxContainer body {
+  justify-content: left !important;
+  align-items: left !important;
+}
+
+.artifactDescription > iframe:first-child:first-child {
+  width: 100% !important;
   justify-content: left !important;
   align-items: left !important;
 }
@@ -386,6 +398,23 @@ iframe > * {
   align-items: left !important;
 }
 
+vp-center {
+  justify-content: left !important;
+  align-items: left !important;
+}
+
+.artifactDescription:first-of-type(body) {
+  width: 100%;
+}
+
+
+#player {
+  max-width: 100% !important;
+}
+
+.artifactDescription > iframe {
+  width: 100% !important;
+}
 .MuiSvgIcon-fontSizeLarge {
   font-size: 4rem !important;
 }
@@ -512,6 +541,12 @@ iframe > * {
     font-family: "Aleo-Light";
     font-size: 1.3rem;
     margin-top: 1rem;
+  }
+
+  .artifactDescription ul > li > div {
+    font-family: "Aleo-Light";
+    font-size: 1rem !important;
+    margin-top: 1rem !important;
   }
 
   .image-gallery-download-button {
