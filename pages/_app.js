@@ -18,11 +18,6 @@ function MyApp({ Component, pageProps }) {
     setShow(false);
   }
 
-  const [popupModalOpen, setPopupModalOpen, removeValue] = useSessionStorage(
-    "popupModalOpen",
-    true
-  );
-
   return (
     <>
       <Drawer

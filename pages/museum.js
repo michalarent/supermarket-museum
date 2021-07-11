@@ -29,7 +29,7 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   return (
     <>
       <div>
-        {/* <PopupModal /> */}
+        <PopupModal />
 
         <img
           src="/next-icon.png"
