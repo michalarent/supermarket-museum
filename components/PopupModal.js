@@ -7,11 +7,6 @@ import styles from "../styles/Home.module.css";
 import { useLocalStorage, useSessionStorage } from "react-use-storage";
 
 export default function PopupModal() {
-  const [popupModalOpen, setPopupModalOpen, removeValue] = useSessionStorage(
-    "popupModalOpen",
-    true
-  );
-
   const [show, setShow] = React.useState(true);
 
   const handleClose = () => {
