@@ -6,6 +6,7 @@ import SupermarketMap from "../components/maps/SupermarketMap";
 import styles from "../styles/Home.module.css";
 import map_style from "../styles/map.module.css";
 import Router from "next/router";
+import PopupModal from "../components/PopupModal";
 
 import { GraphQLClient } from "graphql-request";
 import {
@@ -28,6 +29,8 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   return (
     <>
       <div>
+        <PopupModal />
+
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}

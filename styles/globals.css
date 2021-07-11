@@ -275,6 +275,25 @@ div[role="toolbar"] > button > svg {
   font-weight: 300;
   font-size: 1.5rem;
 }
+.artifactDescription img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 3rem;
+  margin-top: 1.5rem;
+}
+
+.artifactDescription ul {
+  padding-left: 1.13rem !important;
+  list-style: square;
+  list-style-position: outside;
+}
+
+.artifactDescription ul div {
+  font-family: "Aleo-Light";
+  font-size: 1.3rem;
+
+  vertical-align: middle;
+}
 
 .artifactDescription p {
   margin-top: 0rem;
@@ -427,6 +446,7 @@ iframe > * {
   .modalCanvas {
     outline: none;
     overflow: auto;
+    overflow-x: hidden;
     background-color: #f4d588de;
     position: absolute;
     left: 10vw;

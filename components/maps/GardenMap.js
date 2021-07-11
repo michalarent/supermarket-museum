@@ -231,6 +231,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                     </>
                   ) : (
                     <div
+                      className={"artifactDescription"}
                       dangerouslySetInnerHTML={{
                         __html: currentArtifact.artifactContent.html,
                       }}
@@ -330,6 +331,19 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
     return dict;
   }
 
+  function getArtifactAuthorBySlug() {
+    var dict = {};
+
+    if (artifactModels == undefined) return;
+    for (var i = 0; i < Object.values(artifactModels)?.length; i++) {
+      dict[artifactModels[i].slug] = artifactModels[i];
+    }
+
+    return dict;
+  }
+
+  var artifactsDict = getArtifactAuthorBySlug();
+
   var labelsDict = getLabelContentBySlug();
 
   return (
@@ -363,15 +377,167 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                   <Fade in={true} timeout={1000}>
                     <div className={styles_map.allTooltips}>
                       <div className={styles_map.tooltip}>
-                        {/*stand z pocztowkami*/}
+                        {/*market stand*/}
                         <TooltipLabel
-                          artifactTitle={"Tutaj Tytul"}
-                          artifactSlug={"ok"}
+                          artifactTitle={
+                            artifactsDict[
+                              "collectivity-migrations-and-food-growing-educators-role"
+                            ].title
+                          }
+                          artifactSlug={
+                            "collectivity-migrations-and-food-growing-educators-role"
+                          }
+                          artifactAuthor={
+                            artifactsDict[
+                              "collectivity-migrations-and-food-growing-educators-role"
+                            ].authors.html
+                          }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
-                          xLocation={"39.2%"}
-                          yLocation={"73.5%"}
+                          xLocation={"25.2%"}
+                          yLocation={"89.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*commercial agriculture*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict[
+                              "permaculture-in-commercial-agriculture"
+                            ].title
+                          }
+                          artifactSlug={
+                            "permaculture-in-commercial-agriculture"
+                          }
+                          artifactAuthor={
+                            artifactsDict[
+                              "permaculture-in-commercial-agriculture"
+                            ].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"0.2%"}
+                          yLocation={"0.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*hand with flowers..?*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict[
+                              "attitude-analysis-and-eightfinity-lessons"
+                            ].title
+                          }
+                          artifactSlug={
+                            "attitude-analysis-and-eightfinity-lessons"
+                          }
+                          artifactAuthor={
+                            artifactsDict[
+                              "attitude-analysis-and-eightfinity-lessons"
+                            ].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"32.2%"}
+                          yLocation={"93.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*dream garden*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict["create-your-dream-garden"].title
+                          }
+                          artifactSlug={"create-your-dream-garden"}
+                          artifactAuthor={
+                            artifactsDict["create-your-dream-garden"].authors
+                              .html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"70.2%"}
+                          yLocation={"46.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*person lying on rock*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict["since-feeling-is-first"].title
+                          }
+                          artifactSlug={"since-feeling-is-first"}
+                          artifactAuthor={
+                            artifactsDict["since-feeling-is-first"].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"55.2%"}
+                          yLocation={"52.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*a person meditating*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict[
+                              "positive-garden-psychology-for-beginners"
+                            ].title
+                          }
+                          artifactSlug={
+                            "positive-garden-psychology-for-beginners"
+                          }
+                          artifactAuthor={
+                            artifactsDict[
+                              "positive-garden-psychology-for-beginners"
+                            ].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"10.2%"}
+                          yLocation={"75.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*herb spiral*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict[
+                              "learning-the-natural-way"
+                            ].title
+                          }
+                          artifactSlug={
+                            "learning-the-natural-way"
+                          }
+                          artifactAuthor={
+                            artifactsDict[
+                              "learning-the-natural-way"
+                            ].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"40.2%"}
+                          yLocation={"75.5%"}
+                          color={"#e3f393"}
+                        />
+                        {/*compost*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            "compost?"
+                          }
+                          artifactSlug={
+                            "learning-the-natural-way"
+                          }
+                          artifactAuthor={
+                            artifactsDict[
+                              "learning-the-natural-way"
+                            ].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"35.2%"}
+                          yLocation={"31.5%"}
                           color={"#e3f393"}
                         />
                       </div>

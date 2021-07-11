@@ -213,6 +213,9 @@ export async function getArtifactBySlug(slug) {
           videoIFrame {
             text
           }
+          technicalInformation {
+            html
+          }
         }
       }      
       `

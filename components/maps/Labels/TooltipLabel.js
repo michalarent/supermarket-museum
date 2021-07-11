@@ -55,9 +55,16 @@ export default function TooltipLabel({
           onTouchStart={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
           className={styles_map.pin}
-          style={{ top: yLocation, left: xLocation, color: borderColor }}
+          style={{
+            top: yLocation,
+            left: xLocation,
+            color: borderColor,
+            background: color,
+          }}
         >
-          <p className={styles_map.pinText}>BUY</p>
+          <p style={{ color: "black" }} className={styles_map.pinText}>
+            BUY
+          </p>
         </div>
       </Tooltip>
     </>

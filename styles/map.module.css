@@ -106,7 +106,7 @@
   font-size: 0.8vh;
   line-height: 1.5vh;
   text-align: center;
-  color: #f4d588;
+  color: #f4d588 !important;
 }
 
 .pinInfo {

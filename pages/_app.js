@@ -4,6 +4,8 @@ import "../styles/maps.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/inksplash.css";
 import Drawer from "../components/navigation/Drawer";
+import { useSessionStorage } from "react-use-storage";
+import PopupContext from "../components/PopupContext";
 
 function MyApp({ Component, pageProps }) {
   const [show, setShow] = React.useState(false);
@@ -15,6 +17,11 @@ function MyApp({ Component, pageProps }) {
   function handleHideMenu() {
     setShow(false);
   }
+
+  const [popupModalOpen, setPopupModalOpen, removeValue] = useSessionStorage(
+    "popupModalOpen",
+    true
+  );
 
   return (
     <>

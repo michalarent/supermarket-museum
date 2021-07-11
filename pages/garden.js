@@ -7,6 +7,8 @@ import styles from "../styles/Home.module.css";
 import map_style from "../styles/map.module.css";
 import GardenMap from "../components/maps/GardenMap";
 
+import PopupModal from "../components/PopupModal";
+
 import { GraphQLClient } from "graphql-request";
 import {
   getAllGardenArtifacts,
@@ -35,6 +37,7 @@ export default function Garden({
   return (
     <>
       <div>
+        <PopupModal />
         <img
           src="/next-icon.png"
           className={map_style.returnArrow}
