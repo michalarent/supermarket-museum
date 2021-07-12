@@ -5,8 +5,6 @@ import Button from "@material-ui/core/Button";
 import LabelContext from "./LabelContext";
 import styles from "./Label.module.css";
 import Divider from "@material-ui/core/Divider";
-import { IconButton } from "@material-ui/core";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const InfoLabel = (props) => {
   const showButton = true;
@@ -16,14 +14,8 @@ const InfoLabel = (props) => {
     <LabelContext.Consumer>
       {(isClicked) => (
         <div className={styles.labelContainer}>
-          {console.log(props.color)}
           <div className={styles.shadow}>
-            <div
-              className={styles.infoLabel}
-              style={{
-                background: `${props.color == null ? null : "#e3f393"}`,
-              }}
-            >
+            <div className={styles.infoLabel} style={{background: `${props.color == null ? null : "#e3f393" }`}}> 
               <Grid
                 container
                 spacing={2}
