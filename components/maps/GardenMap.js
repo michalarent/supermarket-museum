@@ -395,7 +395,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           artifactTitle={
                             artifactsDict[
                               "collectivity-migrations-and-food-growing-educators-role"
-                            ].title
+                            ]?.title
                           }
                           artifactSlug={
                             "collectivity-migrations-and-food-growing-educators-role"
@@ -418,7 +418,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           artifactTitle={
                             artifactsDict[
                               "attitude-analysis-and-eightfinity-lessons"
-                            ].title
+                            ]?.title
                           }
                           artifactSlug={
                             "attitude-analysis-and-eightfinity-lessons"
@@ -455,11 +455,11 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*person lying on rock*/}
                         <TooltipLabel
                           artifactTitle={
-                            artifactsDict["since-feeling-is-first"].title
+                            artifactsDict["ecosystemic-intelligence-and-permaculture"]?.title
                           }
-                          artifactSlug={"since-feeling-is-first"}
+                          artifactSlug={"ecosystemic-intelligence-and-permaculture"}
                           artifactAuthor={
-                            artifactsDict["since-feeling-is-first"].authors.html
+                            artifactsDict["ecosystemic-intelligence-and-permaculture"]?.authors.html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}

@@ -28,6 +28,18 @@ export default function Drawer({
   const [currentInfoPage, setCurrentInfoPage] = React.useState(null);
   const [infoPages, setInfoPages] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState("");
+  const [backgroundColor, setBackgroundColor] = React.useState("#f4d688");
+
+  React.useEffect(() => {
+    if (router.pathname.includes("garden")) {
+      setBackgroundColor("#e3f393dd");
+      console.log(backgroundColor);
+    }
+    if (router.pathname.includes("museum")) {
+      setBackgroundColor("#f4d688dd");
+      console.log(backgroundColor);
+    }
+  }, [router.events]);
 
   const query = `{
     infoPages {
@@ -206,7 +218,7 @@ export default function Drawer({
       >
         <Menu fontSize="large" style={{ fill: "#fcf7ed" }} />
       </IconButton>
-      <div className={classes}>
+      <div className={classes} style={{ backgroundColor: backgroundColor }}>
         <div className={styles.closeIconContainer}>
           <IconButton onClick={handleHide}>
             <ChevronRight className={styles.closeIcon} />
