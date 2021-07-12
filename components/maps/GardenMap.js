@@ -170,7 +170,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
   const body = (
     <>
       {currentArtifact != null ? (
-        <div className="modalCanvas">
+        <div className="modalCanvas" style={{ background: "#e3f393dd" }}>
           <div className="closeIcon">
             <IconButton onClick={handleClose}>
               <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
@@ -183,7 +183,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                 <div
                   className="text-3xl"
                   dangerouslySetInnerHTML={{
-                    __html: currentArtifact.authors.html,
+                    __html: currentArtifact.authors?.html,
                   }}
                 />
                 {currentArtifact.slug == "who-am-i" ? (
