@@ -4,6 +4,7 @@ import Label from "../../Label";
 import LabelNoLink from "../../LabelNoLink";
 
 import styles_map from "../../../styles/map.module.css";
+import { useRouter } from "next/router";
 import styles from "../ExampleSvg.module.css";
 import LabelContext from "../../LabelContext";
 import ShowLabelContext from "../../ShowLabelContext";
@@ -27,6 +28,9 @@ export default function TooltipLabel({
     handleShow(artifactSlug);
     setShowThisTooltip(false);
   };
+
+  const router = useRouter();
+
   return (
     <>
       <Tooltip
@@ -62,8 +66,8 @@ export default function TooltipLabel({
             background: color,
           }}
         >
-          <p style={{ color: "black" }} className={styles_map.pinText}>
-            BUY
+          <p style={{ color: "black" }} className={router.pathname.includes("museum") ? styles_map.pinText : styles_map.pinTextGarden }>
+            {router.pathname.includes("museum") ? "BUY" : "GROW"}
           </p>
         </div>
       </Tooltip>
