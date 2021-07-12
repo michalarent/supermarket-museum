@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import LabelContext from "../../LabelContext";
 import ShowLabelContext from "../../ShowLabelContext";
 import LiveHelpIcon from "@material-ui/icons/LiveHelp";
+import InfoIcon from "@material-ui/icons/Info";
 
 export default function TooltipInfo({
   xLocation,
@@ -70,7 +71,7 @@ export default function TooltipInfo({
             color: borderColor,
           }}
         >
-          <LiveHelpIcon style={{}} />{" "}
+          <InfoIcon style={{}} />{" "}
         </div>
       </Tooltip>
     </>

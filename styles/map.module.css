@@ -131,9 +131,14 @@
 
 .pinInfoGarden > svg {
   fill: black;
+  
+  position: absolute;
+  margin: 0 auto;
+  transform: translateY(0%);
   width: 1.5vh;
   background-color: #e3f393;
   height: 1.5vh;
+  border-radius: 100%;
 }
 
 .pinInfo {
@@ -146,9 +151,14 @@
 
 .pinInfo > svg {
   fill: black;
+  
+  position: absolute;
+  margin: 0 auto;
+  transform: translateY(0%);
   width: 1.5vh;
   background-color: #f4d588;
   height: 1.5vh;
+  border-radius: 100%;
 }
 
 .pin:hover {
