@@ -21,6 +21,7 @@ export default function TooltipInfo({
   handleShow,
   showTooltip,
   modal,
+  color,
   href,
 }) {
   var text = content;
@@ -48,17 +49,19 @@ export default function TooltipInfo({
                 content={text}
                 onClick={handleOpenArtifact}
                 modal={modal}
+                color={color}
               />
             ) : null}
           </>
         }
+        
       >
         <div
           onMouseEnter={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
-          className={styles_map.pinInfo}
-          style={{ top: yLocation, left: xLocation, color: borderColor }}
+          className={styles_map.pinInfoGarden}
+          style={{ top: yLocation, left: xLocation, color: borderColor, color: color }}
         >
           <LiveHelpIcon style={{}} />{" "}
         </div>

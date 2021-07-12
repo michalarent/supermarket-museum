@@ -14,8 +14,14 @@ const InfoLabel = (props) => {
     <LabelContext.Consumer>
       {(isClicked) => (
         <div className={styles.labelContainer}>
+          {console.log(props.color)}
           <div className={styles.shadow}>
-            <div className={styles.infoLabel}>
+            <div
+              className={styles.infoLabel}
+              style={{
+                background: `${props.color == null ? null : "#e3f393"}`,
+              }}
+            >
               <Grid
                 container
                 spacing={2}
