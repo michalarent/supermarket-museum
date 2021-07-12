@@ -190,9 +190,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                 />
 
                 {currentArtifact.slug == "learning-the-natural-way" ? (
-                  <>
-                    
-                  </>
+                  <></>
                 ) : null}
                 {currentArtifact.slug == "invisible-supermarket" ? (
                   <>

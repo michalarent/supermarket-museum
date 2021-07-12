@@ -10,6 +10,7 @@ import LabelContext from "../../LabelContext";
 import ShowLabelContext from "../../ShowLabelContext";
 import LiveHelpIcon from "@material-ui/icons/LiveHelp";
 import InfoIcon from "@material-ui/icons/Info";
+import HelpIcon from "@material-ui/icons/Help";
 
 export default function TooltipInfo({
   xLocation,
@@ -71,7 +72,7 @@ export default function TooltipInfo({
             color: borderColor,
           }}
         >
-          <InfoIcon style={{}} />{" "}
+          <HelpIcon style={{}} />{" "}
         </div>
       </Tooltip>
     </>
