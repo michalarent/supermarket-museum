@@ -27,32 +27,33 @@ export default function TooltipInfo({
 }) {
   var text = content;
   const [showThisTooltip, setShowThisTooltip] = React.useState(false);
-
-  function setMobile() {
-    return useMobileDetect().isMobile();
-  }
-
-  const isMobile = setMobile();
+  const [isMobile, setIsMobile] = React.useState(false);
 
   const handleOpenArtifact = () => {
     handleShow(artifactSlug);
     setShowThisTooltip(false);
   };
 
+  const openLabel = () => {
+    showTooltip(artifactSlug);
+    const isMobileDevice = () =>
+      /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    setIsMobile(isMobileDevice);
+    console.log(isMobile);
+  };
   return (
     <>
       <Tooltip
         interactive
         placement="auto"
         enterTouchDelay={50}
-        leaveDelay={isMobile ? 5000 : 0}
-        onOpen={() => showTooltip(artifactSlug)}
+        onOpen={() => openLabel()}
         title={
           <>
             {showThisTooltip ? (
               <InfoLabel
-                isMobile={isMobile}
                 handleClose={setShowThisTooltip}
+                isMobile={isMobile}
                 slug={artifactSlug}
                 header={artifactTitle}
                 category={category}
