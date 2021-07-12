@@ -5,7 +5,7 @@ import LabelNoLink from "../../LabelNoLink";
 import InfoLabel from "../../InfoLabel";
 
 import styles_map from "../../../styles/map.module.css";
-
+import { useRouter } from "next/router";
 import LabelContext from "../../LabelContext";
 import ShowLabelContext from "../../ShowLabelContext";
 import LiveHelpIcon from "@material-ui/icons/LiveHelp";
@@ -32,6 +32,7 @@ export default function TooltipInfo({
     setShowThisTooltip(false);
   };
 
+  const router = useRouter();
   return (
     <>
       <Tooltip
@@ -58,12 +59,15 @@ export default function TooltipInfo({
           onMouseEnter={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
-          className={styles_map.pinInfo}
+          className={
+            router.pathname.includes("garden")
+              ? styles_map.pinInfoGarden
+              : styles_map.pinInfo
+          }
           style={{
             top: yLocation,
             left: xLocation,
             color: borderColor,
-            color: color,
           }}
         >
           <LiveHelpIcon style={{}} />{" "}
