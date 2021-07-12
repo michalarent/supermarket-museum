@@ -36,8 +36,7 @@ export default function TooltipInfo({
     <>
       <Tooltip
         interactive
-        placement="auto"
-        enterTouchDelay={0}
+        enterTouchDelay={50}
         onOpen={() => showTooltip(artifactSlug)}
         title={
           <>
@@ -54,14 +53,18 @@ export default function TooltipInfo({
             ) : null}
           </>
         }
-        
       >
         <div
           onMouseEnter={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
           className={styles_map.pinInfo}
-          style={{ top: yLocation, left: xLocation, color: borderColor, color: color }}
+          style={{
+            top: yLocation,
+            left: xLocation,
+            color: borderColor,
+            color: color,
+          }}
         >
           <LiveHelpIcon style={{}} />{" "}
         </div>
