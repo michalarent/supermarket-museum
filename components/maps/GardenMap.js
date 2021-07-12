@@ -172,7 +172,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
       {currentArtifact != null ? (
         <div className="modalCanvas" style={{ background: "#e3f393dd" }}>
           <div className="closeIcon">
-            <IconButton onClick={handleClose}>
+            <IconButton onTouchStart={() => handleClose}>
               <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
             </IconButton>
           </div>
@@ -237,24 +237,27 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                     __html: currentArtifact?.artifactContent?.html,
                   }}
                 />
-                <Grid container spacing={5}>
-                  <Grid item xs={12} md={12} lg={6}>
-                    <div
-                      className={"artifactDescription"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact?.descriptionEn?.html,
-                      }}
-                    />
+                {currentArtifact?.descriptionEn?.html.length < 10 ? (
+                  <Grid container spacing={5}>
+                    <Grid item xs={12} md={12} lg={6}>
+                      <div
+                        className={"artifactDescription"}
+                        dangerouslySetInnerHTML={{
+                          __html: currentArtifact?.descriptionEn?.html,
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={6}>
+                      <div
+                        className={"artifactDescription"}
+                        dangerouslySetInnerHTML={{
+                          __html: currentArtifact?.descriptionOriginal?.html,
+                        }}
+                      />
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12} md={12} lg={6}>
-                    <div
-                      className={"artifactDescription"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact?.descriptionOriginal?.html,
-                      }}
-                    />
-                  </Grid>
-                </Grid>
+                ) : null}
+
                 <Grid
                   container
                   spacing={5}
@@ -268,14 +271,25 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                       }}
                     />
                   </Grid>
-                  <Grid item xs={12} md={12} lg={6}>
-                    <div
-                      className={"technicalInformation"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact?.youMayAlsoLike?.html,
-                      }}
-                    />
-                  </Grid>
+                  {currentArtifact?.technicalInformation?.length < 10 ? (
+                    <Grid item xs={12} md={12} lg={6}>
+                      <div
+                        className={"technicalInformation"}
+                        dangerouslySetInnerHTML={{
+                          __html: currentArtifact?.youMayAlsoLike?.html,
+                        }}
+                      />
+                    </Grid>
+                  ) : (
+                    <Grid item xs={12} md={12} lg={12}>
+                      <div
+                        className={"technicalInformation"}
+                        dangerouslySetInnerHTML={{
+                          __html: currentArtifact?.youMayAlsoLike?.html,
+                        }}
+                      />
+                    </Grid>
+                  )}
                 </Grid>
               </div>
             </Grid>

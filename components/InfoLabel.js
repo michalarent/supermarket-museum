@@ -5,6 +5,8 @@ import Button from "@material-ui/core/Button";
 import LabelContext from "./LabelContext";
 import styles from "./Label.module.css";
 import Divider from "@material-ui/core/Divider";
+import { IconButton } from "@material-ui/core";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const InfoLabel = (props) => {
   const showButton = true;
@@ -30,6 +32,14 @@ const InfoLabel = (props) => {
                 }}
               >
                 <Grid item>
+                  {props.isMobile ? (
+                    <div className="closeIcon">
+                      <IconButton onClick={() => props.handleClose(false)}>
+                        <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
+                      </IconButton>
+                    </div>
+                  ) : null}
+
                   <div className={styles.labelContent}>
                     <h1>{props.header}</h1>
                     <h2>{props.category}</h2>
