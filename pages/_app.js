@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const [show, setShow] = React.useState(false);
-  const [backgroundColor, setBackgroundColor] = React.useState("#f4d688");
+  
 
   function handleOpenMenu() {
     setShow(true);
@@ -23,24 +23,12 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const getUrl = router.pathname;
 
-  React.useEffect(() => {
-    if (router.pathname.includes("garden")) {
-      setBackgroundColor("#e3f393dd");
-      console.log(backgroundColor);
-    }
-    if (router.pathname.includes("museum")) {
-      setBackgroundColor("#f4d688dd");
-      console.log(backgroundColor);
-    }
-  }, [router.events]);
-
   return (
     <>
       <Drawer
         handleOpen={handleOpenMenu}
         handleHide={handleHideMenu}
         show={show}
-        backgroundColor={backgroundColor}
       />
       <Component {...pageProps} />
     </>

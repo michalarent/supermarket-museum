@@ -26,6 +26,7 @@ import UkraineArtifact from "../../pages/museum/artifacts/ukraine";
 import Recollections from "../artifacts/ukraine/recollections";
 import AudioPlayer from "../audio-player/AudioPlayer";
 import PhotoCarousel from "../image-gallery/PhotoCarousel";
+import SusanneMap from "./SusanneMap";
 
 export default function GardenMap({ artifactModels, openArtifact, labels }) {
   const { makeContextualHref, returnHref } = useContextualRouting();
@@ -172,7 +173,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
       {currentArtifact != null ? (
         <div className="modalCanvas" style={{ background: "#e3f393dd" }}>
           <div className="closeIcon">
-            <IconButton onTouchStart={() => handleClose}>
+            <IconButton onClick={() => handleClose()}>
               <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
             </IconButton>
           </div>
@@ -180,15 +181,17 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
             <Grid item xs={12} md={12}>
               <div className="modalContentAdjusted">
                 <h1 className="heading">{currentArtifact.title}</h1>
+
                 <div
                   className="text-3xl"
                   dangerouslySetInnerHTML={{
                     __html: currentArtifact.authors?.html,
                   }}
                 />
-                {currentArtifact.slug == "who-am-i" ? (
+
+                {currentArtifact.slug == "learning-the-natural-way" ? (
                   <>
-                    <AudioPlayer url={"/audio-player/who-am-i.m4a"} />
+                    
                   </>
                 ) : null}
                 {currentArtifact.slug == "invisible-supermarket" ? (
@@ -393,17 +396,12 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*market stand*/}
                         <TooltipLabel
                           artifactTitle={
-                            artifactsDict[
-                              "collectivity-migrations-and-food-growing-educators-role"
-                            ]?.title
+                            artifactsDict["migrations-and-food-growing"]?.title
                           }
-                          artifactSlug={
-                            "collectivity-migrations-and-food-growing-educators-role"
-                          }
+                          artifactSlug={"migrations-and-food-growing"}
                           artifactAuthor={
-                            artifactsDict[
-                              "collectivity-migrations-and-food-growing-educators-role"
-                            ].authors.html
+                            artifactsDict["migrations-and-food-growing"].authors
+                              .html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
@@ -412,27 +410,39 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           yLocation={"89.5%"}
                           color={"#e3f393"}
                         />
-
-                        {/*hand with flowers..?*/}
                         <TooltipLabel
                           artifactTitle={
-                            artifactsDict[
-                              "attitude-analysis-and-eightfinity-lessons"
-                            ]?.title
+                            artifactsDict["small-permaculture-farm"]?.title
                           }
-                          artifactSlug={
-                            "attitude-analysis-and-eightfinity-lessons"
-                          }
+                          artifactSlug={"small-permaculture-farm"}
                           artifactAuthor={
-                            artifactsDict[
-                              "attitude-analysis-and-eightfinity-lessons"
-                            ].authors.html
+                            artifactsDict["small-permaculture-farm"].authors
+                              .html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
-                          xLocation={"32.2%"}
-                          yLocation={"93.5%"}
+                          xLocation={"58.5%"}
+                          yLocation={"41%"}
+                          color={"#e3f393"}
+                        />
+
+                        {/*woman middle*/}
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict["eightfinity-lessons-on-growing-food"]
+                              ?.title
+                          }
+                          artifactSlug={"eightfinity-lessons-on-growing-food"}
+                          artifactAuthor={
+                            artifactsDict["eightfinity-lessons-on-growing-food"]
+                              .authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"54.2%"}
+                          yLocation={"78.5%"}
                           color={"#e3f393"}
                         />
                         {/*dream garden*/}
@@ -455,11 +465,17 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*person lying on rock*/}
                         <TooltipLabel
                           artifactTitle={
-                            artifactsDict["ecosystemic-intelligence-and-permaculture"]?.title
+                            artifactsDict[
+                              "ecosystemic-intelligence-and-permaculture"
+                            ]?.title
                           }
-                          artifactSlug={"ecosystemic-intelligence-and-permaculture"}
+                          artifactSlug={
+                            "ecosystemic-intelligence-and-permaculture"
+                          }
                           artifactAuthor={
-                            artifactsDict["ecosystemic-intelligence-and-permaculture"]?.authors.html
+                            artifactsDict[
+                              "ecosystemic-intelligence-and-permaculture"
+                            ]?.authors.html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
@@ -471,17 +487,12 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*a person meditating*/}
                         <TooltipLabel
                           artifactTitle={
-                            artifactsDict[
-                              "positive-garden-psychology-for-beginners"
-                            ].title
+                            artifactsDict["positive-garden-psychology"].title
                           }
-                          artifactSlug={
-                            "positive-garden-psychology-for-beginners"
-                          }
+                          artifactSlug={"positive-garden-psychology"}
                           artifactAuthor={
-                            artifactsDict[
-                              "positive-garden-psychology-for-beginners"
-                            ].authors.html
+                            artifactsDict["positive-garden-psychology"].authors
+                              .html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
@@ -905,6 +916,29 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           modal={true}
                           color={"#e3f393"}
                           xLocation={"24%"}
+                          yLocation={"43%"}
+                        />
+                        {/*man teaching*/}
+                        <TooltipLabel
+                          artifactSlug={
+                            "permaculture-in-commercial-agriculture"
+                          }
+                          artifactTitle={
+                            artifactsDict[
+                              "permaculture-in-commercial-agriculture"
+                            ].title
+                          }
+                          artifactAuthor={
+                            artifactsDict[
+                              "permaculture-in-commercial-agriculture"
+                            ].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          color={"#e3f393"}
+                          xLocation={"10%"}
                           yLocation={"43%"}
                         />
                         {/*carrot*/}
