@@ -32,14 +32,6 @@ const InfoLabel = (props) => {
                 }}
               >
                 <Grid item>
-                  {props.isMobile ? (
-                    <div className="closeIcon">
-                      <IconButton onClick={() => props.handleClose(false)}>
-                        <HighlightOffIcon labelStyle={{ fontSize: "4rem" }} />
-                      </IconButton>
-                    </div>
-                  ) : null}
-
                   <div className={styles.labelContent}>
                     <h1>{props.header}</h1>
                     <h2>{props.category}</h2>
