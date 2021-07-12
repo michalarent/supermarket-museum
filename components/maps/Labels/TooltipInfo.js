@@ -32,16 +32,13 @@ export default function TooltipInfo({
     setShowThisTooltip(false);
   };
 
-  const openLabel = () => {
-    showTooltip(artifactSlug);
-  };
   return (
     <>
       <Tooltip
         interactive
         placement="auto"
-        enterTouchDelay={50}
-        onOpen={() => openLabel()}
+        enterTouchDelay={0}
+        onOpen={() => showTooltip(artifactSlug)}
         title={
           <>
             {showThisTooltip ? (
@@ -57,17 +54,14 @@ export default function TooltipInfo({
             ) : null}
           </>
         }
+        
       >
         <div
           onMouseEnter={() => setShowThisTooltip(true)}
           onTouchStart={() => setShowThisTooltip(true)}
-          className={styles_map.pinInfoGarden}
-          style={{
-            top: yLocation,
-            left: xLocation,
-            color: borderColor,
-            color: color,
-          }}
+          onTouchStart={() => setShowThisTooltip(true)}
+          className={styles_map.pinInfo}
+          style={{ top: yLocation, left: xLocation, color: borderColor, color: color }}
         >
           <LiveHelpIcon style={{}} />{" "}
         </div>
