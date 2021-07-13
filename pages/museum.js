@@ -29,9 +29,8 @@ function Museum({ artifactModels, openArtifact, labels, infoPages }) {
   return (
     <>
       <div>
-        
-
         <img
+          onClick={() => Router.push("/choose")}
           src="/next-icon.png"
           className={map_style.returnArrow}
           style={{ cursor: "pointer" }}
