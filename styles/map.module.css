@@ -92,8 +92,8 @@
     0% 80%,
     0% 20%
   );
-  height: 1.5vh;
-  width: 2.4vh;
+  height: 2.2vh;
+  width: 3.52vh;
   /* border-radius: 50%; */
 }
 
@@ -119,10 +119,10 @@
   font-family: "Aleo-Bold";
   position: absolute;
   top: 55%;
-  margin: 0 10%;
+  margin: 0 18%;
   transform: translateY(-50%);
-  font-size: 0.8vh;
-  line-height: 1.5vh;
+  font-size: 0.9vh;
+  line-height: 2.2vh;
   text-align: center;
   color: black !important;
 }
@@ -133,8 +133,8 @@
   top: 55%;
   margin: 0 10%;
   transform: translateY(-50%);
-  font-size: 0.6vh;
-  line-height: 1.5vh;
+  font-size: 0.83vh;
+  line-height: 1.6vh;
   text-align: center;
   color: black !important;
 }
@@ -153,9 +153,9 @@
   position: absolute;
   margin: 0 auto;
   transform: translateY(0%);
-  width: 1.5vh;
+  width: 2vh;
   background-color: black;
-  height: 1.5vh;
+  height: 2vh;
   border-radius: 100%;
 }
 
@@ -173,9 +173,9 @@
   position: absolute;
   margin: 0 auto;
   transform: translateY(0%);
-  width: 1.5vh;
+  width: 2vh;
   background-color: black;
-  height: 1.5vh;
+  height: 2vh;
   border-radius: 100%;
 }
 

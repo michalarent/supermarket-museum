@@ -396,7 +396,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                   <img
                     ref={image}
                     className={styles_map.mapImage}
-                    src="/supermarket/gardenGrubszy.png"
+                    src="/supermarket/garden-final.png"
                     // onLoad={handleLoad}
                   />
                   <Fade in={true} timeout={1000}>
