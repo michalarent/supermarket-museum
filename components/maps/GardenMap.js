@@ -144,8 +144,6 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
     setShow(true);
   };
 
-  router.prefetch("/susanne");
-
   const setCurrentArtifact = (slug) => {
     let artifactModelId = -1;
 

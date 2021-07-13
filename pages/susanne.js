@@ -8,26 +8,26 @@ import map_style from "../styles/map.module.css";
 import Router from "next/router";
 import PopupModal from "../components/PopupModal";
 import {
-    getAllGardenArtifacts,
-    getAllGardenLabels,
-    getAllAgroPermaLabInfo,
-  } from "../api/graphcms";
-
+  getAllGardenArtifacts,
+  getAllGardenLabels,
+  getAllAgroPermaLabInfo,
+} from "../api/graphcms";
 
 export async function getStaticProps() {
-    const { gardenArtifactModels } = await getAllGardenArtifacts();
-  
-    const { gardenLabels } = await getAllGardenLabels();
-  
-    return {
-      props: { gardenArtifactModels, gardenLabels },
-    };
-  }
+  const { gardenArtifactModels } = await getAllGardenArtifacts();
+
+  const { gardenLabels } = await getAllGardenLabels();
+
+  return {
+    props: { gardenArtifactModels, gardenLabels },
+  };
+}
 function Museum({ gardenArtifactModels, openArtifact, gardenLabels }) {
   return (
     <>
       <div>
         <img
+          onClick={() => Router.push("/garden")}
           src="/next-icon.png"
           className={map_style.returnArrow}
           style={{ cursor: "pointer" }}
