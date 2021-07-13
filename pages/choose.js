@@ -83,7 +83,7 @@ export default function Choose() {
 
   return (
     <>
-      <div className="frontPageBackground">
+      <div>
         <Fade in={true} timeout={500}>
           <Grid container className={styles.landingPage}>
             <Grid item xs={12} md={6} lg={6}>

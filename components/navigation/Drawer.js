@@ -28,18 +28,7 @@ export default function Drawer({
   const [currentInfoPage, setCurrentInfoPage] = React.useState(null);
   const [infoPages, setInfoPages] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState("");
-  const [backgroundColor, setBackgroundColor] = React.useState("#f4d688");
-
-  React.useEffect(() => {
-    if (router.pathname.includes("garden")) {
-      setBackgroundColor("#e3f393dd");
-      console.log(backgroundColor);
-    }
-    if (router.pathname.includes("museum")) {
-      setBackgroundColor("#f4d688dd");
-      console.log(backgroundColor);
-    }
-  }, [router.events]);
+  const [backgroundColor, setBackgroundColor] = React.useState("#f4d688dd");
 
   const query = `{
     infoPages {
@@ -238,6 +227,12 @@ export default function Drawer({
           onClick={() => handleShow("manifesto")}
         >
           <p className={styles.listItemText}>Manifesto</p>
+        </div>
+        <div
+          className={styles.listItem}
+          onClick={() => handleShow("people")}
+        >
+          <p className={styles.listItemText}>People</p>
         </div>
         <div className={styles.listItem} onClick={() => handleShow("about")}>
           <p className={styles.listItemText}>About</p>

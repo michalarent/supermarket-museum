@@ -144,6 +144,8 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
     setShow(true);
   };
 
+  router.prefetch("/susanne");
+
   const setCurrentArtifact = (slug) => {
     let artifactModelId = -1;
 
@@ -197,6 +199,17 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                     <AudioPlayer
                       url={"/audio-player/invisible-supermarket.mp3"}
                     />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "learning-the-natural-way" ? (
+                  <>
+                    <Button
+                      onClick={() => router.push("/susanne")}
+                      variant="outlined"
+                      style={{ width: "100%", height: "10vh" }}
+                    >
+                      Click to Explore
+                    </Button>
                   </>
                 ) : null}
                 {currentArtifact.slug == "the-taste-of-the-tropics" ? (

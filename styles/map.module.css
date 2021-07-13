@@ -81,7 +81,7 @@
 
 .pin {
   position: absolute;
-  background-color: black;
+  background-color: #f4d688;
   clip-path: polygon(
     0 0,
     80% 0%,
@@ -97,6 +97,24 @@
   /* border-radius: 50%; */
 }
 
+.pinBorder {
+  position: absolute;
+  background-color: black;
+  clip-path: polygon(
+    0 0,
+    80% 0%,
+    100% 25%,
+    100% 75%,
+    80% 100%,
+    0 100%,
+    0% 80%,
+    0% 20%
+  );
+  height: 1.6vh;
+  width: 2.5vh;
+  /* border-radius: 50%; */
+}
+
 .pinText {
   font-family: "Aleo-Bold";
   position: absolute;
@@ -106,7 +124,7 @@
   font-size: 0.8vh;
   line-height: 1.5vh;
   text-align: center;
-  color: #f4d588 !important;
+  color: black !important;
 }
 
 .pinTextGarden {
@@ -118,7 +136,7 @@
   font-size: 0.6vh;
   line-height: 1.5vh;
   text-align: center;
-  color:black !important;
+  color: black !important;
 }
 
 .pinInfoGarden {
@@ -130,13 +148,13 @@
 }
 
 .pinInfoGarden > svg {
-  fill: black;
-  
+  fill: #e3f393;
+
   position: absolute;
   margin: 0 auto;
   transform: translateY(0%);
   width: 1.5vh;
-  background-color: #e3f393;
+  background-color: black;
   height: 1.5vh;
   border-radius: 100%;
 }
@@ -150,13 +168,13 @@
 }
 
 .pinInfo > svg {
-  fill: black;
-  
+  fill: #f4d588;
+
   position: absolute;
   margin: 0 auto;
   transform: translateY(0%);
   width: 1.5vh;
-  background-color: #f4d588;
+  background-color: black;
   height: 1.5vh;
   border-radius: 100%;
 }

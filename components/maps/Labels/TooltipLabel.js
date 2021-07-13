@@ -63,10 +63,19 @@ export default function TooltipLabel({
             top: yLocation,
             left: xLocation,
             color: borderColor,
-            background: color,
+            backgroundColor: router.pathname.includes("museum")
+              ? "f4d688 !important"
+              : color,
           }}
         >
-          <p style={{ color: "black" }} className={router.pathname.includes("museum") ? styles_map.pinText : styles_map.pinTextGarden }>
+          <p
+            style={{ color: "black" }}
+            className={
+              router.pathname.includes("museum")
+                ? styles_map.pinText
+                : styles_map.pinTextGarden
+            }
+          >
             {router.pathname.includes("museum") ? "BUY" : "GROW"}
           </p>
         </div>
