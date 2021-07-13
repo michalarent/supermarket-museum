@@ -4,9 +4,11 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import LabelContext from "./LabelContext";
 import styles from "./Label.module.css";
+import { useRouter } from "next/router";
 
 const LabelNoLink = (props) => {
   const showButton = true;
+  const router = useRouter();
 
   const length = props.header.length;
   return (
@@ -53,7 +55,7 @@ const LabelNoLink = (props) => {
                         variant="contained"
                         onClick={props.onClick}
                       >
-                        Buy
+                        {router.pathname.includes("garden") ? "Grow" : "Buy"}
                       </Button>
                     ) : null}
                   </div>

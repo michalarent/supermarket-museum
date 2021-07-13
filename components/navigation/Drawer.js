@@ -216,7 +216,7 @@ export default function Drawer({
         aria-label="open drawer"
         onClick={handleOpen}
       >
-        <Menu fontSize="large" style={{ fill: "#fcf7ed" }} />
+        <Menu fontSize="large" style={{ fill: "#f4d688" }} />
       </IconButton>
       <div className={classes} style={{ backgroundColor: backgroundColor }}>
         <div className={styles.closeIconContainer}>

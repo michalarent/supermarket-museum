@@ -38,6 +38,7 @@ export default function Garden({
     <>
       <div>
         <img
+          onClick={() => Router.push("/choose")}
           src="/next-icon.png"
           className={map_style.returnArrow}
           style={{ cursor: "pointer" }}
