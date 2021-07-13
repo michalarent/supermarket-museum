@@ -34,7 +34,6 @@ export default function SupermarketMap({
   openArtifact,
   labels,
 }) {
-  
   const { makeContextualHref, returnHref } = useContextualRouting();
   const router = useRouter();
 
@@ -472,7 +471,7 @@ export default function SupermarketMap({
                     // onLoad={handleLoad}
                   />
                   <Fade in={true} timeout={1000}>
-                    <div className={styles_map.allTooltips}>
+                    <div className={styles_map.allTooltips} >
                       <div className={styles_map.tooltip}>
                         {/*stand z pocztowkami*/}
                         <TooltipInfo

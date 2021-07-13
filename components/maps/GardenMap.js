@@ -238,7 +238,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                     __html: currentArtifact?.artifactContent?.html,
                   }}
                 />
-                {currentArtifact?.descriptionEn?.html.length < 10 ? (
+                {currentArtifact?.descriptionEn?.html.length > 10 ? (
                   <Grid container spacing={5}>
                     <Grid item xs={12} md={12} lg={6}>
                       <div
