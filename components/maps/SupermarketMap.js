@@ -139,6 +139,27 @@ export default function SupermarketMap({
     },
   ];
 
+  const discountImages = [
+    {
+      original: "/photo_gallery/discount/gazetka1.png",
+    },
+    {
+      original: "/photo_gallery/discount/gazetka2.png",
+    },
+    {
+      original: "/photo_gallery/discount/gazetka3.png",
+    },
+    {
+      original: "/photo_gallery/discount/gazetka4.png",
+    },
+    {
+      original: "/photo_gallery/discount/gazetka5.png",
+    },
+    {
+      original: "/photo_gallery/discount/gazetka6.png",
+    },
+  ];
+
   const handleShow = (slug) => {
     hideTooltip();
     setIsClicked(true);
@@ -275,6 +296,11 @@ export default function SupermarketMap({
                 {currentArtifact.slug == "who-am-i" ? (
                   <>
                     <AudioPlayer url={"/audio-player/who-am-i.m4a"} />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "best-value-discount-sale" ? (
+                  <>
+                    <PhotoCarousel images={discountImages} />
                   </>
                 ) : null}
                 {currentArtifact.slug ==
@@ -471,7 +497,7 @@ export default function SupermarketMap({
                     // onLoad={handleLoad}
                   />
                   <Fade in={true} timeout={1000}>
-                    <div className={styles_map.allTooltips} >
+                    <div className={styles_map.allTooltips}>
                       <div className={styles_map.tooltip}>
                         {/*stand z pocztowkami*/}
                         <TooltipInfo

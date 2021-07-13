@@ -272,7 +272,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                       }}
                     />
                   </Grid>
-                  {currentArtifact?.technicalInformation?.length < 10 ? (
+                  {currentArtifact?.technicalInformation?.html.length > 10 ? (
                     <Grid item xs={12} md={12} lg={6}>
                       <div
                         className={"technicalInformation"}

@@ -374,7 +374,29 @@ export default function SusanneMap({ artifactModels, openArtifact, labels }) {
                     // onLoad={handleLoad}
                   />
                   <Fade in={true} timeout={1000}>
-                    <div className={styles_map.allTooltips}></div>
+                    <div className={styles_map.allTooltips}>
+                      <TooltipLabel
+                        artifactTitle={
+                          artifactsDict[
+                            "learning-the-natural-way-1-objectives-expectations"
+                          ]?.title
+                        }
+                        artifactSlug={
+                          "learning-the-natural-way-1-objectives-expectations"
+                        }
+                        artifactAuthor={
+                          artifactsDict[
+                            "learning-the-natural-way-1-objectives-expectations"
+                          ]?.authors?.html
+                        }
+                        isClicked={isClicked}
+                        showTooltip={showTooltip}
+                        handleShow={handleShow}
+                        xLocation={"10.2%"}
+                        yLocation={"75.5%"}
+                        color={"#e3f393"}
+                      />
+                    </div>
                   </Fade>
                 </div>
               </Fade>

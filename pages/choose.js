@@ -111,16 +111,9 @@ export default function Choose() {
           </Grid>
         </Fade>
 
-        <Modal
-          disableEnforceFocus
-          disableAutoFocus={true}
-          open={show}
-          hideBackdrop={true}
-        >
-          <Fade in={show} timeout={800}>
-            <div>{body}</div>
-          </Fade>
-        </Modal>
+        <Fade in={show} timeout={800}>
+          <div>{body}</div>
+        </Fade>
 
         <div className={showTransition ? styles.transitionOpening : ""}>
           <div className={styles.bgLayer}></div>
