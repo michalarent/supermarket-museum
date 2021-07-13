@@ -58,8 +58,8 @@
 
 .returnArrow {
   position: absolute;
-  bottom: 0;
-  left: 1%;
+  bottom: -30px;
+  left: 0px;
   transform: rotate(-90deg) scale(0.5);
   box-shadow: green 1px;
   z-index: 1;
@@ -228,26 +228,31 @@
       0% 80%,
       0% 20%
     );
-    height: 3.125vh;
-    width: 4vh;
+    height: 1.2vh;
+    width: 2.4vh;
     /* border-radius: 50%; */
   }
 
+  .pinTextGarden,
   .pinText {
-    font-size: 1.3vh;
-    line-height: 2.6vh;
-    top: 55%;
-  }
-
-  .pinTextGarden {
-    font-size: 1.3vh;
-    line-height: 2.6vh;
+    font-size: 0.6vh;
+    line-height: 1.2vh;
     top: 55%;
   }
 
   .pinInfo > svg {
-    width: 3.125vh;
+    width: 1vh;
+    height: 1vh;
+  }
+  .pinInfoGarden > svg {
+    fill: #e3f393;
 
-    height: 3.125vh;
+    position: absolute;
+    margin: 0 auto;
+    transform: translateY(0%);
+    width: 1vh;
+    background-color: black;
+    height: 1vh;
+    border-radius: 100%;
   }
 }

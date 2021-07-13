@@ -37,18 +37,18 @@ export default function Garden({
   return (
     <>
       <div>
-        <img
-          onClick={() => Router.push("/choose")}
-          src="/next-icon.png"
-          className={map_style.returnArrow}
-          style={{ cursor: "pointer" }}
-        />
         <GardenMap
           artifactModels={gardenArtifactModels}
           openArtifact={openArtifact}
           labels={gardenLabels}
         />
       </div>
+      <img
+        onClick={() => Router.push("/choose")}
+        src="/next-icon.png"
+        className={map_style.returnArrow}
+        style={{ cursor: "pointer" }}
+      />
     </>
   );
 }
