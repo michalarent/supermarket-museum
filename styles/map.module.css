@@ -217,7 +217,7 @@
 @media only screen and (max-width: 600px) {
   .pin {
     position: absolute;
-    background-color: black;
+
     clip-path: polygon(
       0 0,
       80% 0%,
@@ -246,9 +246,8 @@
   }
 
   .pinInfo > svg {
-    fill: black;
     width: 3.125vh;
-    background-color: #f4d588;
+
     height: 3.125vh;
   }
 }
