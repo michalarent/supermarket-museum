@@ -158,7 +158,7 @@ export default function Home({ oneOfAll }) {
       </Head>
 
       <main>
-        <div className="frontPageBackground">
+        <div className="frontPageBackground2">
           <div className={styles.frontPageLabel}>
             <Label
               header={
