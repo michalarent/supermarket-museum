@@ -127,43 +127,13 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
       original: "/photo_gallery/daniel/4.jpg",
     },
     {
-      original: "/photo_gallery/daniel/5.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/6.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/7.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/8.jpg",
-    },
-    {
       original: "/photo_gallery/daniel/9.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/10.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/11.jpg",
     },
     {
       original: "/photo_gallery/daniel/12.jpg",
     },
     {
-      original: "/photo_gallery/daniel/13.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/14.jpg",
-    },
-    {
       original: "/photo_gallery/daniel/15.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/16.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/17.jpg",
     },
     {
       original: "/photo_gallery/daniel/18.jpg",
@@ -175,31 +145,16 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
       original: "/photo_gallery/daniel/20.jpg",
     },
     {
-      original: "/photo_gallery/daniel/21.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/22.jpg",
-    },
-    {
       original: "/photo_gallery/daniel/23.jpg",
     },
     {
-      original: "/photo_gallery/daniel/24.jpg",
-    },
-    {
       original: "/photo_gallery/daniel/25.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/26.jpg",
     },
     {
       original: "/photo_gallery/daniel/27.jpg",
     },
     {
       original: "/photo_gallery/daniel/28.jpg",
-    },
-    {
-      original: "/photo_gallery/daniel/29.jpg",
     },
     {
       original: "/photo_gallery/daniel/30.jpg",
