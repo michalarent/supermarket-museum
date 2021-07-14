@@ -115,9 +115,6 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
 
   const danielImages = [
     {
-      original: "/photo_gallery/daniel/1.jpg",
-    },
-    {
       original: "/photo_gallery/daniel/2.jpg",
     },
     {
@@ -825,7 +822,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
-                          modal={false}
+                          modal={true}
                           color={"#e3f393"}
                           xLocation={"80.2%"}
                           yLocation={"53.5%"}
@@ -1001,6 +998,31 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           color={"#e3f393"}
                           xLocation={"24%"}
                           yLocation={"43%"}
+                        />
+                        {/*bicycle*/}
+                        <TooltipInfo
+                          artifactSlug={
+                            "corresponding-category-earth-care-degrowth"
+                          }
+                          artifactTitle={
+                            labelsDict["category-earth-care-degrowth"]
+                              .title
+                          }
+                          category={
+                            labelsDict["category-earth-care-degrowth"]
+                              .subtitle
+                          }
+                          content={
+                            labelsDict["category-earth-care-degrowth"]
+                              .content.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          color={"#e3f393"}
+                          xLocation={"21%"}
+                          yLocation={"55%"}
                         />
                         {/*man teaching*/}
                         <TooltipLabel
@@ -1245,26 +1267,30 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*children leaning*/}
                         <TooltipInfo
                           artifactSlug={
-                            "corresponding-category-food-systems-congress"
+                            "corresponding-category-learn-food-growing-school-gardening"
                           }
                           artifactTitle={
-                            labelsDict["category-food-systems-congress"]?.title
+                            labelsDict[
+                              "category-learn-food-growing-school-gardening"
+                            ]?.title
                           }
                           category={
-                            labelsDict["category-food-systems-congress"]
-                              ?.subtitle
+                            labelsDict[
+                              "category-learn-food-growing-school-gardening"
+                            ]?.subtitle
                           }
                           content={
-                            labelsDict["category-food-systems-congress"]
-                              ?.content.html
+                            labelsDict[
+                              "category-learn-food-growing-school-gardening"
+                            ]?.content.html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
                           modal={true}
                           color={"#e3f393"}
-                          xLocation={"60%"}
-                          yLocation={"35%"}
+                          xLocation={"13%"}
+                          yLocation={"49%"}
                         />
                         {/*landscape*/}
                         <TooltipInfo
