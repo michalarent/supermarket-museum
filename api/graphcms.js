@@ -250,6 +250,9 @@ export async function getGardenArtifactBySlug(slug) {
           videoIFrame {
             text
           }
+          asset {
+            url
+          }
         }
       }      
       `

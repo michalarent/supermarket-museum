@@ -71,27 +71,138 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
     }
   };
 
-  const tasteOfTropicsImags = [
+  const irynaImages = [
     {
-      original: "/photo_gallery/taste-of-tropics/1.png",
+      original: "/photo_gallery/iryna/1.jpg",
     },
     {
-      original: "/photo_gallery/taste-of-tropics/2.png",
+      original: "/photo_gallery/iryna/2.jpg",
     },
     {
-      original: "/photo_gallery/taste-of-tropics/3.png",
+      original: "/photo_gallery/iryna/3.jpg",
     },
     {
-      original: "/photo_gallery/taste-of-tropics/4.png",
+      original: "/photo_gallery/iryna/4.jpg",
     },
     {
-      original: "/photo_gallery/taste-of-tropics/5.png",
+      original: "/photo_gallery/iryna/5.jpg",
     },
     {
-      original: "/photo_gallery/taste-of-tropics/6.png",
+      original: "/photo_gallery/iryna/6.jpg",
+    },
+  ];
+
+  const habibaImages = [
+    {
+      original: "/photo_gallery/habiba/1.jpg",
     },
     {
-      original: "/photo_gallery/taste-of-tropics/7.png",
+      original: "/photo_gallery/habiba/2.jpg",
+    },
+    {
+      original: "/photo_gallery/habiba/3.jpg",
+    },
+    {
+      original: "/photo_gallery/habiba/4.jpg",
+    },
+    {
+      original: "/photo_gallery/habiba/5.jpg",
+    },
+    {
+      original: "/photo_gallery/habiba/6.jpg",
+    },
+  ];
+
+  const danielImages = [
+    {
+      original: "/photo_gallery/daniel/1.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/2.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/3.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/4.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/5.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/6.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/7.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/8.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/9.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/10.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/11.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/12.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/13.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/14.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/15.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/16.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/17.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/18.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/19.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/20.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/21.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/22.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/23.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/24.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/25.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/26.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/27.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/28.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/29.jpg",
+    },
+    {
+      original: "/photo_gallery/daniel/30.jpg",
     },
   ];
 
@@ -192,11 +303,20 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                 {currentArtifact.slug == "learning-the-natural-way" ? (
                   <></>
                 ) : null}
-                {currentArtifact.slug == "invisible-supermarket" ? (
+                {currentArtifact.slug == "small-permaculture-farm" ? (
                   <>
-                    <AudioPlayer
-                      url={"/audio-player/invisible-supermarket.mp3"}
-                    />
+                    <PhotoCarousel images={danielImages} />
+                  </>
+                ) : null}
+                {currentArtifact.slug == "migrations-and-food-growing" ? (
+                  <>
+                    <PhotoCarousel images={habibaImages} />
+                  </>
+                ) : null}
+                {currentArtifact.slug ==
+                "eightfinity-lessons-on-growing-food" ? (
+                  <>
+                    <PhotoCarousel images={irynaImages} />
                   </>
                 ) : null}
                 {currentArtifact.slug == "learning-the-natural-way" ? (
@@ -1047,6 +1167,34 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           category={
                             labelsDict[
                               "category-grow-community-food-cooperatives"
+                            ].subtitle
+                          }
+                          content={
+                            labelsDict[
+                              "category-grow-community-food-cooperatives"
+                            ].content.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          modal={true}
+                          color={"#e3f393"}
+                          xLocation={"51%"}
+                          yLocation={"77%"}
+                        />
+                        {/*stoisko z parasolem*/}
+                        <TooltipInfo
+                          artifactSlug={
+                            "corresponding-category-grow-community-ethical-consumerism"
+                          }
+                          artifactTitle={
+                            labelsDict[
+                              "category-grow-community-ethical-consumerism"
+                            ].title
+                          }
+                          category={
+                            labelsDict[
+                              "category-grow-community-ethical-consumerism"
                             ].subtitle
                           }
                           content={

@@ -72,8 +72,8 @@ export default function Choose() {
 
           <Grid item xs={12} md={12}>
             <h1 className={styles.gardenTitle}>
-              You can choose the path you visit by clicking either at the
-              supermarket’s map or garden’s map.
+              Where will you get your food from in <b>2030+</b>? Choose the
+              path. Reimagine the future.
             </h1>
           </Grid>
         </div>
@@ -83,7 +83,7 @@ export default function Choose() {
 
   return (
     <>
-      <div>
+      <div className="frontPageBackground">
         <Fade in={true} timeout={500}>
           <Grid container className={styles.landingPage}>
             <Grid item xs={12} md={6} lg={6}>
