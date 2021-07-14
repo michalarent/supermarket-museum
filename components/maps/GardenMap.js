@@ -1021,8 +1021,8 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           handleShow={handleShow}
                           modal={true}
                           color={"#e3f393"}
-                          xLocation={"21%"}
-                          yLocation={"55%"}
+                          xLocation={"88%"}
+                          yLocation={"96%"}
                         />
                         {/*man teaching*/}
                         <TooltipLabel
@@ -1213,7 +1213,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           modal={true}
                           color={"#e3f393"}
                           xLocation={"80.2%"}
-                          yLocation={"63.5%"}
+                          yLocation={"74.5%"}
                         />
                         {/*kosz na smieci po prawej*/}
                         <TooltipInfo
