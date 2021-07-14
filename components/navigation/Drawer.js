@@ -228,19 +228,23 @@ export default function Drawer({
         >
           <p className={styles.listItemText}>Manifesto</p>
         </div>
+        <div className={styles.listItem} onClick={() => handleShow("about")}>
+          <p className={styles.listItemText}>About</p>
+        </div>
         <div
           className={styles.listItem}
           onClick={() => handleShow("collaboration")}
         >
           <p className={styles.listItemText}>Collaboration</p>
         </div>
-        <div className={styles.listItem} onClick={() => handleShow("about")}>
-          <p className={styles.listItemText}>About</p>
-        </div>
+
         <div className={styles.listItem} onClick={() => handleShow("contact")}>
           <p className={styles.listItemText}>Contact</p>
         </div>
-        <div className={styles.listItem} onClick={() => handleShow("materials")}>
+        <div
+          className={styles.listItem}
+          onClick={() => handleShow("materials")}
+        >
           <p className={styles.listItemText}>Materials</p>
         </div>
         <div className={styles.footer}>
