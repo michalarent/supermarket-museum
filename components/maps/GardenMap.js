@@ -1196,7 +1196,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*kosz na smieci po prawej*/}
                         <TooltipInfo
                           artifactSlug={
-                            "corresponding-category-food-systems-food-waste"
+                            "corresponding-category-food-systems-food-waste-2"
                           }
                           artifactTitle={
                             labelsDict["category-food-systems-food-waste"].title

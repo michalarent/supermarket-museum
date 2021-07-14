@@ -230,9 +230,9 @@ export default function Drawer({
         </div>
         <div
           className={styles.listItem}
-          onClick={() => handleShow("people")}
+          onClick={() => handleShow("collaboration")}
         >
-          <p className={styles.listItemText}>People</p>
+          <p className={styles.listItemText}>Collaboration</p>
         </div>
         <div className={styles.listItem} onClick={() => handleShow("about")}>
           <p className={styles.listItemText}>About</p>
@@ -240,7 +240,7 @@ export default function Drawer({
         <div className={styles.listItem} onClick={() => handleShow("contact")}>
           <p className={styles.listItemText}>Contact</p>
         </div>
-        <div className={styles.listItem} onClick={() => handleShow("contact")}>
+        <div className={styles.listItem} onClick={() => handleShow("materials")}>
           <p className={styles.listItemText}>Materials</p>
         </div>
         <div className={styles.footer}>
