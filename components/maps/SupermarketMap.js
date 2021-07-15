@@ -481,11 +481,13 @@ export default function SupermarketMap({
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <div className={styles_map.tools}>
-              <Button onClick={zoomIn}>+</Button>
+              <Button className={styles_map.zoomIn} onClick={zoomIn}>
+                +
+              </Button>
               <br />
-              <Button onClick={zoomOut}>-</Button>
-              <br />
-              <Button onClick={resetTransform}>x</Button>
+              <Button className={styles_map.zoomOut} onClick={zoomOut}>
+                -
+              </Button>
             </div>
             <TransformComponent className={styles_map.TransformComponent}>
               <Fade in={true} timeout={800}>
@@ -533,8 +535,8 @@ export default function SupermarketMap({
                           showTooltip={showTooltip}
                           handleShow={handleShow}
                           modal={true}
-                          xLocation={"50%"}
-                          yLocation={"0%"}
+                          xLocation={"30%"}
+                          yLocation={"15%"}
                         />
                         {/*sensations, tool color // walls*/}
                         <TooltipInfo
@@ -557,8 +559,8 @@ export default function SupermarketMap({
                           showTooltip={showTooltip}
                           handleShow={handleShow}
                           modal={true}
-                          xLocation={"0%"}
-                          yLocation={"0.5%"}
+                          xLocation={"15%"}
+                          yLocation={"15%"}
                         />
                         {/*sensations, tool lighting // floor */}
                         <TooltipInfo
@@ -850,28 +852,6 @@ export default function SupermarketMap({
                           xLocation={"46.3%"}
                           yLocation={"21%"}
                         />
-                        {/*location, goods // promotion */}
-                        <TooltipInfo
-                          artifactSlug={"info-artifact-example"}
-                          artifactTitle={
-                            labelsDict["category-pricing-strategies-aisle-ends"]
-                              .title
-                          }
-                          category={
-                            labelsDict["category-pricing-strategies-aisle-ends"]
-                              .subtitle
-                          }
-                          content={
-                            labelsDict["category-pricing-strategies-aisle-ends"]
-                              .content.html
-                          }
-                          isClicked={isClicked}
-                          showTooltip={showTooltip}
-                          handleShow={handleShow}
-                          modal={false}
-                          xLocation={"38.2%"}
-                          yLocation={"72.5%"}
-                        />
                         {/*pricing strategies // trading hall entrance */}
                         <TooltipInfo
                           artifactSlug={"info-artifact-example"}
@@ -959,6 +939,24 @@ export default function SupermarketMap({
                           handleShow={handleShow}
                           xLocation={"54.2%"}
                           yLocation={"80.5%"}
+                        />
+                        <TooltipLabel
+                          artifactTitle={
+                            artifactsDict[
+                              "one-of-all"
+                            ].title
+                          }
+                          artifactSlug={"one-of-all"}
+                          artifactAuthor={
+                            artifactsDict[
+                              "one-of-all"
+                            ].authors.html
+                          }
+                          isClicked={isClicked}
+                          showTooltip={showTooltip}
+                          handleShow={handleShow}
+                          xLocation={"22.2%"}
+                          yLocation={"34.5%"}
                         />
                         {/*nabiał*/}
                         <TooltipLabel

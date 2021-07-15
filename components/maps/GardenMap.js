@@ -456,11 +456,14 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <div className={styles_map.tools}>
-              <Button onClick={zoomIn}>+</Button>
+              <Button className={styles_map.zoomIn} Click={zoomIn}>
+                +
+              </Button>
               <br />
-              <Button onClick={zoomOut}>-</Button>
+              <Button className={styles_map.zoomOut} onClick={zoomOut}>
+                -
+              </Button>
               <br />
-              <Button onClick={resetTransform}>x</Button>
             </div>
             <TransformComponent className={styles_map.TransformComponent}>
               <Fade in={true} timeout={800}>
@@ -1005,16 +1008,14 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                             "corresponding-category-earth-care-degrowth"
                           }
                           artifactTitle={
-                            labelsDict["category-earth-care-degrowth"]
-                              .title
+                            labelsDict["category-earth-care-degrowth"].title
                           }
                           category={
-                            labelsDict["category-earth-care-degrowth"]
-                              .subtitle
+                            labelsDict["category-earth-care-degrowth"].subtitle
                           }
                           content={
-                            labelsDict["category-earth-care-degrowth"]
-                              .content.html
+                            labelsDict["category-earth-care-degrowth"].content
+                              .html
                           }
                           isClicked={isClicked}
                           showTooltip={showTooltip}
