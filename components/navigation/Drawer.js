@@ -294,7 +294,7 @@ export default function Drawer({
               </div>
             </Grid>
           </Grid>
-          <Grid container spacing={2}>
+          <Grid container>
             <Grid item md={4} xs={6}>
               <div className={styles.footerText2}>
                 <h2
