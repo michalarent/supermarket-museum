@@ -248,6 +248,7 @@ export default function Drawer({
           <p className={styles.listItemText}>Materials</p>
         </div>
         <div className={styles.footer}>
+          <div style={{ margin: "0.5vmin" }} />
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <img className={styles.logo} src="/agropermalab-logo.png"></img>
@@ -260,6 +261,38 @@ export default function Drawer({
                   <br />
                   <a href="https://www.agropermalab.org">agropermalab.org</a>
                 </h3>
+              </div>
+            </Grid>
+          </Grid>
+          <Grid container spacing={2}>
+            <Grid item md={4} xs={6}>
+              <div className={styles.footerText2}>
+                <h2
+                  className={styles.link}
+                  onClick={() => handleShow("action-kit")}
+                >
+                  Action Kit
+                </h2>
+              </div>
+            </Grid>
+            <Grid item md={4} xs={6}>
+              <div className={styles.footerText2}>
+                <h2
+                  onClick={() => handleShow("press-kit")}
+                  className={styles.link}
+                >
+                  Press Kit
+                </h2>
+              </div>
+            </Grid>
+            <Grid item md={4} xs={6}>
+              <div className={styles.footerText2}>
+                <h2
+                  onClick={() => handleShow("support-us")}
+                  className={styles.link}
+                >
+                  Support us
+                </h2>
               </div>
             </Grid>
           </Grid>

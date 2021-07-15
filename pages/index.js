@@ -14,15 +14,7 @@ import Modal from "@material-ui/core/Modal";
 import Tooltip from "@material-ui/core/Tooltip";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
-export async function getStaticProps() {
-  const oneOfAll = await getArtifactBySlug("one-of-all");
-
-  return {
-    props: { oneOfAll },
-  };
-}
-
-export default function Home({ oneOfAll }) {
+export default function Home() {
   const [showTransition, setShowTransition] = React.useState(false);
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));
@@ -42,105 +34,6 @@ export default function Home({ oneOfAll }) {
   const showTooltip = (slug) => {
     setIsClicked(false);
   };
-
-  function handleTransitionArtifact() {
-    setShowOneOfAll(true);
-  }
-
-  const currentArtifact = oneOfAll.artifactModel;
-
-  const [showOneOfAll, setShowOneOfAll] = React.useState(false);
-
-  console.log(currentArtifact);
-
-  const body = (
-    <>
-      {currentArtifact != null ? (
-        <div className="modalCanvas">
-          <div className="closeIcon">
-            <IconButton onClick={() => setShowOneOfAll(false)}>
-              <HighlightOffIcon />
-            </IconButton>
-          </div>
-          <Box p={(2, 4)} className="modalBoxContainer">
-            <Grid item xs={12} md={12}>
-              <div className="modalContentAdjusted">
-                <h1 className="heading">{currentArtifact.title}</h1>
-                <div
-                  className="text-3xl"
-                  dangerouslySetInnerHTML={{
-                    __html: currentArtifact.authors.html,
-                  }}
-                />
-                <>
-                  {currentArtifact?.videoIFrame?.text.length > 5 ? (
-                    <>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: currentArtifact.videoIFrame.text,
-                        }}
-                      />
-                    </>
-                  ) : (
-                    <Grid container spacing={5}>
-                      <Grid item xs={12} md={12} lg={12}>
-                        <div
-                          className={"artifactDescription"}
-                          dangerouslySetInnerHTML={{
-                            __html: currentArtifact.artifactContent.html,
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  )}
-                </>
-                <Grid container spacing={5}>
-                  <Grid item xs={12} md={12} lg={6}>
-                    <div
-                      className={"artifactDescription"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact.descriptionEn?.html,
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={12} lg={6}>
-                    <div
-                      className={"artifactDescription"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact.descriptionOriginal?.html,
-                      }}
-                    />
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  spacing={5}
-                  className={"technicalInformationContainer"}
-                >
-                  <Grid item xs={12} md={12} lg={6}>
-                    <div
-                      className={"technicalInformation"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact.technicalInformation?.html,
-                      }}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={12} lg={6}>
-                    <div
-                      className={"technicalInformation"}
-                      dangerouslySetInnerHTML={{
-                        __html: currentArtifact.youMayAlsoLike?.html,
-                      }}
-                    />
-                  </Grid>
-                </Grid>
-              </div>
-            </Grid>
-          </Box>
-        </div>
-      ) : null}
-    </>
-  );
 
   const [showThisTooltip, setShowThisTooltip] = React.useState(false);
 
@@ -177,36 +70,8 @@ export default function Home({ oneOfAll }) {
             />
           </div>
         </div>
-        <div className={styles.centeredLabel}>
-          <Tooltip
-            interactive
-            enterTouchDelay="0"
-            placement="auto"
-            // onOpen={() => showTooltip(artifactSlug)}
-            title={
-              <>
-                {showThisTooltip ? (
-                  <LabelNoLink
-                    slug={"one-of-all"}
-                    header={"One Of All"}
-                    author={"Clemens Büntig"}
-                    showButton={true}
-                    onClick={handleOpenArtifact}
-                  />
-                ) : null}
-              </>
-            }
-          >
-            <div
-              onMouseEnter={() => setShowThisTooltip(true)}
-              onTouchStart={() => setShowThisTooltip(true)}
-              onTouchStart={() => setShowThisTooltip(true)}
-              className={styles.centerClickField}
-            ></div>
-          </Tooltip>
-        </div>
+        <div className={styles.centeredLabel}></div>
       </main>
-      <Modal open={showOneOfAll}>{body}</Modal>
       {/* <div className={showTransition ? styles.transitionOpening : ""}>
         <div className={styles.bgLayer}></div>
       </div> */}
