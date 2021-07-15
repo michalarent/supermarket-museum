@@ -188,10 +188,13 @@ a {
 
 @keyframes spinner {
   0% {
-    transform: rotate(0deg);
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
   }
   100% {
-    transform: rotate(360deg);
+    transform: scale(1);
   }
 }
 

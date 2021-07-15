@@ -13,7 +13,7 @@ const Spinner: React.FC = () => (
     <img
       src="/acanthus_icon.png"
       style={{
-        animation: "3s linear infinite spinner",
+        animation: "1s ease-in-out infinite spinner",
         filter: "opacity(0.2)",
         boxSizing: "border-box",
         height: "80px",
