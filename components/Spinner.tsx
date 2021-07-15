@@ -14,8 +14,9 @@ const Spinner: React.FC = () => (
       src="/acanthus_icon.png"
       style={{
         animation: "3s linear infinite spinner",
+        filter: "opacity(0.2)",
         boxSizing: "border-box",
-        height: "60px",
+        height: "80px",
         width: "auto",
       }}
     ></img>

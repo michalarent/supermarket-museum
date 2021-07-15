@@ -7,7 +7,7 @@ const Bar: React.FC<{ animationDuration: number; progress: number }> = ({
   <div
     style={{
       background: "#f4d688",
-      height: 2,
+      height: 5,
       left: 0,
       marginLeft: `${(-1 + progress) * 100}%`,
       position: "fixed",
@@ -19,7 +19,7 @@ const Bar: React.FC<{ animationDuration: number; progress: number }> = ({
   >
     <div
       style={{
-        boxShadow: "0 0 10px #29d, 0 0 5px #29d",
+        boxShadow: "0 0 10px #f4d688, 0 0 5px #29d",
         display: "block",
         height: "100%",
         opacity: 1,
