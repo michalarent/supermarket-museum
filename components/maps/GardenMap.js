@@ -311,6 +311,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         dangerouslySetInnerHTML={{
                           __html: currentArtifact.videoIFrame.text,
                         }}
+                        style={{marginBottom: "2vh"}}
                       />
                     </>
                   ) : null}

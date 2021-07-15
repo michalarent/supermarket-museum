@@ -12,6 +12,7 @@ import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import NProgress from "nprogress";
+import Loading from "../../components/Loading";
 
 export default function Drawer({
   handleOpen,
@@ -39,6 +40,21 @@ export default function Drawer({
       }
     }
   }`;
+
+  //'<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+
+  NProgress.configure({
+    template: (
+      <>
+        <div className="bar" role="bar">
+          <div className="peg"></div>
+        </div>
+        <div className="spinner" role="spinner">
+          <div className="spinner-icon"></div>
+        </div>
+      </>
+    ),
+  });
 
   React.useEffect(() => {
     async function fetchMyAPI() {
@@ -126,25 +142,37 @@ export default function Drawer({
 
   //
 
+  const [state, setState] = React.useState({
+    isRouteChanging: false,
+    loadingKey: 0,
+  });
+
   React.useEffect(() => {
-    const handleStart = (url) => {
-      console.log(`Loading: ${url}`);
-      NProgress.start();
-    };
-    const handleStop = () => {
-      NProgress.done();
+    const handleRouteChangeStart = () => {
+      setState((prevState) => ({
+        ...prevState,
+        isRouteChanging: true,
+        loadingKey: prevState.loadingKey ^ 1,
+      }));
     };
 
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleStop);
-    router.events.on("routeChangeError", handleStop);
+    const handleRouteChangeEnd = () => {
+      setState((prevState) => ({
+        ...prevState,
+        isRouteChanging: false,
+      }));
+    };
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+    router.events.on("routeChangeComplete", handleRouteChangeEnd);
+    router.events.on("routeChangeError", handleRouteChangeEnd);
 
     return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeComplete", handleStop);
-      router.events.off("routeChangeError", handleStop);
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+      router.events.off("routeChangeComplete", handleRouteChangeEnd);
+      router.events.off("routeChangeError", handleRouteChangeEnd);
     };
-  }, [router]);
+  }, [router.events]);
 
   //
 
@@ -200,6 +228,7 @@ export default function Drawer({
   }
   return (
     <>
+      <Loading isRouteChanging={state.isRouteChanging} key={state.loadingKey} />
       <IconButton
         className={styles.showButton}
         aria-label="open drawer"
@@ -212,6 +241,9 @@ export default function Drawer({
           <IconButton onClick={handleHide}>
             <ChevronRight className={styles.closeIcon} />
           </IconButton>
+        </div>
+        <div className={styles.listItem} onClick={() => handleShow("about")}>
+          <p className={styles.listItemText}>About</p>
         </div>
         <div className={styles.listItem} onClick={() => router.push("/")}>
           <p className={styles.listItemText}>Home</p>
@@ -228,9 +260,7 @@ export default function Drawer({
         >
           <p className={styles.listItemText}>Manifesto</p>
         </div>
-        <div className={styles.listItem} onClick={() => handleShow("about")}>
-          <p className={styles.listItemText}>About</p>
-        </div>
+
         <div
           className={styles.listItem}
           onClick={() => handleShow("collaboration")}

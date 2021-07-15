@@ -24,7 +24,6 @@ body {
   background-position: center;
 }
 
-
 a {
   color: inherit;
   text-decoration: none;
@@ -181,8 +180,19 @@ a {
   border-left-color: #29d;
   border-radius: 50%;
 
+  background-size: contain;
+
   -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .nprogress-custom-parent {
