@@ -234,7 +234,7 @@ export default function SusanneMap({ artifactModels, openArtifact, labels }) {
                 <div
                   className={"artifactDescription"}
                   dangerouslySetInnerHTML={{
-                    __html: currentArtifact.artifactContent.html,
+                    __html: currentArtifact.artifactContent?.html,
                   }}
                 />
                 <Grid container spacing={5}>
@@ -242,7 +242,7 @@ export default function SusanneMap({ artifactModels, openArtifact, labels }) {
                     <div
                       className={"artifactDescription"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.descriptionEn.html,
+                        __html: currentArtifact.descriptionEn?.html,
                       }}
                     />
                   </Grid>
@@ -250,7 +250,7 @@ export default function SusanneMap({ artifactModels, openArtifact, labels }) {
                     <div
                       className={"artifactDescription"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.descriptionOriginal.html,
+                        __html: currentArtifact.descriptionOriginal?.html,
                       }}
                     />
                   </Grid>
@@ -264,7 +264,7 @@ export default function SusanneMap({ artifactModels, openArtifact, labels }) {
                     <div
                       className={"technicalInformation"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.technicalInformation.html,
+                        __html: currentArtifact.technicalInformation?.html,
                       }}
                     />
                   </Grid>
@@ -272,7 +272,7 @@ export default function SusanneMap({ artifactModels, openArtifact, labels }) {
                     <div
                       className={"technicalInformation"}
                       dangerouslySetInnerHTML={{
-                        __html: currentArtifact.youMayAlsoLike.html,
+                        __html: currentArtifact.youMayAlsoLike?.html,
                       }}
                     />
                   </Grid>
@@ -375,6 +375,7 @@ export default function SusanneMap({ artifactModels, openArtifact, labels }) {
                   />
                   <Fade in={true} timeout={1000}>
                     <div className={styles_map.allTooltips}>
+                      
                       <TooltipLabel
                         artifactTitle={
                           artifactsDict[
