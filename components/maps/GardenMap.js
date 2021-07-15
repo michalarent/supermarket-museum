@@ -606,7 +606,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*compost bins*/}
                         <TooltipInfo
                           artifactSlug={
-                            "corresponding-category-edible-city-composting"
+                            "corresponding-category-edible-cities-composting"
                           }
                           artifactTitle={
                             labelsDict["category-edible-city-composting"].title
@@ -763,7 +763,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*farm building*/}
                         <TooltipInfo
                           artifactSlug={
-                            "corresponding-category-learn-food-growing-newentrants-to-farming"
+                            "corresponding-category-learn-food-growing-new-entrants-to-farming"
                           }
                           artifactTitle={
                             labelsDict[
