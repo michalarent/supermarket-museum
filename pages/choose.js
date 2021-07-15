@@ -93,7 +93,7 @@ export default function Choose() {
               >
                 <img
                   className={styles.supermarketMini}
-                  src="/supermarket/supermarketGrubszy.png"
+                  src="/supermarket/supermarket-final.png"
                 ></img>
               </div>
             </Grid>
@@ -104,7 +104,7 @@ export default function Choose() {
               >
                 <img
                   className={styles.gardenMini}
-                  src="/supermarket/gardenGrubszy.png"
+                  src="/supermarket/garden-final.png"
                 ></img>
               </div>
             </Grid>

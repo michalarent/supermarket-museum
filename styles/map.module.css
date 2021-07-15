@@ -38,13 +38,14 @@
 }
 
 .tools > button {
-  background-image: url("/magnifying-glass.png");
+  background-image: url("/zoom-in.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50%;
   color: transparent !important;
-  width: 2rem !important;
-  max-width: 2rem !important;
+  width: 3rem !important;
+  max-width: 3rem !important;
+  transform: scale(1.5);
   border-radius: 0% !important;
   box-shadow: 0 !important;
   border: 0px black solid;
@@ -58,17 +59,19 @@
 
 .returnArrow {
   position: absolute;
-  bottom: -30px;
-  left: 0px;
-  transform: rotate(-90deg) scale(0.5);
+  width: 8vw;
+  height: auto;
+  bottom: 2vh;
+  transform: scale(1);
+  left: 2vw;
   box-shadow: green 1px;
   z-index: 1;
   transition: left 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .returnArrow:hover {
-  left: 0;
-  transform: rotate(-90deg) scale(0.6);
+  transform: scale(1.1);
+  left: 1vw;
 }
 
 .allTooltips {
