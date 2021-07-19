@@ -13,12 +13,6 @@ function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
 
-  React.useEffect(() => {
-    if (router.pathname != "/") {
-      router.push("/");
-    }
-  }, []);
-
   function handleOpenMenu() {
     setShow(true);
   }
@@ -31,13 +25,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {getUrl == "/" ? null : (
-        <Drawer
-          handleOpen={handleOpenMenu}
-          handleHide={handleHideMenu}
-          show={show}
-        />
-      )}
+      <Drawer
+        handleOpen={handleOpenMenu}
+        handleHide={handleHideMenu}
+        show={show}
+      />
 
       <Component {...pageProps} />
     </>
