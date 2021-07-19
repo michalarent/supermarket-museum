@@ -52,8 +52,20 @@ export default function Home() {
 
       <main>
         <div className="frontPageBackground2">
-          <div className={styles.frontPageLabel}>
+          <div className={styles.frontPageLabelBlind}>
             <Label
+              header={
+                <h2>
+                  We're counting down to open the Supermarket Museum. Join us on
+                  22nd July at 7 PM. See you soon!
+                  <br />
+                </h2>
+              }
+              author=""
+              onClick={null}
+              hideButton
+            />
+            {/* <Label
               header={
                 <h1>
                   ENTER
@@ -67,7 +79,7 @@ export default function Home() {
               }}
               style={{ backgroundColor: "red" }}
               hideButton={true}
-            />
+            /> */}
           </div>
         </div>
         <div className={styles.centeredLabel}></div>
