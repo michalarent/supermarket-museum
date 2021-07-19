@@ -10,7 +10,14 @@ import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const [show, setShow] = React.useState(false);
-  
+
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (router.pathname != "/") {
+      router.push("/");
+    }
+  }, []);
 
   function handleOpenMenu() {
     setShow(true);
@@ -20,16 +27,18 @@ function MyApp({ Component, pageProps }) {
     setShow(false);
   }
 
-  const router = useRouter();
   const getUrl = router.pathname;
 
   return (
     <>
-      <Drawer
-        handleOpen={handleOpenMenu}
-        handleHide={handleHideMenu}
-        show={show}
-      />
+      {getUrl == "/" ? null : (
+        <Drawer
+          handleOpen={handleOpenMenu}
+          handleHide={handleHideMenu}
+          show={show}
+        />
+      )}
+
       <Component {...pageProps} />
     </>
   );
