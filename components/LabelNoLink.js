@@ -55,7 +55,10 @@ const LabelNoLink = (props) => {
                         variant="contained"
                         onClick={props.onClick}
                       >
-                        {router.pathname.includes("garden") ? "Grow" : "Buy"}
+                        {router.pathname.includes("garden") |
+                        router.pathname.includes("susanne")
+                          ? "Grow"
+                          : "Buy"}
                       </Button>
                     ) : null}
                   </div>

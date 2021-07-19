@@ -56,13 +56,18 @@ export default function Home() {
             <Label
               header={
                 <h2>
-                  We're counting down to open the Supermarket Museum. Join us on
-                  22nd July at 7 PM. See you soon!
+                  We're counting down to open the Supermarket Museum.{" "}
+                  <a href="https://facebook.com/events/480172466403318">
+                    Join us
+                  </a>{" "}
+                  on 22nd July at 7 PM. See you soon!
                   <br />
                 </h2>
               }
               author=""
-              onClick={null}
+              onClick={() =>
+                router.push("https://facebook.com/events/480172466403318")
+              }
               hideButton
             />
             {/* <Label
