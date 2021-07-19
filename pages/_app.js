@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      {}
       <Drawer
         handleOpen={handleOpenMenu}
         handleHide={handleHideMenu}
