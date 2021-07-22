@@ -13,12 +13,6 @@ function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
 
-  React.useEffect(() => {
-    if (router.pathname != "/") {
-      router.push("/");
-    }
-  }, []);
-
   function handleOpenMenu() {
     setShow(true);
   }

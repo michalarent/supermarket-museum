@@ -683,7 +683,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
-                          modal={true}
+                          modal={false}
                           color={"#e3f393"}
                           xLocation={"44.2%"}
                           yLocation={"24.5%"}
