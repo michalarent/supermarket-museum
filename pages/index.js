@@ -52,8 +52,8 @@ export default function Home() {
 
       <main>
         <div className="frontPageBackground2">
-          <div className={styles.frontPageLabelBlind}>
-            <Label
+          <div className={styles.frontPageLabel}>
+            {/* <Label
               header={
                 <h2>
                   We're counting down to open the Supermarket Museum.{" "}
@@ -69,8 +69,8 @@ export default function Home() {
                 router.push("https://facebook.com/events/480172466403318")
               }
               hideButton
-            />
-            {/* <Label
+            /> */}
+            <Label
               header={
                 <h1>
                   ENTER
@@ -84,7 +84,7 @@ export default function Home() {
               }}
               style={{ backgroundColor: "red" }}
               hideButton={true}
-            /> */}
+            />
           </div>
         </div>
         <div className={styles.centeredLabel}></div>

@@ -113,6 +113,36 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
     },
   ];
 
+  const joannaImages = [
+    {
+      original: "/photo_gallery/joanna/1.png",
+    },
+    {
+      original: "/photo_gallery/joanna/2.png",
+    },
+    {
+      original: "/photo_gallery/joanna/3.png",
+    },
+    {
+      original: "/photo_gallery/joanna/4.png",
+    },
+    {
+      original: "/photo_gallery/joanna/5.png",
+    },
+    {
+      original: "/photo_gallery/joanna/6.png",
+    },
+    {
+      original: "/photo_gallery/joanna/7.png",
+    },
+    {
+      original: "/photo_gallery/joanna/8.png",
+    },
+    {
+      original: "/photo_gallery/joanna/9.png",
+    },
+  ];
+
   const danielImages = [
     {
       original: "/photo_gallery/daniel/2.jpg",
@@ -251,7 +281,13 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                     __html: currentArtifact.authors?.html,
                   }}
                 />
-
+                {/* ecosystemic-intelligence-and-permaculture */}
+                {currentArtifact.slug ==
+                "ecosystemic-intelligence-and-permaculture" ? (
+                  <>
+                    <PhotoCarousel images={joannaImages} />
+                  </>
+                ) : null}
                 {currentArtifact.slug == "learning-the-natural-way" ? (
                   <></>
                 ) : null}
@@ -311,7 +347,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         dangerouslySetInnerHTML={{
                           __html: currentArtifact.videoIFrame.text,
                         }}
-                        style={{marginBottom: "2vh"}}
+                        style={{ marginBottom: "2vh" }}
                       />
                     </>
                   ) : null}
@@ -1052,7 +1088,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                         {/*carrot*/}
                         <TooltipInfo
                           artifactSlug={
-                            "corresponding-category-food-solidarity-farmhack"
+                            "corresponding-category-learn-food-growing-pandemic-food-growing"
                           }
                           artifactTitle={
                             labelsDict[
@@ -1072,7 +1108,7 @@ export default function GardenMap({ artifactModels, openArtifact, labels }) {
                           isClicked={isClicked}
                           showTooltip={showTooltip}
                           handleShow={handleShow}
-                          modal={false}
+                          modal={true}
                           color={"#e3f393"}
                           xLocation={"15%"}
                           yLocation={"33%"}

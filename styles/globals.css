@@ -440,6 +440,10 @@ vp-center {
   font-size: 4rem !important;
 }
 
+.vp-center > #player {
+  width: 100vw;
+}
+
 .closeIcon {
   z-index: 1;
   position: fixed;
