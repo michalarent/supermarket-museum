@@ -31,13 +31,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {getUrl == "/" ? null : (
-        <Drawer
-          handleOpen={handleOpenMenu}
-          handleHide={handleHideMenu}
-          show={show}
-        />
-      )}
+      {}
+      <Drawer
+        handleOpen={handleOpenMenu}
+        handleHide={handleHideMenu}
+        show={show}
+      />
 
       <Component {...pageProps} />
     </>
